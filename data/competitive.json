@@ -1,0 +1,303 @@
+{
+  "categories": [
+    "Cloud Management",
+    "AI & Automation",
+    "Wi-Fi 6E Support",
+    "Fabric / SD-LAN",
+    "IoT Security",
+    "Open APIs",
+    "Campus Switching",
+    "Data Center Fabric",
+    "SD-WAN",
+    "Licensing Model",
+    "Support & Services",
+    "Market Focus"
+  ],
+  "vendors": [
+    {
+      "id": "extreme",
+      "name": "ExtremeNetworks",
+      "logo": "extreme",
+      "color": "#6D1F7E",
+      "tagline": "AI-Driven, Cloud-First Networking"
+    },
+    {
+      "id": "cisco",
+      "name": "Cisco",
+      "logo": "cisco",
+      "color": "#1BA0D7",
+      "tagline": "The Worldwide Leader in Networking"
+    },
+    {
+      "id": "juniper",
+      "name": "Juniper Networks",
+      "logo": "juniper",
+      "color": "#84BD00",
+      "tagline": "AI-Native Networking"
+    },
+    {
+      "id": "aruba",
+      "name": "Aruba (HPE)",
+      "logo": "aruba",
+      "color": "#FF8300",
+      "tagline": "Intelligent Edge-to-Cloud"
+    },
+    {
+      "id": "fortinet",
+      "name": "Fortinet",
+      "logo": "fortinet",
+      "color": "#EE3124",
+      "tagline": "Security-Driven Networking"
+    }
+  ],
+  "comparisons": [
+    {
+      "category": "Cloud Management",
+      "description": "Centralized cloud-based platform to manage wired and wireless infrastructure.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "ExtremeCloud IQ (XIQ) — AI-driven SaaS with single pane of glass for switches and APs. Deep ML insights.",
+          "highlights": ["Single pane for wired + wireless", "ML-based anomaly detection", "No-cost basic tier"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "Cisco DNA Center / Catalyst Center — powerful but complex, primarily on-prem with cloud option.",
+          "highlights": ["Mature platform", "Complex licensing", "On-prem primary"]
+        },
+        "juniper": {
+          "rating": "strong",
+          "summary": "Juniper Mist — AI-native cloud management with strong wireless focus and Marvis AI assistant.",
+          "highlights": ["Strong AI/ML", "Marvis virtual assistant", "Best-in-class wireless mgmt"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "Aruba Central — unified cloud management for campus and branch with AI insights.",
+          "highlights": ["Unified AIOps", "Strong campus focus", "HPE ecosystem"]
+        },
+        "fortinet": {
+          "rating": "moderate",
+          "summary": "FortiManager + FortiCloud — primarily security-focused, limited network cloud management.",
+          "highlights": ["Security-first", "Limited switching mgmt", "FortiGate focused"]
+        }
+      }
+    },
+    {
+      "category": "AI & Automation",
+      "description": "AI/ML-driven network insights, predictive analytics, and automated remediation.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "XIQ uses ML for anomaly detection, capacity planning, and automated network optimization.",
+          "highlights": ["Predictive analytics", "Automated remediation", "Capacity planning"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "ThousandEyes + Catalyst Center AI Analytics provide strong telemetry and intent-based automation.",
+          "highlights": ["ThousandEyes integration", "Intent-based networking", "Broad telemetry"]
+        },
+        "juniper": {
+          "rating": "strong",
+          "summary": "Marvis AI — industry-leading conversational AI assistant for network ops troubleshooting.",
+          "highlights": ["Marvis AI assistant", "Natural language queries", "Self-driving network"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "Aruba AIOps with UEBA for user and entity behavior analytics across campus.",
+          "highlights": ["AIOps", "UEBA", "AI-based optimization"]
+        },
+        "fortinet": {
+          "rating": "moderate",
+          "summary": "FortiAI focused on threat detection and security automation rather than network operations.",
+          "highlights": ["Security AI focus", "Threat detection", "Limited NetOps AI"]
+        }
+      }
+    },
+    {
+      "category": "Wi-Fi 6E Support",
+      "description": "Support for Wi-Fi 6E (802.11ax with 6 GHz band) access points.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "Full Wi-Fi 6E portfolio (AP460C, AP4000 series) with 6 GHz tri-band support.",
+          "highlights": ["AP460C Wi-Fi 6E", "6 GHz tri-band", "XIQ managed"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "Catalyst 9136 and 9166 series — robust Wi-Fi 6E portfolio with Catalyst Center integration.",
+          "highlights": ["Catalyst 9136/9166", "Strong enterprise portfolio", "DNA/Catalyst Center managed"]
+        },
+        "juniper": {
+          "rating": "strong",
+          "summary": "AP45 and AP43 series with Wi-Fi 6E and Mist cloud management.",
+          "highlights": ["AP45 Wi-Fi 6E", "Mist AI managed", "Strong indoor performance"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "AP-635 and AP-655 series — comprehensive Wi-Fi 6E portfolio with Aruba Central.",
+          "highlights": ["AP-635/655", "Tri-band", "Aruba Central managed"]
+        },
+        "fortinet": {
+          "rating": "moderate",
+          "summary": "FortiAP 433G/443G — Wi-Fi 6E available but security-integration is primary differentiator.",
+          "highlights": ["FortiAP 433G/443G", "Security integration", "FortiGate managed"]
+        }
+      }
+    },
+    {
+      "category": "Fabric / SD-LAN",
+      "description": "Automated campus or data center fabric technology for simplified L2/L3 operations.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "Fabric Engine (VOSS/SPB) — zero-touch IEEE 802.1aq fabric with loop-free L2/L3 in one step.",
+          "highlights": ["IEEE 802.1aq SPB", "Zero-touch provisioning", "No STP required", "Proven at scale"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "Cisco SD-Access using LISP+VXLAN+ISE — powerful but complex to deploy and manage.",
+          "highlights": ["VXLAN/LISP", "ISE required", "Broad scale", "Complex design"]
+        },
+        "juniper": {
+          "rating": "strong",
+          "summary": "Juniper Apstra — intent-based fabric automation with vendor-agnostic data center fabric.",
+          "highlights": ["Apstra intent-based", "Vendor-agnostic", "Strong DC focus"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "Aruba ESP (Edge Services Platform) with CX switches — automated fabric with dynamic segmentation.",
+          "highlights": ["Aruba ESP", "CX switching", "Dynamic segmentation"]
+        },
+        "fortinet": {
+          "rating": "weak",
+          "summary": "FortiLink fabric — switching management through FortiGate, limited fabric automation.",
+          "highlights": ["FortiLink dependent", "Security-driven", "Limited fabric features"]
+        }
+      }
+    },
+    {
+      "category": "IoT Security",
+      "description": "Automated IoT device discovery, classification, and policy enforcement.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "Extreme Defender for IoT — agentless, automatic device discovery and micro-segmentation.",
+          "highlights": ["Agentless discovery", "Automatic segmentation", "Zero-trust IoT", "XIQ integrated"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "Cisco Cyber Vision + ISE — deep IoT visibility and policy for industrial and campus IoT.",
+          "highlights": ["Cyber Vision", "ISE policy", "Industrial IoT focus"]
+        },
+        "juniper": {
+          "rating": "moderate",
+          "summary": "Juniper Mist provides IoT WLAN segmentation, limited wired IoT discovery.",
+          "highlights": ["WLAN IoT segmentation", "Limited wired discovery"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "Aruba ClearPass — strong IoT profiling, dynamic role assignment, and BYOD/IoT security.",
+          "highlights": ["ClearPass profiling", "Dynamic roles", "BYOD + IoT"]
+        },
+        "fortinet": {
+          "rating": "strong",
+          "summary": "FortiNAC — dedicated NAC solution with IoT device classification and automated quarantine.",
+          "highlights": ["FortiNAC", "Automated quarantine", "Broad device support"]
+        }
+      }
+    },
+    {
+      "category": "Open APIs",
+      "description": "REST APIs, NETCONF/YANG, and developer ecosystem support.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "XIQ Open API, EXOS Python scripting, NETCONF/YANG — strong open programmability stack.",
+          "highlights": ["XIQ REST API", "Python scripting on-device", "NETCONF/YANG", "Open ecosystem"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "Cisco DevNet — largest networking developer community with extensive APIs and toolkits.",
+          "highlights": ["DevNet community", "Extensive SDK/toolkits", "Industry-leading docs"]
+        },
+        "juniper": {
+          "rating": "strong",
+          "summary": "Junos Automation — PyEZ, Ansible, NETCONF/YANG, strong open-source contributions.",
+          "highlights": ["PyEZ", "Strong NETCONF", "Open-source friendly"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "Aruba Central APIs + ArubaOS-CX scripting — good REST API ecosystem.",
+          "highlights": ["Central REST API", "AOS-CX scripting", "NAE analytics"]
+        },
+        "fortinet": {
+          "rating": "moderate",
+          "summary": "FortiOS REST API — primarily security-oriented, limited network automation APIs.",
+          "highlights": ["FortiOS REST API", "Security automation focus"]
+        }
+      }
+    },
+    {
+      "category": "Licensing Model",
+      "description": "Pricing transparency, subscription model, and total cost of ownership.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "Flexible subscription + perpetual options. XIQ has a free tier. Transparent, straightforward.",
+          "highlights": ["Free XIQ tier", "Flexible subscriptions", "Competitive TCO"]
+        },
+        "cisco": {
+          "rating": "weak",
+          "summary": "Complex tiered licensing (DNA Advantage, Essentials, etc.) with high TCO for enterprise.",
+          "highlights": ["Complex tiers", "High TCO", "EA licensing available"]
+        },
+        "juniper": {
+          "rating": "moderate",
+          "summary": "Mist subscription — clear cloud licensing but hardware + cloud costs can add up.",
+          "highlights": ["Clear cloud model", "Subscription-based", "Moderate TCO"]
+        },
+        "aruba": {
+          "rating": "moderate",
+          "summary": "Aruba Central subscription — straightforward but HPE ecosystem lock-in.",
+          "highlights": ["Subscription model", "HPE bundling", "Moderate TCO"]
+        },
+        "fortinet": {
+          "rating": "strong",
+          "summary": "Bundled security + networking licenses — good value for security-first organizations.",
+          "highlights": ["Bundle pricing", "Good value for security", "FortiCare support included"]
+        }
+      }
+    },
+    {
+      "category": "Market Focus",
+      "description": "Primary market vertical and deployment sweet spots.",
+      "data": {
+        "extreme": {
+          "rating": "strong",
+          "summary": "Strong in stadiums, education, healthcare, and enterprise campus. #1 in sports venues globally.",
+          "highlights": ["#1 in sports venues", "Strong in education", "Healthcare & enterprise campus"]
+        },
+        "cisco": {
+          "rating": "strong",
+          "summary": "Dominant across all verticals — enterprise, service provider, data center, and SMB.",
+          "highlights": ["Market leader", "All verticals", "Global presence"]
+        },
+        "juniper": {
+          "rating": "strong",
+          "summary": "Strong in service provider, cloud data center, and increasingly enterprise campus.",
+          "highlights": ["SP leader", "Cloud DC", "Growing campus presence"]
+        },
+        "aruba": {
+          "rating": "strong",
+          "summary": "Strong in enterprise campus, retail, healthcare, and BYOD-heavy environments.",
+          "highlights": ["Enterprise campus", "Retail & healthcare", "BYOD-centric"]
+        },
+        "fortinet": {
+          "rating": "strong",
+          "summary": "Security-first — strong in SMB, distributed enterprise, and SD-Branch deployments.",
+          "highlights": ["Security-first", "SMB & distributed", "SD-Branch focus"]
+        }
+      }
+    }
+  ]
+}
