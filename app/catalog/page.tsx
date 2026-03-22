@@ -67,7 +67,23 @@ function CatalogPage() {
   );
 
   const results = useMemo(() => {
-    let list = query ? fuse.search(query).map((r) => r.item) : products;
+    let list: Product[];
+
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      // Substring match first — reliable for model numbers & exact terms
+      const exact = products.filter((p) =>
+        p.name.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.segment.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.tags.some((t) => t.toLowerCase().includes(q))
+      );
+      // Fall back to fuzzy only when no direct hits
+      list = exact.length > 0 ? exact : fuse.search(query).map((r) => r.item);
+    } else {
+      list = products;
+    }
 
     // Apply group filter from URL param
     if (activeCategoryGroup && CATEGORY_MAP[activeCategoryGroup]) {

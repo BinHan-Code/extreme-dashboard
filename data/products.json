@@ -15,7 +15,7 @@
     },
     "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "aggregation", "macsec", "dual-persona", "hot-swap"],
     "topSeller": true,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/740df2455fb54c62a0c2b42faa8ecab3?v=8e146620"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5520"
   },
   {
     "id": "2",
@@ -248,5 +248,42 @@
     "tags": ["analytics", "visibility", "dpi", "flow", "user-behavior", "intelligence"],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremeanalytics/"
+  },
+  {
+    "id": "17",
+    "name": "4000 Series Universal Edge Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G",
+      "uplinks": "4x10G or 4x25G SFP+",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 80 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/c5edf694d12d4e87878489a226e311ec?v=cad9fe7a"
+  },
+  {
+    "id": "18",
+    "name": "5120 Series Universal Edge Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G",
+      "uplinks": "4x10G or 4x25G SFP+",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 80 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
   }
+
 ]
