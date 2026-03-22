@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const languages = ["EN", "中文", "日本語", "한국어", "Español"];
+const languages = ["EN", "日本語"];
 
 export default function Navbar() {
   const pathname = usePathname();
