@@ -6,11 +6,13 @@ interface Product {
   description: string;
   specs: Record<string, string>;
   tags: string[];
+  topSeller?: boolean;
   datasheet: string;
 }
 
 const categoryColors: Record<string, string> = {
   Switching: "bg-blue-100 text-blue-800",
+  "Universal Switching": "bg-indigo-100 text-indigo-800",
   Wireless: "bg-green-100 text-green-800",
   "Cloud Management": "bg-purple-100 text-purple-800",
   "Networking Software": "bg-orange-100 text-orange-800",
@@ -21,8 +23,16 @@ const categoryColors: Record<string, string> = {
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
-      <div className="p-5 flex-1">
+    <div className={`bg-white rounded-xl border shadow-sm hover:shadow-md transition-shadow flex flex-col relative ${product.topSeller ? "border-[#6D1F7E]" : "border-gray-200"}`}>
+      {product.topSeller && (
+        <div className="absolute -top-3 left-4">
+          <span className="inline-flex items-center gap-1 bg-[#6D1F7E] text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">
+            ★ Top Seller
+          </span>
+        </div>
+      )}
+
+      <div className={`p-5 flex-1 ${product.topSeller ? "pt-6" : ""}`}>
         <div className="flex items-start justify-between gap-2 mb-3">
           <h3 className="font-semibold text-gray-900 text-sm leading-snug">
             {product.name}

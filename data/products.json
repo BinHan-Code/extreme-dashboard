@@ -1,65 +1,5 @@
 [
   {
-    "id": "1",
-    "name": "ExtremeSwitching X435",
-    "category": "Switching",
-    "segment": "Campus",
-    "description": "Compact, fanless 1G/2.5G edge switches for converged wired and wireless deployments.",
-    "specs": {
-      "ports": "16x1G + 2x10G SFP+",
-      "poe": "PoE++ (90W per port)",
-      "throughput": "56 Gbps",
-      "management": "ExtremeCloud IQ"
-    },
-    "tags": ["switch", "poe", "edge", "campus", "1G"],
-    "datasheet": "https://www.extremenetworks.com/product/extremeswitching-x435/"
-  },
-  {
-    "id": "2",
-    "name": "ExtremeSwitching X465",
-    "category": "Switching",
-    "segment": "Campus",
-    "description": "Stackable 1G/10G/25G access switches with advanced automation and programmability.",
-    "specs": {
-      "ports": "48x1G + 4x25G SFP28",
-      "poe": "PoE++ (90W per port)",
-      "throughput": "176 Gbps",
-      "management": "ExtremeCloud IQ"
-    },
-    "tags": ["switch", "stackable", "poe", "campus", "10G"],
-    "datasheet": "https://www.extremenetworks.com/product/extremeswitching-x465/"
-  },
-  {
-    "id": "3",
-    "name": "ExtremeSwitching X590",
-    "category": "Switching",
-    "segment": "Campus Core",
-    "description": "High-density 10G/25G/100G aggregation and core switches for large campus networks.",
-    "specs": {
-      "ports": "48x10G + 8x100G QSFP28",
-      "poe": "No",
-      "throughput": "2.56 Tbps",
-      "management": "ExtremeCloud IQ / EXOS"
-    },
-    "tags": ["switch", "core", "aggregation", "10G", "100G", "high-density"],
-    "datasheet": "https://www.extremenetworks.com/product/extremeswitching-x590/"
-  },
-  {
-    "id": "4",
-    "name": "ExtremeSwitching X695",
-    "category": "Switching",
-    "segment": "Data Center",
-    "description": "High-performance 100G/400G spine and leaf switches for modern data center fabrics.",
-    "specs": {
-      "ports": "32x400G QSFP-DD",
-      "poe": "No",
-      "throughput": "25.6 Tbps",
-      "management": "ExtremeCloud IQ / Fabric Engine"
-    },
-    "tags": ["switch", "data center", "spine", "leaf", "400G", "fabric"],
-    "datasheet": "https://www.extremenetworks.com/product/extremeswitching-x695/"
-  },
-  {
     "id": "5",
     "name": "ExtremeSwitching 5520",
     "category": "Switching",
@@ -72,7 +12,44 @@
       "management": "ExtremeCloud IQ"
     },
     "tags": ["switch", "stackable", "smb", "campus", "poe"],
+    "topSeller": true,
     "datasheet": "https://www.extremenetworks.com/product/extremeswitching-5520/"
+  },
+  {
+    "id": "17",
+    "name": "5420 Series Universal Edge Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G",
+      "uplinks": "4x10G or 4x25G SFP+",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 80 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5420"
+  },
+  {
+    "id": "18",
+    "name": "5520 Series Universal Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "High-performance universal edge and aggregation switches with dual-persona OS, modular uplinks, hot-swap redundant PSU/fans, and 200 Gbps stacking — built for the next-generation digital enterprise.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G/5G/10G",
+      "uplinks": "4x10G or 4x25G (modular)",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 200 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "aggregation", "macsec", "dual-persona", "hot-swap"],
+    "topSeller": true,
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5520"
   },
   {
     "id": "6",
@@ -87,6 +64,7 @@
       "management": "ExtremeCloud IQ"
     },
     "tags": ["wireless", "wifi6", "ap", "indoor", "iot", "campus"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap302w/"
   },
   {
@@ -102,6 +80,7 @@
       "management": "ExtremeCloud IQ"
     },
     "tags": ["wireless", "wifi6", "ap", "high-density", "tri-radio", "indoor"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap410c/"
   },
   {
@@ -117,6 +96,7 @@
       "management": "ExtremeCloud IQ"
     },
     "tags": ["wireless", "wifi6e", "ap", "6ghz", "high-performance"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap460c/"
   },
   {
@@ -132,6 +112,7 @@
       "management": "ExtremeCloud IQ"
     },
     "tags": ["wireless", "wifi6", "ap", "outdoor", "stadium", "high-density"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap5010/"
   },
   {
@@ -147,6 +128,7 @@
       "management": "Single pane of glass"
     },
     "tags": ["cloud", "management", "ai", "ml", "saas", "nms", "xiq"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq/"
   },
   {
@@ -162,6 +144,7 @@
       "management": "Policy-based"
     },
     "tags": ["management", "on-premises", "enterprise", "automation", "nms"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
   },
   {
@@ -177,6 +160,7 @@
       "multicast": "Yes"
     },
     "tags": ["fabric", "spb", "software", "automation", "enterprise", "data center", "voss"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/fabric-engine/"
   },
   {
@@ -192,6 +176,7 @@
       "deployment": "Campus & Core switches"
     },
     "tags": ["os", "software", "exos", "automation", "open-api", "scripting"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremexos/"
   },
   {
@@ -207,22 +192,8 @@
       "management": "ExtremeCloud IQ"
     },
     "tags": ["router", "data center", "service provider", "400G", "mpls", "evpn"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/slx-9640/"
-  },
-  {
-    "id": "15",
-    "name": "Extreme Defender for IoT",
-    "category": "Security",
-    "segment": "Enterprise / IoT",
-    "description": "Agentless IoT device security and segmentation solution that identifies and protects connected devices.",
-    "specs": {
-      "deployment": "On-premises",
-      "discovery": "Passive + active scanning",
-      "segmentation": "Automatic policy-based",
-      "integration": "ExtremeCloud IQ"
-    },
-    "tags": ["security", "iot", "segmentation", "zero-trust", "device-discovery"],
-    "datasheet": "https://www.extremenetworks.com/product/extreme-defender-for-iot/"
   },
   {
     "id": "16",
@@ -237,6 +208,7 @@
       "integration": "XIQ Site Engine"
     },
     "tags": ["analytics", "visibility", "dpi", "flow", "user-behavior", "intelligence"],
+    "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremeanalytics/"
   }
 ]
