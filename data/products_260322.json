@@ -1,0 +1,214 @@
+[
+  {
+    "id": "5",
+    "name": "ExtremeSwitching 5520",
+    "category": "Switching",
+    "segment": "Campus / SMB",
+    "description": "Fixed 1G/10G stackable switches with simplified management for mid-size deployments.",
+    "specs": {
+      "ports": "48x1G + 4x10G SFP+",
+      "poe": "PoE+ (30W per port)",
+      "throughput": "104 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["switch", "stackable", "smb", "campus", "poe"],
+    "topSeller": true,
+    "datasheet": "https://www.extremenetworks.com/product/extremeswitching-5520/"
+  },
+  {
+    "id": "17",
+    "name": "5420 Series Universal Edge Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G",
+      "uplinks": "4x10G or 4x25G SFP+",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 80 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5420"
+  },
+  {
+    "id": "18",
+    "name": "5520 Series Universal Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "High-performance universal edge and aggregation switches with dual-persona OS, modular uplinks, hot-swap redundant PSU/fans, and 200 Gbps stacking — built for the next-generation digital enterprise.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G/5G/10G",
+      "uplinks": "4x10G or 4x25G (modular)",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 200 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "aggregation", "macsec", "dual-persona", "hot-swap"],
+    "topSeller": true,
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5520"
+  },
+  {
+    "id": "6",
+    "name": "ExtremeWireless AP302W",
+    "category": "Wireless",
+    "segment": "Campus / SMB",
+    "description": "Wi-Fi 6 dual-band indoor access point with built-in IoT radio for dense environments.",
+    "specs": {
+      "standard": "Wi-Fi 6 (802.11ax)",
+      "bands": "2.4 GHz + 5 GHz",
+      "maxSpeed": "3.0 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi6", "ap", "indoor", "iot", "campus"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/ap302w/"
+  },
+  {
+    "id": "7",
+    "name": "ExtremeWireless AP410C",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6 tri-radio access point designed for high-density indoor environments like auditoriums and stadiums.",
+    "specs": {
+      "standard": "Wi-Fi 6 (802.11ax)",
+      "bands": "2.4 GHz + 5 GHz + scanning radio",
+      "maxSpeed": "5.4 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi6", "ap", "high-density", "tri-radio", "indoor"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/ap410c/"
+  },
+  {
+    "id": "8",
+    "name": "ExtremeWireless AP460C",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "specs": {
+      "standard": "Wi-Fi 6E (802.11ax)",
+      "bands": "2.4 GHz + 5 GHz + 6 GHz",
+      "maxSpeed": "7.8 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi6e", "ap", "6ghz", "high-performance"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/ap460c/"
+  },
+  {
+    "id": "9",
+    "name": "ExtremeWireless AP5010",
+    "category": "Wireless",
+    "segment": "Stadium / Outdoor",
+    "description": "Wi-Fi 6 outdoor/stadium access point engineered for ultra-dense large venue deployments.",
+    "specs": {
+      "standard": "Wi-Fi 6 (802.11ax)",
+      "bands": "2.4 GHz + 5 GHz",
+      "maxSpeed": "5.4 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi6", "ap", "outdoor", "stadium", "high-density"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/ap5010/"
+  },
+  {
+    "id": "10",
+    "name": "ExtremeCloud IQ (XIQ)",
+    "category": "Cloud Management",
+    "segment": "All",
+    "description": "AI-driven cloud network management platform for wired and wireless infrastructure with ML-based insights.",
+    "specs": {
+      "deployment": "SaaS (Cloud)",
+      "coverage": "Switches, APs, Routers",
+      "ai": "ML-based anomaly detection & optimization",
+      "management": "Single pane of glass"
+    },
+    "tags": ["cloud", "management", "ai", "ml", "saas", "nms", "xiq"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq/"
+  },
+  {
+    "id": "11",
+    "name": "ExtremeCloud IQ Site Engine",
+    "category": "Cloud Management",
+    "segment": "Enterprise",
+    "description": "On-premises network management and automation for large-scale enterprise and service provider networks.",
+    "specs": {
+      "deployment": "On-premises or VM",
+      "coverage": "Switches, APs, Routers, Firewalls",
+      "automation": "ZTP, compliance, workflow automation",
+      "management": "Policy-based"
+    },
+    "tags": ["management", "on-premises", "enterprise", "automation", "nms"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
+  },
+  {
+    "id": "12",
+    "name": "Extreme Fabric Engine (VOSS)",
+    "category": "Networking Software",
+    "segment": "Enterprise / Data Center",
+    "description": "Shortest Path Bridging (SPB/IEEE 802.1aq) fabric OS enabling zero-touch, loop-free Layer 2/3 networks.",
+    "specs": {
+      "technology": "SPB / IEEE 802.1aq",
+      "deployment": "Campus & Data Center",
+      "zeroTouch": "Yes",
+      "multicast": "Yes"
+    },
+    "tags": ["fabric", "spb", "software", "automation", "enterprise", "data center", "voss"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/fabric-engine/"
+  },
+  {
+    "id": "13",
+    "name": "EXOS (ExtremeXOS)",
+    "category": "Networking Software",
+    "segment": "Campus / Core",
+    "description": "Modular network operating system for ExtremeXOS-based switches with Python scripting and open APIs.",
+    "specs": {
+      "scripting": "Python, TCL",
+      "api": "REST, NETCONF, YANG",
+      "resilience": "Hitless failover",
+      "deployment": "Campus & Core switches"
+    },
+    "tags": ["os", "software", "exos", "automation", "open-api", "scripting"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/extremexos/"
+  },
+  {
+    "id": "14",
+    "name": "ExtremeRouting SLX 9640",
+    "category": "Routing",
+    "segment": "Data Center / SP",
+    "description": "High-performance data center and service provider router with 100G/400G interfaces.",
+    "specs": {
+      "ports": "32x400G QSFP-DD",
+      "throughput": "12.8 Tbps",
+      "routing": "BGP, OSPF, IS-IS, MPLS, EVPN",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["router", "data center", "service provider", "400G", "mpls", "evpn"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/slx-9640/"
+  },
+  {
+    "id": "16",
+    "name": "ExtremeAnalytics",
+    "category": "Analytics",
+    "segment": "Enterprise",
+    "description": "Network traffic analytics platform for real-time visibility, application intelligence, and user behavior analytics.",
+    "specs": {
+      "deployment": "On-premises or Cloud",
+      "analysis": "Deep packet inspection, flow analysis",
+      "dashboards": "Real-time & historical",
+      "integration": "XIQ Site Engine"
+    },
+    "tags": ["analytics", "visibility", "dpi", "flow", "user-behavior", "intelligence"],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/product/extremeanalytics/"
+  }
+]

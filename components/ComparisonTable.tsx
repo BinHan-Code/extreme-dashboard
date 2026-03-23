@@ -88,7 +88,7 @@ export default function ComparisonTable({
             className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${
               activeVendor === v.id
                 ? "text-white"
-                : "border-gray-300 text-gray-600 hover:border-gray-400"
+                : "border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-400"
             }`}
           >
             {v.name}
@@ -97,7 +97,7 @@ export default function ComparisonTable({
         {activeVendor && (
           <button
             onClick={() => setActiveVendor(null)}
-            className="px-3 py-1 rounded-full text-xs text-gray-400 hover:text-gray-600"
+            className="px-3 py-1 rounded-full text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
           >
             Clear
           </button>
@@ -109,11 +109,11 @@ export default function ComparisonTable({
         {filteredComparisons.map((comp) => (
           <div
             key={comp.category}
-            className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm"
+            className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-sm"
           >
             {/* Row header */}
             <button
-              className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+              className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
               onClick={() =>
                 setExpandedRow(
                   expandedRow === comp.category ? null : comp.category
@@ -121,10 +121,10 @@ export default function ComparisonTable({
               }
             >
               <div>
-                <span className="font-semibold text-gray-800 text-sm">
+                <span className="font-semibold text-gray-800 dark:text-gray-100 text-sm">
                   {comp.category}
                 </span>
-                <p className="text-xs text-gray-500 mt-0.5">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                   {comp.description}
                 </p>
               </div>
@@ -139,7 +139,7 @@ export default function ComparisonTable({
                       <span className={`text-lg leading-none ${cfg.dot}`}>
                         {cfg.icon}
                       </span>
-                      <span className="text-[10px] text-gray-400 hidden md:block">
+                      <span className="text-[10px] text-gray-400 dark:text-gray-500 hidden md:block">
                         {v.name.split(" ")[0]}
                       </span>
                     </div>
@@ -165,7 +165,7 @@ export default function ComparisonTable({
 
             {/* Expanded detail */}
             {expandedRow === comp.category && (
-              <div className="border-t border-gray-100 grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+              <div className="border-t border-gray-100 dark:border-gray-700 grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-gray-100 dark:divide-gray-700">
                 {vendors.map((v) => {
                   const d = comp.data[v.id];
                   const cfg = ratingConfig[d?.rating ?? "moderate"];
@@ -187,12 +187,12 @@ export default function ComparisonTable({
                           {cfg.label}
                         </span>
                       </div>
-                      <p className="text-xs text-gray-600 mb-3 leading-relaxed">
+                      <p className="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
                         {d?.summary}
                       </p>
                       <ul className="space-y-1">
                         {d?.highlights.map((h) => (
-                          <li key={h} className="flex items-start gap-1.5 text-xs text-gray-500">
+                          <li key={h} className="flex items-start gap-1.5 text-xs text-gray-500 dark:text-gray-400">
                             <span className={`mt-0.5 ${cfg.dot}`}>✓</span>
                             {h}
                           </li>

@@ -154,8 +154,8 @@ export default function HomePage() {
           <div className="w-16 h-16 bg-[#6D1F7E] rounded-2xl flex items-center justify-center shadow-lg mb-4">
             <span className="text-white font-black text-2xl">EN</span>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Extreme Networks</h1>
-          <p className="text-gray-400 text-sm mt-1">Product Dashboard</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">Extreme Networks</h1>
+          <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">Product Dashboard</p>
         </div>
 
         {/* Search bar */}
@@ -165,7 +165,7 @@ export default function HomePage() {
             onChange={setQuery}
             placeholder="Search products, specs, models..."
           />
-          <p className="text-center text-xs text-gray-400 mt-2">
+          <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-2">
             Press Enter to search across all products
           </p>
         </form>
@@ -176,14 +176,14 @@ export default function HomePage() {
             <button
               key={cat.id}
               onClick={() => router.push(`/catalog?category=${cat.id}`)}
-              className="group flex flex-col items-center gap-3 bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-[#6D1F7E]/40 hover:bg-purple-50/30 transition-all"
+              className="group flex flex-col items-center gap-3 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-md hover:border-[#6D1F7E]/40 hover:bg-purple-50/30 dark:hover:bg-purple-900/20 transition-all"
             >
               <div className="group-hover:scale-110 transition-transform duration-200">
                 {cat.icon}
               </div>
               <div className="text-center">
-                <p className="font-semibold text-gray-800 text-sm">{cat.label}</p>
-                <p className="text-xs text-gray-400 mt-0.5 leading-tight">{cat.description}</p>
+                <p className="font-semibold text-gray-800 dark:text-gray-100 text-sm">{cat.label}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-tight">{cat.description}</p>
               </div>
             </button>
           ))}
@@ -191,16 +191,16 @@ export default function HomePage() {
       </div>
 
       {/* Reference links — bottom */}
-      <div className="w-full border-t border-gray-200 bg-white py-4 px-4">
+      <div className="w-full border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 px-4">
         <div className="max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          <span className="text-xs text-gray-400 font-medium">References:</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">References:</span>
           {referenceLinks.map((link) => (
             <a
               key={link.label}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#6D1F7E] transition-colors"
+              className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
             >
               {link.icon}
               {link.label}

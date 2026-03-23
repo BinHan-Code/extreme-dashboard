@@ -110,7 +110,7 @@ function CatalogPage() {
         {groupLabel && (
           <button
             onClick={() => router.push("/catalog")}
-            className="text-gray-400 hover:text-[#6D1F7E] transition-colors"
+            className="text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
             title="Back to all products"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,10 +119,10 @@ function CatalogPage() {
           </button>
         )}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             {groupLabel ? `${groupLabel} Products` : "Product Catalog"}
           </h1>
-          <p className="text-gray-500 mt-0.5 text-sm">
+          <p className="text-gray-500 dark:text-gray-400 mt-0.5 text-sm">
             {results.length} product{results.length !== 1 ? "s" : ""} found
             {groupLabel ? ` in ${groupLabel}` : ""}
           </p>
@@ -141,7 +141,7 @@ function CatalogPage() {
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="px-3 py-2.5 text-sm border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
+          className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
           <option value="All">All Categories</option>
           {ALL_CATEGORIES.map((c) => (
@@ -151,7 +151,7 @@ function CatalogPage() {
         <select
           value={selectedSegment}
           onChange={(e) => setSelectedSegment(e.target.value)}
-          className="px-3 py-2.5 text-sm border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
+          className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
           <option value="All">All Segments</option>
           {ALL_SEGMENTS.map((s) => (

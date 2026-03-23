@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const languages = ["EN", "日本語"];
 
@@ -10,6 +10,17 @@ export default function Navbar() {
   const pathname = usePathname();
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("EN");
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    setDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    setDarkMode(isDark);
+  };
 
   const links = [
     { href: "/catalog", label: "Product Catalog" },
@@ -33,7 +44,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Nav links + Language */}
+          {/* Nav links + controls */}
           <div className="flex items-center gap-1">
             {links.map((link) => (
               <Link
@@ -49,13 +60,34 @@ export default function Navbar() {
               </Link>
             ))}
 
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              title={darkMode ? "Switch to Light theme" : "Switch to Dark theme"}
+              className="ml-1 p-2 rounded-md text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              {darkMode ? (
+                /* Sun icon */
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="5" strokeWidth={2}/>
+                  <path strokeLinecap="round" strokeWidth={2}
+                    d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+              ) : (
+                /* Moon icon */
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
+            </button>
+
             {/* Language selector */}
-            <div className="relative ml-2">
+            <div className="relative ml-1">
               <button
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
               >
-                {/* Globe icon */}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                     d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0 0c-2.5 0-4.5-4-4.5-9s2-9 4.5-9 4.5 4 4.5 9-2 9-4.5 9zm-9-9h18" />
@@ -67,15 +99,15 @@ export default function Navbar() {
               </button>
 
               {langOpen && (
-                <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-gray-100 py-1 min-w-[120px]">
+                <div className="absolute right-0 top-full mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 py-1 min-w-[120px]">
                   {languages.map((lang) => (
                     <button
                       key={lang}
                       onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
                       className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                         selectedLang === lang
-                          ? "text-[#6D1F7E] font-semibold bg-purple-50"
-                          : "text-gray-700 hover:bg-gray-50"
+                          ? "text-[#6D1F7E] font-semibold bg-purple-50 dark:bg-purple-900/30"
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
                       }`}
                     >
                       {lang}
