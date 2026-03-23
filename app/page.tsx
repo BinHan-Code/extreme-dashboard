@@ -140,7 +140,8 @@ export default function HomePage() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(`/catalog?q=${encodeURIComponent(query.trim())}`);
+      const googleUrl = `https://www.google.com/search?q=${encodeURIComponent("extremenetworks.com " + query.trim())}`;
+      window.open(googleUrl, "_blank");
     }
   };
 
@@ -149,11 +150,8 @@ export default function HomePage() {
       {/* Main content — centered */}
       <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-12">
 
-        {/* Logo / Title */}
+        {/* Title */}
         <div className="flex flex-col items-center mb-10">
-          <div className="w-16 h-16 bg-[#6D1F7E] rounded-2xl flex items-center justify-center shadow-lg mb-4">
-            <span className="text-white font-black text-2xl">EN</span>
-          </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">Extreme Networks</h1>
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">Product Dashboard</p>
         </div>
@@ -166,7 +164,7 @@ export default function HomePage() {
             placeholder="Search products, specs, models..."
           />
           <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-2">
-            Press Enter to search across all products
+            Press Enter to search on Google — results from extremenetworks.com
           </p>
         </form>
 
