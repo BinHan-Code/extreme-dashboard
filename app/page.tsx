@@ -137,13 +137,9 @@ export default function HomePage() {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (query.trim()) {
-      const googleUrl = `https://www.google.com/search?q=${encodeURIComponent("extremenetworks.com " + query.trim())}`;
-      window.open(googleUrl, "_blank");
-    }
-  };
+  const googleUrl = query.trim()
+    ? `https://www.google.com/search?q=${encodeURIComponent("extremenetworks.com " + query.trim())}`
+    : "";
 
   return (
     <div className="flex flex-col items-center justify-between min-h-[calc(100vh-56px)]">
@@ -157,16 +153,37 @@ export default function HomePage() {
         </div>
 
         {/* Search bar */}
-        <form onSubmit={handleSearch} className="w-full max-w-xl mb-10">
-          <SearchBar
-            value={query}
-            onChange={setQuery}
-            placeholder="Search products, specs, models..."
-          />
+        <div className="w-full max-w-xl mb-10">
+          <div className="flex gap-2">
+            <div className="flex-1">
+              <SearchBar
+                value={query}
+                onChange={setQuery}
+                placeholder="Search on extremenetworks.com..."
+              />
+            </div>
+            <a
+              href={googleUrl || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => { if (!query.trim()) e.preventDefault(); }}
+              className={`flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                query.trim()
+                  ? "bg-[#6D1F7E] text-white hover:bg-[#5a1868]"
+                  : "bg-gray-100 dark:bg-gray-700 text-gray-400 cursor-not-allowed"
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+              </svg>
+              Search
+            </a>
+          </div>
           <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-2">
-            Press Enter to search on Google — results from extremenetworks.com
+            Results powered by Google — searching within extremenetworks.com
           </p>
-        </form>
+        </div>
 
         {/* Category tiles */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
