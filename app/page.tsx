@@ -152,8 +152,27 @@ export default function HomePage() {
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">Product Dashboard</p>
         </div>
 
-        {/* Search bar */}
-        <div className="w-full max-w-xl mb-10">
+        {/* Category tiles */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => router.push(`/catalog?category=${cat.id}`)}
+              className="group flex flex-col items-center gap-3 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-md hover:border-[#6D1F7E]/40 hover:bg-purple-50/30 dark:hover:bg-purple-900/20 transition-all"
+            >
+              <div className="group-hover:scale-110 transition-transform duration-200">
+                {cat.icon}
+              </div>
+              <div className="text-center">
+                <p className="font-semibold text-gray-800 dark:text-gray-100 text-sm">{cat.label}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-tight">{cat.description}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* Search bar — below Product Catalog tile */}
+        <div className="w-full max-w-xl mt-8">
           <div className="flex gap-2">
             <div className="flex-1">
               <SearchBar
@@ -184,31 +203,12 @@ export default function HomePage() {
             Results powered by Google — searching within extremenetworks.com
           </p>
         </div>
-
-        {/* Category tiles */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => router.push(`/catalog?category=${cat.id}`)}
-              className="group flex flex-col items-center gap-3 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-md hover:border-[#6D1F7E]/40 hover:bg-purple-50/30 dark:hover:bg-purple-900/20 transition-all"
-            >
-              <div className="group-hover:scale-110 transition-transform duration-200">
-                {cat.icon}
-              </div>
-              <div className="text-center">
-                <p className="font-semibold text-gray-800 dark:text-gray-100 text-sm">{cat.label}</p>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-tight">{cat.description}</p>
-              </div>
-            </button>
-          ))}
-        </div>
       </div>
 
-      {/* Reference links — bottom */}
+      {/* Useful URL — bottom */}
       <div className="w-full border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 px-4">
         <div className="max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">References:</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">Useful URL:</span>
           {referenceLinks.map((link) => (
             <a
               key={link.label}
