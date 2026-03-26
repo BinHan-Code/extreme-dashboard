@@ -109,22 +109,22 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
                 const isFirstOfProduct = i === 0 || data[i - 1].product !== row.product;
                 return (
                   <tr key={row.sku} className={`${band} hover:bg-yellow-50 dark:hover:bg-yellow-900/10 transition-colors`}>
-                    <td style={{ width: 120, minWidth: 120, maxWidth: 120 }} className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-semibold text-[#6D1F7E] dark:text-purple-400 overflow-hidden text-ellipsis whitespace-nowrap">
+                    <td style={{ width: 120, minWidth: 120, maxWidth: 120 }} title={isFirstOfProduct ? row.product : ""} className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-semibold text-[#6D1F7E] dark:text-purple-400 overflow-hidden text-ellipsis whitespace-nowrap">
                       {isFirstOfProduct ? row.product : ""}
                     </td>
-                    <td style={{ width: 120, minWidth: 120, maxWidth: 120 }} className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-mono text-gray-800 dark:text-gray-200 overflow-hidden text-ellipsis whitespace-nowrap">
+                    <td style={{ width: 120, minWidth: 120, maxWidth: 120 }} title={row.sku} className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-mono text-gray-800 dark:text-gray-200 overflow-hidden text-ellipsis whitespace-nowrap">
                       {row.sku}
                     </td>
-                    <td style={{ width: 120, minWidth: 120, maxWidth: 120 }} className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 overflow-hidden text-ellipsis whitespace-nowrap" title={row.competitors}>
+                    <td style={{ width: 120, minWidth: 120, maxWidth: 120 }} title={row.competitors} className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 overflow-hidden text-ellipsis whitespace-nowrap">
                       {row.competitors || "—"}
                     </td>
                     {INTERFACE_KEYS.map((k) => (
-                      <td key={k} style={{ width: 120, minWidth: 120, maxWidth: 120 }} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center overflow-hidden text-ellipsis whitespace-nowrap ${cellClass(row.interfaces[k])}`}>
+                      <td key={k} style={{ width: 120, minWidth: 120, maxWidth: 120 }} title={row.interfaces[k] || "—"} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center overflow-hidden text-ellipsis whitespace-nowrap ${cellClass(row.interfaces[k])}`}>
                         {row.interfaces[k] || "—"}
                       </td>
                     ))}
                     {SPEC_KEYS.map((k) => (
-                      <td key={k} style={{ width: 120, minWidth: 120, maxWidth: 120 }} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center overflow-hidden text-ellipsis whitespace-nowrap ${cellClass(row.specs[k])}`}>
+                      <td key={k} style={{ width: 120, minWidth: 120, maxWidth: 120 }} title={row.specs[k] || "—"} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center overflow-hidden text-ellipsis whitespace-nowrap ${cellClass(row.specs[k])}`}>
                         {row.specs[k] || "—"}
                       </td>
                     ))}
