@@ -76,17 +76,22 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
 
         {/* Scrollable table */}
         <div className="overflow-auto flex-1">
-          <table className="text-xs border-collapse w-full min-w-max">
+          <table className="text-xs border-collapse" style={{ tableLayout: "fixed", width: `${ALL_COLS.length * 120}px` }}>
+            <colgroup>
+              {ALL_COLS.map((col) => (
+                <col key={col} style={{ width: "120px" }} />
+              ))}
+            </colgroup>
             <thead className="sticky top-0 z-10">
               {/* Group row */}
               <tr>
-                <th colSpan={3} className="bg-[#6D1F7E] text-white text-center font-semibold px-3 py-2 border border-purple-800 whitespace-nowrap">
+                <th colSpan={3} className="bg-[#6D1F7E] text-white text-center font-semibold px-3 py-2 border border-purple-800">
                   Product Info
                 </th>
-                <th colSpan={INTERFACE_KEYS.length} className="bg-[#3B0F4E] text-white text-center font-semibold px-3 py-2 border border-purple-900 whitespace-nowrap">
+                <th colSpan={INTERFACE_KEYS.length} className="bg-[#3B0F4E] text-white text-center font-semibold px-3 py-2 border border-purple-900">
                   Interface
                 </th>
-                <th colSpan={SPEC_KEYS.length} className="bg-gray-800 text-white text-center font-semibold px-3 py-2 border border-gray-700 whitespace-nowrap">
+                <th colSpan={SPEC_KEYS.length} className="bg-gray-800 text-white text-center font-semibold px-3 py-2 border border-gray-700">
                   Spec / Scalability
                 </th>
               </tr>
@@ -95,7 +100,7 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
                 {ALL_COLS.map((col) => (
                   <th
                     key={col}
-                    className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium px-3 py-2 border border-gray-200 dark:border-gray-700 whitespace-nowrap text-left"
+                    className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium px-3 py-2 border border-gray-200 dark:border-gray-700 text-left overflow-hidden text-ellipsis whitespace-nowrap"
                   >
                     {col}
                   </th>
@@ -108,23 +113,22 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
                 const isFirstOfProduct = i === 0 || data[i - 1].product !== row.product;
                 return (
                   <tr key={row.sku} className={`${band} hover:bg-yellow-50 dark:hover:bg-yellow-900/10 transition-colors`}>
-                    {/* Product — only show on first row of group */}
-                    <td className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-semibold text-[#6D1F7E] dark:text-purple-400 whitespace-nowrap">
+                    <td className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-semibold text-[#6D1F7E] dark:text-purple-400 overflow-hidden text-ellipsis whitespace-nowrap">
                       {isFirstOfProduct ? row.product : ""}
                     </td>
-                    <td className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-mono text-gray-800 dark:text-gray-200 whitespace-nowrap">
+                    <td className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 font-mono text-gray-800 dark:text-gray-200 overflow-hidden text-ellipsis whitespace-nowrap">
                       {row.sku}
                     </td>
-                    <td className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 max-w-[160px] whitespace-nowrap overflow-hidden text-ellipsis" title={row.competitors}>
+                    <td className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 overflow-hidden text-ellipsis whitespace-nowrap" title={row.competitors}>
                       {row.competitors || "—"}
                     </td>
                     {INTERFACE_KEYS.map((k) => (
-                      <td key={k} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center whitespace-nowrap ${cellClass(row.interfaces[k])}`}>
+                      <td key={k} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center overflow-hidden text-ellipsis whitespace-nowrap ${cellClass(row.interfaces[k])}`}>
                         {row.interfaces[k] || "—"}
                       </td>
                     ))}
                     {SPEC_KEYS.map((k) => (
-                      <td key={k} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center whitespace-nowrap ${cellClass(row.specs[k])}`}>
+                      <td key={k} className={`px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-center overflow-hidden text-ellipsis whitespace-nowrap ${cellClass(row.specs[k])}`}>
                         {row.specs[k] || "—"}
                       </td>
                     ))}
