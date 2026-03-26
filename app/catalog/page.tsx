@@ -132,7 +132,7 @@ function CatalogPage() {
             {groupLabel ? ` in ${groupLabel}` : ""}
           </p>
         </div>
-        {activeCategoryGroup === "switching" && (
+        {(activeCategoryGroup === "switching" || activeCategoryGroup === "") && (
           <div className="relative">
             {showCallout && (
               <div className="absolute bottom-full right-0 mb-2 z-10 animate-bounce-once">
