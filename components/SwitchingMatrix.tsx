@@ -137,7 +137,7 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
 
         {/* Footer */}
         <div className="px-6 py-3 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 text-xs text-gray-400 dark:text-gray-500">
-          Source: Universal_Switches_with_X435_Matrix_20251228.xlsx · Scroll horizontally to see all columns
+          Scroll horizontally to see all columns
         </div>
       </div>
     </div>
