@@ -6,6 +6,7 @@ import Fuse from "fuse.js";
 import productsRaw from "@/data/products.json";
 import ProductCard from "@/components/ProductCard";
 import SearchBar from "@/components/SearchBar";
+import SwitchingMatrix from "@/components/SwitchingMatrix";
 
 interface Product {
   id: string;
@@ -50,6 +51,7 @@ function CatalogPage() {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSegment, setSelectedSegment] = useState("All");
+  const [showMatrix, setShowMatrix] = useState(false);
 
   // Sync query from URL param on load
   useEffect(() => {
@@ -105,6 +107,8 @@ function CatalogPage() {
 
   return (
     <div>
+      {showMatrix && <SwitchingMatrix onClose={() => setShowMatrix(false)} />}
+
       {/* Header */}
       <div className="mb-6 flex items-center gap-3">
         {groupLabel && (
@@ -118,7 +122,7 @@ function CatalogPage() {
             </svg>
           </button>
         )}
-        <div>
+        <div className="flex-1">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             {groupLabel ? `${groupLabel} Products` : "Product Catalog"}
           </h1>
@@ -127,6 +131,18 @@ function CatalogPage() {
             {groupLabel ? ` in ${groupLabel}` : ""}
           </p>
         </div>
+        {activeCategoryGroup === "switching" && (
+          <button
+            onClick={() => setShowMatrix(true)}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#6D1F7E] hover:bg-[#5a1a68] text-white text-sm font-medium transition-colors shadow-sm"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M3 10h18M3 6h18M3 14h18M3 18h18" />
+            </svg>
+            Switching Matrix
+          </button>
+        )}
       </div>
 
       {/* Search + Filters */}
