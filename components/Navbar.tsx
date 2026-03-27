@@ -36,8 +36,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-7 h-7 bg-white rounded-sm flex items-center justify-center">
-              <span className="text-[#6D1F7E] font-black text-xs">EN</span>
+            <div className="w-7 h-7 rounded-sm overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://github.com/BinHan-Code.png"
+                alt="Avatar"
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="font-semibold text-sm tracking-tight hidden sm:block">
               Extreme Networks

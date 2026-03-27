@@ -30,7 +30,7 @@ const categories = [
   {
     id: "wireless",
     label: "Wireless",
-    description: "Wi-Fi 6 / 6E Access Points",
+    description: "Wi-Fi 6E / 7 Access Points",
     icon: (
       <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
         {/* WiFi arcs */}
@@ -74,7 +74,7 @@ const categories = [
   {
     id: "router",
     label: "Router",
-    description: "Data Center & SP Routing",
+    description: "SD-WAN Routing",
     icon: (
       <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
         {/* Router body */}
