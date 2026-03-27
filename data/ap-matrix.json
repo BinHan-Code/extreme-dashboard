@@ -1,0 +1,240 @@
+[
+  {
+    "platform": "AP305C",
+    "descriptions": [
+      "802.11ax  (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 2x2 5GHz  / Mode 2: 2x2 5GHz +  2x2 5GHz",
+      "Internal Omni Antenna",
+      "1G Eth PoE+"
+    ],
+    "dram": "1GB (DDR4)",
+    "norFlash": "N/A",
+    "flash": "512MB (NAND)",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (2.4/5G R1) / BCM47622 (5G R2) / CC2652R (BLE 5.0/Zigbee)"
+  },
+  {
+    "platform": "AP305XC",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 2x2 5GHz  / Mode 2: 2x2 5GHz +  2x2 5GHz",
+      "External Omni Antenna",
+      "1G Eth PoE+"
+    ],
+    "dram": "1GB (DDR4)",
+    "norFlash": "N/A",
+    "flash": "512MB (NAND)",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (2.4/5G R1) / BCM47622 (5G R2) / CC2652R (BLE 5.0/Zigbee)"
+  },
+  {
+    "platform": "AP302W",
+    "descriptions": [
+      "802.11ax  (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 2x2 5GHz  / Mode 2: 2x2 5GHz +  2x2 5GHz",
+      "Internal Omni Antenna",
+      "1G Eth PoE+, 3 x 1G Eth"
+    ],
+    "dram": "2GB (DDR4)",
+    "norFlash": "32MB",
+    "flash": "4GB eMMC",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (2.4/5G R1) / BCM47622 (5G R2) / CC2652R (BLE 5.0/Zigbee) / BCM53134 Six-Port Ultra-Low Power Gigabit Ethernet Switch"
+  },
+  {
+    "platform": "AP410C",
+    "descriptions": [
+      "802.11ax  (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G) / Mode 2: 2x2 5GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G)",
+      "Internal Omni Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "1GB (DDR4)",
+    "norFlash": "N/A",
+    "flash": "512MB (NAND)",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (Radio 1: 2x2 2.4G/5G) / BCM47622 (Radio 2: 2x2 5G) / BCM43694 (Radio 3: 4x4 5G) / BCM54991EL (BCM54991ELB0KFEBG) 2.5G/1000/100 BASE-T / CC2652R1FRGZR"
+  },
+  {
+    "platform": "AP460C (Outdoor IP67)",
+    "descriptions": [
+      "802.11ax  (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G) / Mode 2: 2x2 5GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G)",
+      "Internal Omni Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "1GB (DDR4)",
+    "norFlash": "N/A",
+    "flash": "512MB (NAND)",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (Radio 1: 2x2 2.4G/5G) / BCM47622 (Radio 2: 2x2 5G) / BCM43694 (Radio 3: 4x4 5G) / BCM54991EL (BCM54991ELB0KFEBG) 2.5G/1000/100 BASE-T / CC2652R1FRGZR"
+  },
+  {
+    "platform": "AP460S6C (Outdoor IP67)",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G) / Mode 2: 2x2 5GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G)",
+      "Internal 60 Degree Sector  Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "1GB (DDR4)",
+    "norFlash": "N/A",
+    "flash": "512MB (NAND)",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (Radio 1: 2x2 2.4G/5G) / BCM47622 (Radio 2: 2x2 5G) / BCM43694 (Radio 3: 4x4 5G) / BCM54991EL (BCM54991ELB0KFEBG) 2.5G/1000/100 BASE-T / CC2652R1FRGZR"
+  },
+  {
+    "platform": "AP460S12C (Outdoor IP67)",
+    "descriptions": [
+      "802.11ax  (Wi-Fi 6)",
+      "Mode 1: 2x2 2.4GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G) / Mode 2: 2x2 5GHz + 4x4 5GHz + 1x1 Sensor (2.4G/5G)",
+      "Internal 120 Degree Sector  Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "1GB (DDR4)",
+    "norFlash": "N/A",
+    "flash": "512MB (NAND)",
+    "cpu": "BCM47622, Quad Core, ARM7, 1.5G",
+    "radio": "BCM47622 (Radio 1: 2x2 2.4G/5G) / BCM47622 (Radio 2: 2x2 5G) / BCM43694 (Radio 3: 4x4 5G) / BCM54991EL (BCM54991ELB0KFEBG) 2.5G/1000/100 BASE-T / CC2652R1FRGZR"
+  },
+  {
+    "platform": "AP510C (AP650)",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6)",
+      "Mode 1: 4x4 2.4GHz + 4x4 5GHz  / Mode 2: 4x4 5GHz + 4x4 5GHz  / Mode 3: 4x4 Sensor (2.4G/5G) + 4x4 5GHz",
+      "Internal Omni Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "1GB (DDR3)",
+    "norFlash": "N/A",
+    "flash": "1 GB SLC NAND",
+    "cpu": "BCM49408, quad-core ARMv8 1.8 GHz",
+    "radio": "BCM434694 (4x4 2.4/5G) / BCM434694 (4x4 5G) / BCM84880 (BCM84880B0KFEBG) 5G/2.5G/1000/100 BASE-T Transceiver / CC2650 (BLE/Zigbee)"
+  },
+  {
+    "platform": "AP3000",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6E)",
+      "Mode 1: 2x2 6GHz + 2x2 5GHz / Mode 2: 2x2 2.4GHz + 2x2 5GHz",
+      "Internal Omni Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "2GB DDR4 DRAM",
+    "norFlash": "16MB",
+    "flash": "4GB eMMC Flash",
+    "cpu": "BCM47623 SoC CPU @2.2GHz CPU",
+    "radio": "BCM47623 (2x2 5GHz) / BCM47623 (2x2 2.4GHz XOR 2x2 6GHz) / BCM54991EL Multi-rate 2.5/1GE / CC2652R1 BLE transceiver"
+  },
+  {
+    "platform": "AP3000X",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6E)",
+      "Mode 1: 2x2 6GHz + 2x2 5GHz / Mode 2: 2x2 2.4GHz + 2x2 5GHz",
+      "External Omni Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "2GB DDR4 DRAM",
+    "norFlash": "16MB",
+    "flash": "4GB eMMC Flash",
+    "cpu": "BCM47623 SoC CPU @2.2GHz CPU",
+    "radio": "BCM47623 (2x2 5GHz) / BCM47623 (2x2 2.4GHz XOR 2x2 6GHz) / BCM54991EL Multi-rate 2.5/1GE / CC2652R1 BLE transceiver"
+  },
+  {
+    "platform": "AP4000",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6E)",
+      "Mode 1: 2x2 2.4GHz + 2x2 5GHz + 2x2 6GHz / Mode 2: 2x2 2.4GHz + 2x2 5GHz + 2x2 Sensor (2.4G/5G/6G)",
+      "Internal Omni Antenna",
+      "2.5G Eth PoE+, 1G Eth"
+    ],
+    "dram": "1GB DDR4 DRAM",
+    "norFlash": "16MB",
+    "flash": "1 GB SLC NAND",
+    "cpu": "BCM47623 SoC CPU @2.2GHz CPU",
+    "radio": "BCM47622 (2x2 2.4GHz) / BCM47622 (2x2 5GHz) / BCM43694C0 (2x2 2.4GHz/5GHz/6GHz) / BCM54991EL Multi-rate 2.5/1GE / CC2652R1FRGZR BLE"
+  },
+  {
+    "platform": "AP4020",
+    "descriptions": [
+      "802.11be (Wi-Fi 7)",
+      "Mode 1: 2x2 2.4GHz + 2x2 5GHz + 2x2 6GHz + 1x1 Sensor (2.4G/5G/6G) / Mode 2: 2x2 5GHz + 2x2 5GHz + 2x2 2.4GHz + 1x1 Sensor (2.4G/5G/6G)",
+      "Internal Omni Antenna",
+      "5G Eth PoE+, 2.5G Eth PoE+ (PoE Failoer)"
+    ],
+    "dram": "4GB DDR4",
+    "norFlash": "16MB",
+    "flash": "8GB eMMC Flash",
+    "cpu": "BCM47722 Quad core 2.0GHz",
+    "radio": "BCM47722 (2x2 2.4GHz/5GHz/6GHz) / BCM47722 (2x2 5GHz) / BCM43720 (2x2 6GHz) / BCM47722 5GE / BCM54991EL 2.5GE / BCM47722 BLE/ Zigbee /Thread"
+  },
+  {
+    "platform": "AP4060 (Outdoor IP67)",
+    "descriptions": [
+      "802.11be (Wi-Fi 7)",
+      "Mode 1: 2x2 2.4GHz + 2x2 5GHz + 2x2 6GHz + 1x1 Sensor (2.4G/5G/6G) / Mode 2: 2x2 5GHz + 2x2 5GHz + 2x2 6GHz + 1x1 Sensor (2.4G/5G/6G)",
+      "Internal Omni Antenna",
+      "5G Eth PoE+, 2.5G Eth PoE+ (PoE Failoer)"
+    ],
+    "dram": "4GB DDR4",
+    "norFlash": "16MB",
+    "flash": "8GB eMMC Flash",
+    "cpu": "BCM47722 Quad core 2.0GHz",
+    "radio": "BCM47722 (2x2 2.4GHz/5GHz/6GHz) / BCM47722 (2x2 5GHz) / BCM43720 (2x2 6GHz) / BCM47722 5GE / BCM54991EL 2.5GE / BCM47722 BLE/ Zigbee /Thread"
+  },
+  {
+    "platform": "AP5010",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6E)",
+      "Mode 1: 4x4 2.4GHz + 4x4 5GHz + 4x4 6GHz  / Mode 2: 4x4 5GHz + 4x4 6GHz + 2x2 Sensor (2.4G/5G/6G)",
+      "Internal Omni Antenna",
+      "5G Eth PoE+, 2.5G Eth PoE+ (PoE Failoer)"
+    ],
+    "dram": "2GB DDR4",
+    "norFlash": "16MB",
+    "flash": "8GB eMMC Flash",
+    "cpu": "BCM49418, Quad B53 ARMv8 Core @ 2.0GHz",
+    "radio": "BCM43794 4x4 2.4GHz XOR 2x2 2.4GHz/5GHz/6GHz / BCM43794 4x4 5GHz / BCM43794 4x4 6GHz / BCM49418 5GE / BCM54991EL 2.5GE / CC2652R BLE/Thread/ZigBee"
+  },
+  {
+    "platform": "AP5020",
+    "descriptions": [
+      "802.11be (Wi-Fi 7)",
+      "802.3bt: / Mode 1: 4x4 2.4GHz(18dbm) + 4x4 5GHz(18dbm) + 4x4 6GHz(18dbm) / Mode 3: 2x2 5GHz(16dbm)  + 4x4 5GHz(16dbm)  + 4x4 6GHz(18dbm)  / Mode 5: 2x2 5GHz(16dbm)  + 4x4 5GHz(16dbm)  + 2x2 2.4GHz(18dbm)  /  / 802.3at: / Mode 1: 2x2 2.4GHz(13dbm) + 3x3 5GHz(13dbm) + 2x2 6GHz(13dbm) / Mode 3: 2x2 5GHz(13dbm)  + 2x2 5GHz(13dbm)  + 2x2 6GHz(13dbm)  / Mode 5: 2x2 5GHz(13dbm)  + 2x2 5GHz(13dbm)  + 2x2 2.4GHz(13dbm)",
+      "Internal Omni Antenna",
+      "10G Eth PoE+, 5G Eth PoE+ (PoE Failoer)"
+    ],
+    "dram": "2GB DDR4",
+    "norFlash": "16MB",
+    "flash": "8GB eMMC Flash",
+    "cpu": "BCM49428 Quad Core 2.2/2.6GHz",
+    "radio": "BCM43740 4x4 2.4GHz / BCM43740 4x4 5GHz / BCM437403 4x4 6GHz / BCM84891 10GE / BCM49428 5GE / CC2652R BLE"
+  },
+  {
+    "platform": "AP5050D (Outdoor IP67)",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6E)",
+      "Mode 1: 4x4 2.4GHz + 4x4 5GHz + 4x4 6GHz  / Mode 2: 4x4 5GHz + 4x4 6GHz + 2x2 Sensor (2.4G/5G/6G)",
+      "Internal Omni Antenna",
+      "5G Eth PoE+, 2.5G Eth PoE+ (PoE Failoer)"
+    ],
+    "dram": "2GB DDR4",
+    "norFlash": "16MB",
+    "flash": "8GB eMMC Flash",
+    "cpu": "BCM49418, Quad B53 ARMv8 Core @ 2.0GHz",
+    "radio": "BCM43794 4x4 2.4GHz XOR 2x2 2.4GHz/5GHz/6GHz / BCM43794 4x4 5GHz / BCM43794 4x4 6GHz / BCM49418 5GE / BCM54991EL 2.5GE / CC2652R BLE/Thread/ZigBee"
+  },
+  {
+    "platform": "AP5050U (Outdoor IP67)",
+    "descriptions": [
+      "802.11ax (Wi-Fi 6E)",
+      "Mode 1: 4x4 2.4GHz + 4x4 5GHz + 4x4 6GHz  / Mode 2: 4x4 5GHz + 4x4 6GHz + 2x2 Sensor (2.4G/5G/6G)",
+      "Internal Omni Antenna",
+      "5G Eth PoE+, 2.5G Eth PoE+ (PoE Failoer)"
+    ],
+    "dram": "2GB DDR4",
+    "norFlash": "16MB",
+    "flash": "8GB eMMC Flash",
+    "cpu": "BCM49418, Quad B53 ARMv8 Core @ 2.0GHz",
+    "radio": "BCM43794 4x4 2.4GHz XOR 2x2 2.4GHz/5GHz/6GHz / BCM43794 4x4 5GHz / BCM43794 4x4 6GHz / BCM49418 5GE / BCM54991EL 2.5GE / CC2652R BLE/Thread/ZigBee"
+  }
+]

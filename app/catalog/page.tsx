@@ -7,6 +7,7 @@ import productsRaw from "@/data/products.json";
 import ProductCard from "@/components/ProductCard";
 import SearchBar from "@/components/SearchBar";
 import SwitchingMatrix from "@/components/SwitchingMatrix";
+import APMatrix from "@/components/APMatrix";
 
 interface Product {
   id: string;
@@ -53,6 +54,8 @@ function CatalogPage() {
   const [selectedSegment, setSelectedSegment] = useState("All");
   const [showMatrix, setShowMatrix] = useState(false);
   const [showCallout, setShowCallout] = useState(true);
+  const [showAPMatrix, setShowAPMatrix] = useState(false);
+  const [showAPCallout, setShowAPCallout] = useState(true);
 
   // Sync query from URL param on load
   useEffect(() => {
@@ -109,6 +112,7 @@ function CatalogPage() {
   return (
     <div>
       {showMatrix && <SwitchingMatrix onClose={() => setShowMatrix(false)} />}
+      {showAPMatrix && <APMatrix onClose={() => setShowAPMatrix(false)} />}
 
       {/* Header */}
       <div className="mb-6 flex items-center gap-3">
@@ -135,15 +139,10 @@ function CatalogPage() {
         {(activeCategoryGroup === "switching" || activeCategoryGroup === "") && (
           <div className="relative">
             {showCallout && (
-              <div className="absolute bottom-full right-0 mb-2 z-10 animate-bounce-once">
+              <div className="absolute bottom-full right-0 mb-2 z-10">
                 <div className="relative bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
                   Click to view the full switching spec matrix!
-                  <button
-                    onClick={() => setShowCallout(false)}
-                    className="ml-2 text-gray-400 hover:text-white"
-                    aria-label="Dismiss"
-                  >✕</button>
-                  {/* Arrow pointing down */}
+                  <button onClick={() => setShowCallout(false)} className="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss">✕</button>
                   <div className="absolute top-full right-4 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
                 </div>
               </div>
@@ -153,10 +152,31 @@ function CatalogPage() {
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#6D1F7E] hover:bg-[#5a1a68] text-white text-sm font-medium transition-colors shadow-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                  d="M3 10h18M3 6h18M3 14h18M3 18h18" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 6h18M3 14h18M3 18h18" />
               </svg>
               Switching Matrix
+            </button>
+          </div>
+        )}
+        {(activeCategoryGroup === "wireless" || activeCategoryGroup === "") && (
+          <div className="relative">
+            {showAPCallout && (
+              <div className="absolute bottom-full right-0 mb-2 z-10">
+                <div className="relative bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+                  Click to view the full AP spec matrix!
+                  <button onClick={() => setShowAPCallout(false)} className="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss">✕</button>
+                  <div className="absolute top-full right-4 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
+                </div>
+              </div>
+            )}
+            <button
+              onClick={() => { setShowAPMatrix(true); setShowAPCallout(false); }}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1F4F7E] hover:bg-[#1a4068] text-white text-sm font-medium transition-colors shadow-sm"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+              </svg>
+              AP Matrix
             </button>
           </div>
         )}
