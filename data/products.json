@@ -187,36 +187,36 @@
   },
   {
     "id": "12",
-    "name": "Extreme Fabric Engine (VOSS)",
-    "category": "Networking Software",
-    "segment": "Enterprise / Data Center",
-    "description": "Shortest Path Bridging (SPB/IEEE 802.1aq) fabric OS enabling zero-touch, loop-free Layer 2/3 networks.",
+    "name": "Extreme Platform ONE",
+    "category": "Cloud Management",
+    "segment": "All",
+    "description": "AI-driven cloud network management platform for wired and wireless infrastructure with ML-based insights.",
     "specs": {
-      "technology": "SPB / IEEE 802.1aq",
-      "deployment": "Campus & Data Center",
-      "zeroTouch": "Yes",
-      "multicast": "Yes"
+      "deployment": "SaaS (Cloud)",
+      "coverage": "Switches, APs, Routers",
+      "ai": "ML-based anomaly detection & optimization",
+      "management": "Single pane of glass"
     },
-    "tags": ["fabric", "spb", "software", "automation", "enterprise", "data center", "voss"],
+    "tags": ["cloud", "management", "ai", "ml", "saas", "nms", "xiq"],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/fabric-engine/"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7da78612110045fcbee0f1851cc77b97?v=dddbb549"
   },
   {
     "id": "13",
-    "name": "EXOS (ExtremeXOS)",
-    "category": "Networking Software",
-    "segment": "Campus / Core",
-    "description": "Modular network operating system for ExtremeXOS-based switches with Python scripting and open APIs.",
+    "name": "ExtremeControl",
+    "category": "Cloud Management",
+    "segment": "Enterprise",
+    "description": "On-premises network management and automation for large-scale enterprise and service provider networks.",
     "specs": {
-      "scripting": "Python, TCL",
-      "api": "REST, NETCONF, YANG",
-      "resilience": "Hitless failover",
-      "deployment": "Campus & Core switches"
+      "deployment": "On-premises or VM",
+      "coverage": "Switches, APs, Routers, Firewalls",
+      "automation": "ZTP, compliance, workflow automation",
+      "management": "Policy-based"
     },
-    "tags": ["os", "software", "exos", "automation", "open-api", "scripting"],
+    "tags": ["management", "on-premises", "enterprise", "automation", "nms"],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/extremexos/"
-  },
+    "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
+  }, 
   {
     "id": "14",
     "name": "ExtremeRouting SLX 9640",
@@ -275,7 +275,7 @@
     "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
     "specs": {
       "ports": "24 or 48-port 1G/2.5G",
-      "uplinks": "4x10G or 4x25G SFP+",
+      "uplinks": "4x10G or 4x25G SFP,+",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
       "stacking": "Up to 8 units / 80 Gbps",
       "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
@@ -284,6 +284,103 @@
     "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
+  },
+  {
+    "id": "19",
+    "name": "7720 Series Universal Edge Switches",
+    "category": "Universal Switching",
+    "segment": "Campus / Enterprise",
+    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "specs": {
+      "ports": "24 or 48-port 1G/2.5G",
+      "uplinks": "4x10G or 4x25G SFP,+",
+      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 80 Gbps",
+      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
+      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+    },
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
+  },
+  {
+    "id": "20",
+    "name": "ExtremeWireless AP4020",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "bands": "2.4 GHz + 5 GHz + 6 GHz",
+      "maxSpeed": "7.8 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "topSeller": true,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+  },
+  {
+    "id": "21",
+    "name": "ExtremeWireless AP5020",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "bands": "2.4 GHz + 5 GHz + 6 GHz",
+      "maxSpeed": "7.8 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+  },
+  {
+    "id": "22",
+    "name": "ExtremeWireless AP4000",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "bands": "2.4 GHz + 5 GHz + 6 GHz",
+      "maxSpeed": "7.8 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+  },
+  {
+    "id": "23",
+    "name": "ExtremeWireless AP5050U/D",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "bands": "2.4 GHz + 5 GHz + 6 GHz",
+      "maxSpeed": "7.8 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+  },
+  {
+    "id": "24",
+    "name": "ExtremeWireless AP4060",
+    "category": "Wireless",
+    "segment": "Campus",
+    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "bands": "2.4 GHz + 5 GHz + 6 GHz",
+      "maxSpeed": "7.8 Gbps",
+      "management": "ExtremeCloud IQ"
+    },
+    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   }
-
 ]
