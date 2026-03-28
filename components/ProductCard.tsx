@@ -8,6 +8,7 @@ interface Product {
   tags: string[];
   topSeller?: boolean;
   datasheet: string;
+  dataConfirmUrl?: string;
 }
 
 const categoryColors: Record<string, string> = {
@@ -80,7 +81,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
 
-      <div className="px-5 pb-4">
+      <div className="px-5 pb-4 flex flex-col gap-2">
         <a
           href={product.datasheet}
           target="_blank"
@@ -89,6 +90,16 @@ export default function ProductCard({ product }: { product: Product }) {
         >
           View Datasheet →
         </a>
+        {product.dataConfirmUrl && (
+          <a
+            href={product.dataConfirmUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center text-xs font-medium text-[#6D1F7E] dark:text-purple-400 border border-[#6D1F7E] dark:border-purple-500 rounded-lg py-2 hover:bg-[#6D1F7E] dark:hover:bg-purple-700 hover:text-white transition-colors"
+          >
+            データシード確認
+          </a>
+        )}
       </div>
     </div>
   );
