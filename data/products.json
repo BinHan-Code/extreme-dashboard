@@ -56,12 +56,14 @@
     "name": "5720 Series Universal Switches",
     "category": "Universal Switching",
     "segment": "Campus / Enterprise",
-    "description": "vailable in 24 and 48-port gigabit and multi-gigabit models with dual-persona OS, All models offer 90W PoE, hot-swap redundant PSU/fans, and 200 Gbps stacking — built for the next-generation digital enterprise.",
+    "description": "High-performance universal edge and aggregation switches with multi-gigabit connectivity (100Mb–10Gb), dual-persona OS, MACsec encryption, 400Gbps stacking, hot-swap redundant PSU/fans, and Extreme Platform ONE integration for zero-trust micro-segmentation.",
     "specs": {
-      "ports": "24 or 48-port 1G/2.5G/5G/10G",
-      "uplinks": "4x10G or 4x25G (modular)",
-      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 200 Gbps"
+      "ports": "24 or 48-port 100Mb/1G/2.5G/5G/10G",
+      "uplinks": "6x1G/10G/25G or 2x100G (modular)",
+      "poe": "30W / 60W / 90W PoE (IEEE 802.3bt)",
+      "stacking": "Up to 8 units / 400 Gbps",
+      "security": "MACsec, micro-segmentation, stealth topology",
+      "features": "ZTP, hot-swap PSU/fans, dual-persona OS"
     },
     "tags": [
       "switch",
@@ -73,10 +75,11 @@
       "aggregation",
       "macsec",
       "dual-persona",
-      "hot-swap"
+      "hot-swap",
+      "multi-gig"
     ],
     "topSeller": true,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/979a3f1300054000936182331a617072?v=0997083d"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5720"
   },
   {
     "id": "4",
@@ -362,53 +365,63 @@
   },
   {
     "id": "18",
-    "name": "7520 Series Universal Edge Switches",
+    "name": "7520 Series Universal Switches",
     "category": "Universal Switching",
-    "segment": "Campus / Enterprise",
-    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "segment": "Aggregation / Core",
+    "description": "1U universal aggregation and core switches with high-density 10G/25G/100G ports, dual-persona OS, 400Gbps stacking, MACsec (select models), integrated application hosting, and Extreme Platform ONE for zero-trust segmentation.",
     "specs": {
-      "ports": "24 or 48-port 1G/2.5G",
-      "uplinks": "4x10G or 4x25G SFP,+",
-      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps"
+      "ports": "48x1G/10G BaseT or 48x1G/10G/25G SFP28 + 6–8x40G/100G QSFP28",
+      "stacking": "Up to 8 units / 400 Gbps (EXOS)",
+      "fabric": "Extreme Fabric (VOSS) — network virtualization & automation",
+      "security": "MACsec (select models), zero-trust, end-to-end segmentation",
+      "features": "ZTP, Instant Port, Instant Secure Port, Instant Stack, app hosting",
+      "power": "AC & DC, front-to-back / back-to-front airflow"
     },
     "tags": [
       "switch",
       "universal",
-      "stackable",
-      "poe",
-      "campus",
-      "enterprise",
+      "aggregation",
+      "core",
+      "10g",
+      "25g",
+      "100g",
+      "qsfp28",
+      "dual-persona",
+      "fabric",
       "macsec",
-      "dual-persona"
+      "ztp"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7520"
   },
   {
     "id": "19",
-    "name": "7720 Series Universal Edge Switches",
+    "name": "7720 Series Universal Switches",
     "category": "Universal Switching",
-    "segment": "Campus / Enterprise",
-    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "segment": "Aggregation / Core",
+    "description": "1U fixed-form universal aggregation and core switch with 32x 40G/100G QSFP28 ports, dual-persona OS, 400Gbps stacking, sub-second fabric convergence, and integrated application hosting for zero-trust enterprise networks.",
     "specs": {
-      "ports": "24 or 48-port 1G/2.5G",
-      "uplinks": "4x10G or 4x25G SFP,+",
-      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps"
+      "ports": "32x 40G/100G QSFP28",
+      "stacking": "Up to 8 units / 400 Gbps (EXOS)",
+      "fabric": "Extreme Fabric (VOSS) — sub-second convergence",
+      "security": "Zero-trust, Instant Secure Port, micro-segmentation",
+      "features": "ZTP, Instant Port, Instant Stack, app hosting",
+      "power": "AC & DC, front-to-back / back-to-front airflow"
     },
     "tags": [
       "switch",
       "universal",
-      "stackable",
-      "poe",
-      "campus",
-      "enterprise",
+      "aggregation",
+      "core",
+      "100g",
+      "qsfp28",
+      "dual-persona",
+      "fabric",
       "macsec",
-      "dual-persona"
+      "ztp"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7720"
   },
   {
     "id": "20",

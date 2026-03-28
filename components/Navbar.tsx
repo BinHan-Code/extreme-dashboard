@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   const links = [
-    { href: "/catalog", label: t.nav_catalog },
+    { href: "/", label: t.nav_catalog },
     { href: "/competitive", label: t.nav_competitive },
   ];
 
