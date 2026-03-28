@@ -253,19 +253,19 @@
     "id": "17",
     "name": "4000 Series Universal Edge Switches",
     "category": "Universal Switching",
-    "segment": "Campus / Enterprise",
-    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "segment": "Campus / Branch / Distributed Sites",
+    "description": "Layer 2 universal access switches for cost-effective Ethernet connectivity in campus, branch, and distributed site deployments. Features dual-persona OS (EXOS or VOSS), zero-touch provisioning, and Extreme Platform ONE integration for automated provisioning and zero-trust security policies.",
     "specs": {
-      "ports": "24 or 48-port 1G/2.5G",
-      "uplinks": "4x10G or 4x25G SFP+",
-      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps",
+      "ports": "8 / 12 / 24 / 48-port 1G/2.5G (4120 & 4220 families)",
+      "uplinks": "4x1/10/25G + 2x100G (4120) / 4x1/10G SFP+ (4220)",
+      "poe": "IEEE 802.3at 30W / 802.3bt 30–90W",
       "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "management": "Extreme Platform ONE / ExtremeCloud IQ / CLI",
+      "features": "Extreme Fabric, ZTP, Instant Port automation"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "tags": ["switch", "universal", "access", "poe", "campus", "branch", "enterprise", "dual-persona", "ztp", "fabric"],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/c5edf694d12d4e87878489a226e311ec?v=cad9fe7a"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/4000-series"
   },
   {
     "id": "18",
