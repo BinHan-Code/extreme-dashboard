@@ -527,5 +527,36 @@
     ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+  },
+  {
+    "id": "25",
+    "name": "7830 Series Universal Switches",
+    "category": "Universal Switching",
+    "segment": "Aggregation / Core / Data Center",
+    "description": "Next-generation 2RU modular core switch with 32x100G and 8x400G fixed ports, 2 VIM expansion slots, MACsec-ready interfaces, Extreme Fabric sub-second convergence, and Extreme Platform ONE for automated macro/micro-segmentation in enterprise and data center networks.",
+    "specs": {
+      "ports": "32x100G QSFP28 + 8x400G QSFP-DD (fixed)",
+      "expansion": "2x VIM slots (up to 24x25G / 16x100G / 8x400G per module)",
+      "macsec": "MACsec-ready on all ports",
+      "fabric": "Extreme Fabric — sub-second convergence, stealth topology",
+      "security": "Macro & micro-segmentation, network virtualization",
+      "features": "Extreme Platform ONE, ZTP, modular VIM, optimized power & cooling"
+    },
+    "tags": [
+      "switch",
+      "universal",
+      "core",
+      "aggregation",
+      "data-center",
+      "100g",
+      "400g",
+      "qsfp-dd",
+      "macsec",
+      "fabric",
+      "modular",
+      "dual-persona"
+    ],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7830"
   }
 ]
