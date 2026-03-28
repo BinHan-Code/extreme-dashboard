@@ -3,102 +3,66 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import SearchBar from "@/components/SearchBar";
+import { useLanguage } from "@/context/LanguageContext";
 
-const categories = [
-  {
-    id: "switching",
-    label: "Switching",
-    description: "Campus & Enterprise Switches",
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
-        {/* Switch body */}
-        <rect x="6" y="22" width="52" height="20" rx="4" fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
-        {/* Ports row */}
-        {[14, 22, 30, 38, 46].map((x) => (
-          <rect key={x} x={x} y="28" width="5" height="8" rx="1" fill="#6D1F7E" />
-        ))}
-        {/* Uplink ports */}
-        <rect x="52" y="26" width="4" height="5" rx="1" fill="#a855f7"/>
-        <rect x="52" y="33" width="4" height="5" rx="1" fill="#a855f7"/>
-        {/* Left arrow in */}
-        <path d="M2 32 L8 28 L8 36 Z" fill="#6D1F7E"/>
-        {/* Right arrow out */}
-        <path d="M62 32 L56 28 L56 36 Z" fill="#6D1F7E"/>
-      </svg>
-    ),
-  },
-  {
-    id: "wireless",
-    label: "Wireless",
-    description: "Wi-Fi 6E / 7 Access Points",
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
-        {/* WiFi arcs */}
-        <path d="M12 30 Q32 10 52 30" stroke="#6D1F7E" strokeWidth="4" strokeLinecap="round" fill="none"/>
-        <path d="M19 37 Q32 22 45 37" stroke="#6D1F7E" strokeWidth="4" strokeLinecap="round" fill="none"/>
-        <path d="M26 44 Q32 36 38 44" stroke="#6D1F7E" strokeWidth="4" strokeLinecap="round" fill="none"/>
-        {/* Dot */}
-        <circle cx="32" cy="52" r="4" fill="#6D1F7E"/>
-        {/* Signal rays on top */}
-        <path d="M32 8 L32 2" stroke="#a855f7" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M32 8 L26 5" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M32 8 L38 5" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    id: "management",
-    label: "Management",
-    description: "Cloud & On-Prem NMS",
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
-        {/* Cloud shape */}
-        <path d="M44 38 Q52 38 52 30 Q52 22 44 22 Q42 16 36 16 Q30 16 28 22 Q20 22 20 30 Q20 38 28 38 Z"
-          fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
-        {/* Gear inside cloud */}
-        <circle cx="36" cy="30" r="4" fill="#6D1F7E"/>
-        {[0,45,90,135,180,225,270,315].map((angle, i) => {
-          const r = angle * Math.PI / 180;
-          const x = 36 + 7 * Math.cos(r);
-          const y = 30 + 7 * Math.sin(r);
-          return <circle key={i} cx={x} cy={y} r="2" fill="#6D1F7E"/>;
-        })}
-        {/* Data lines below cloud */}
-        <line x1="28" y1="44" x2="28" y2="50" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
-        <line x1="36" y1="44" x2="36" y2="52" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
-        <line x1="44" y1="44" x2="44" y2="50" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
-        <line x1="22" y1="50" x2="50" y2="50" stroke="#a855f7" strokeWidth="2" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    id: "router",
-    label: "Router",
-    description: "SD-WAN Routing",
-    icon: (
-      <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
-        {/* Router body */}
-        <rect x="10" y="26" width="44" height="16" rx="3" fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
-        {/* Antenna left */}
-        <line x1="18" y1="26" x2="14" y2="12" stroke="#6D1F7E" strokeWidth="2.5" strokeLinecap="round"/>
-        <circle cx="14" cy="11" r="2.5" fill="#a855f7"/>
-        {/* Antenna right */}
-        <line x1="46" y1="26" x2="50" y2="12" stroke="#6D1F7E" strokeWidth="2.5" strokeLinecap="round"/>
-        <circle cx="50" cy="11" r="2.5" fill="#a855f7"/>
-        {/* Status LEDs */}
-        <circle cx="20" cy="34" r="2.5" fill="#22c55e"/>
-        <circle cx="27" cy="34" r="2.5" fill="#22c55e"/>
-        <circle cx="34" cy="34" r="2.5" fill="#f59e0b"/>
-        {/* Ports right side */}
-        <rect x="42" y="30" width="5" height="4" rx="1" fill="#6D1F7E"/>
-        <rect x="42" y="36" width="5" height="4" rx="1" fill="#6D1F7E"/>
-        {/* Network lines below */}
-        <path d="M22 42 L22 50 M32 42 L32 52 M42 42 L42 50" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M16 50 L48 50" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 2"/>
-      </svg>
-    ),
-  },
-];
+const categoryIcons = {
+  switching: (
+    <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
+      <rect x="6" y="22" width="52" height="20" rx="4" fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
+      {[14, 22, 30, 38, 46].map((x) => (
+        <rect key={x} x={x} y="28" width="5" height="8" rx="1" fill="#6D1F7E" />
+      ))}
+      <rect x="52" y="26" width="4" height="5" rx="1" fill="#a855f7"/>
+      <rect x="52" y="33" width="4" height="5" rx="1" fill="#a855f7"/>
+      <path d="M2 32 L8 28 L8 36 Z" fill="#6D1F7E"/>
+      <path d="M62 32 L56 28 L56 36 Z" fill="#6D1F7E"/>
+    </svg>
+  ),
+  wireless: (
+    <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
+      <path d="M12 30 Q32 10 52 30" stroke="#6D1F7E" strokeWidth="4" strokeLinecap="round" fill="none"/>
+      <path d="M19 37 Q32 22 45 37" stroke="#6D1F7E" strokeWidth="4" strokeLinecap="round" fill="none"/>
+      <path d="M26 44 Q32 36 38 44" stroke="#6D1F7E" strokeWidth="4" strokeLinecap="round" fill="none"/>
+      <circle cx="32" cy="52" r="4" fill="#6D1F7E"/>
+      <path d="M32 8 L32 2" stroke="#a855f7" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M32 8 L26 5" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M32 8 L38 5" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  management: (
+    <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
+      <path d="M44 38 Q52 38 52 30 Q52 22 44 22 Q42 16 36 16 Q30 16 28 22 Q20 22 20 30 Q20 38 28 38 Z"
+        fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
+      <circle cx="36" cy="30" r="4" fill="#6D1F7E"/>
+      {[0,45,90,135,180,225,270,315].map((angle, i) => {
+        const r = angle * Math.PI / 180;
+        const x = 36 + 7 * Math.cos(r);
+        const y = 30 + 7 * Math.sin(r);
+        return <circle key={i} cx={x} cy={y} r="2" fill="#6D1F7E"/>;
+      })}
+      <line x1="28" y1="44" x2="28" y2="50" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="36" y1="44" x2="36" y2="52" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="44" y1="44" x2="44" y2="50" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="22" y1="50" x2="50" y2="50" stroke="#a855f7" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  ),
+  router: (
+    <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
+      <rect x="10" y="26" width="44" height="16" rx="3" fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
+      <line x1="18" y1="26" x2="14" y2="12" stroke="#6D1F7E" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="14" cy="11" r="2.5" fill="#a855f7"/>
+      <line x1="46" y1="26" x2="50" y2="12" stroke="#6D1F7E" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="50" cy="11" r="2.5" fill="#a855f7"/>
+      <circle cx="20" cy="34" r="2.5" fill="#22c55e"/>
+      <circle cx="27" cy="34" r="2.5" fill="#22c55e"/>
+      <circle cx="34" cy="34" r="2.5" fill="#f59e0b"/>
+      <rect x="42" y="30" width="5" height="4" rx="1" fill="#6D1F7E"/>
+      <rect x="42" y="36" width="5" height="4" rx="1" fill="#6D1F7E"/>
+      <path d="M22 42 L22 50 M32 42 L32 52 M42 42 L42 50" stroke="#6D1F7E" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M16 50 L48 50" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 2"/>
+    </svg>
+  ),
+};
 
 const referenceLinks = [
   {
@@ -136,6 +100,14 @@ const referenceLinks = [
 export default function HomePage() {
   const [query, setQuery] = useState("");
   const router = useRouter();
+  const { t } = useLanguage();
+
+  const categories = [
+    { id: "switching", label: t.cat_switching_label, description: t.cat_switching_desc, icon: categoryIcons.switching },
+    { id: "wireless",  label: t.cat_wireless_label,  description: t.cat_wireless_desc,  icon: categoryIcons.wireless },
+    { id: "management",label: t.cat_management_label,description: t.cat_management_desc,icon: categoryIcons.management },
+    { id: "router",    label: t.cat_router_label,    description: t.cat_router_desc,    icon: categoryIcons.router },
+  ];
 
   const googleUrl = query.trim()
     ? `https://www.google.com/search?q=${encodeURIComponent("extremenetworks.com " + query.trim())}`
@@ -143,16 +115,13 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center justify-between min-h-[calc(100vh-56px)]">
-      {/* Main content — centered */}
       <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-12">
 
-        {/* Title */}
         <div className="flex flex-col items-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">Extreme Networks</h1>
-          <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">Product Dashboard</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">{t.home_title}</h1>
+          <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">{t.home_subtitle}</p>
         </div>
 
-        {/* Category tiles */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
           {categories.map((cat) => (
             <button
@@ -171,14 +140,13 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Search bar — below Product Catalog tile */}
         <div className="w-full max-w-xl mt-8">
           <div className="flex gap-2">
             <div className="flex-1">
               <SearchBar
                 value={query}
                 onChange={setQuery}
-                placeholder="Search on extremenetworks.com..."
+                placeholder={t.home_search_placeholder}
               />
             </div>
             <a
@@ -196,19 +164,18 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
               </svg>
-              Search
+              {t.home_search_btn}
             </a>
           </div>
           <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-2">
-            Results powered by Google — searching within extremenetworks.com
+            {t.home_search_hint}
           </p>
         </div>
       </div>
 
-      {/* Useful URL — bottom */}
       <div className="w-full border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 px-4">
         <div className="max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">Useful URL:</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{t.home_useful_url}</span>
           {referenceLinks.map((link) => (
             <a
               key={link.label}

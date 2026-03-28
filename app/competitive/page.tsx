@@ -1,7 +1,9 @@
+"use client";
+
 import competitiveDataRaw from "@/data/competitive.json";
 import ComparisonTable from "@/components/ComparisonTable";
+import { useLanguage } from "@/context/LanguageContext";
 
-// Cast JSON data to the types ComparisonTable expects
 const competitiveData = competitiveDataRaw as typeof competitiveDataRaw & {
   comparisons: Array<{
     category: string;
@@ -11,6 +13,7 @@ const competitiveData = competitiveDataRaw as typeof competitiveDataRaw & {
 };
 
 export default function CompetitivePage() {
+  const { t } = useLanguage();
   const { vendors, comparisons, categories } = competitiveData;
 
   const vendorStrengths = vendors.map((v) => {
@@ -24,15 +27,13 @@ export default function CompetitivePage() {
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-          Competitive Intelligence
+          {t.comp_title}
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-          Comparing ExtremeNetworks against Cisco, Juniper, Aruba, and Fortinet
-          across {categories.length} key dimensions.
+          {t.comp_subtitle} {categories.length} {t.comp_subtitle_suffix}
         </p>
       </div>
 
-      {/* Vendor Summary Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
         {vendorStrengths.map((v) => (
           <div key={v.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
@@ -41,26 +42,25 @@ export default function CompetitivePage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-tight">{v.tagline}</p>
             <div className="mt-3 flex items-center gap-1">
               <span className="text-xl font-bold" style={{ color: v.color }}>{v.strong}</span>
-              <span className="text-xs text-gray-400 dark:text-gray-500">/ {comparisons.length} strong</span>
+              <span className="text-xs text-gray-400 dark:text-gray-500">/ {comparisons.length} {t.comp_strong_of}</span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Legend */}
       <div className="flex flex-wrap gap-4 mb-6 text-xs text-gray-500 dark:text-gray-400">
-        <span className="font-medium text-gray-700 dark:text-gray-300">Rating legend:</span>
+        <span className="font-medium text-gray-700 dark:text-gray-300">{t.comp_rating_legend}</span>
         <span className="flex items-center gap-1.5">
-          <span className="text-green-500 text-base">●</span> Strong
+          <span className="text-green-500 text-base">●</span> {t.comp_strong}
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="text-yellow-500 text-base">◑</span> Moderate
+          <span className="text-yellow-500 text-base">◑</span> {t.comp_moderate}
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="text-red-400 text-base">○</span> Limited
+          <span className="text-red-400 text-base">○</span> {t.comp_limited}
         </span>
         <span className="text-gray-400 dark:text-gray-500">
-          Click any row to expand detailed comparison
+          {t.comp_click_hint}
         </span>
       </div>
 

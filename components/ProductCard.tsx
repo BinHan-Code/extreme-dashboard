@@ -22,7 +22,10 @@ const categoryColors: Record<string, string> = {
   Analytics: "bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-300",
 };
 
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function ProductCard({ product }: { product: Product }) {
+  const { t } = useLanguage();
   return (
     <div className={`bg-white dark:bg-gray-800 rounded-xl border shadow-sm hover:shadow-md transition-shadow flex flex-col relative ${
       product.topSeller ? "border-[#6D1F7E]" : "border-gray-200 dark:border-gray-700"
@@ -30,7 +33,7 @@ export default function ProductCard({ product }: { product: Product }) {
       {product.topSeller && (
         <div className="absolute -top-3 left-4">
           <span className="inline-flex items-center gap-1 bg-[#6D1F7E] text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">
-            ★ Top Seller
+            {t.card_top_seller}
           </span>
         </div>
       )}
@@ -48,7 +51,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-          <span className="font-medium text-gray-600 dark:text-gray-300">Segment:</span>{" "}
+          <span className="font-medium text-gray-600 dark:text-gray-300">{t.card_segment}</span>{" "}
           {product.segment}
         </p>
 
@@ -88,7 +91,7 @@ export default function ProductCard({ product }: { product: Product }) {
           rel="noopener noreferrer"
           className="block w-full text-center text-xs font-medium text-[#6D1F7E] dark:text-purple-400 border border-[#6D1F7E] dark:border-purple-500 rounded-lg py-2 hover:bg-[#6D1F7E] dark:hover:bg-purple-700 hover:text-white transition-colors"
         >
-          View Datasheet →
+          {t.card_view_datasheet}
         </a>
         {product.dataConfirmUrl ? (
           <a
@@ -97,11 +100,11 @@ export default function ProductCard({ product }: { product: Product }) {
             rel="noopener noreferrer"
             className="block w-full text-center text-xs font-medium text-[#6D1F7E] dark:text-purple-400 border border-[#6D1F7E] dark:border-purple-500 rounded-lg py-2 hover:bg-[#6D1F7E] dark:hover:bg-purple-700 hover:text-white transition-colors"
           >
-            データシード確認
+            {t.card_data_confirm}
           </a>
         ) : (
           <span className="block w-full text-center text-xs font-medium text-gray-300 dark:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-lg py-2 cursor-not-allowed">
-            データシード確認
+            {t.card_data_confirm}
           </span>
         )}
       </div>

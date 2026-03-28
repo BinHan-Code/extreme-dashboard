@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 import Fuse from "fuse.js";
 import productsRaw from "@/data/products.json";
 import ProductCard from "@/components/ProductCard";
@@ -49,6 +50,7 @@ function CatalogPage() {
     : activeCategoryGroup === "router" ? "Router"
     : "";
 
+  const { lang, t } = useLanguage();
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSegment, setSelectedSegment] = useState("All");
@@ -129,11 +131,12 @@ function CatalogPage() {
         )}
         <div className="flex-1">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            {groupLabel ? `${groupLabel} Products` : "Product Catalog"}
+            {groupLabel ? `${groupLabel} ${t.catalog_products_suffix}` : t.catalog_title}
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-0.5 text-sm">
-            {results.length} product{results.length !== 1 ? "s" : ""} found
-            {groupLabel ? ` in ${groupLabel}` : ""}
+            {lang === "JA"
+              ? `${results.length}件の製品が見つかりました${groupLabel ? `（${groupLabel}）` : ""}`
+              : `${results.length} product${results.length !== 1 ? "s" : ""} found${groupLabel ? ` in ${groupLabel}` : ""}`}
           </p>
         </div>
         {(activeCategoryGroup === "switching" || activeCategoryGroup === "") && (
@@ -141,7 +144,7 @@ function CatalogPage() {
             {showCallout && (
               <div className="absolute bottom-full right-0 mb-2 z-10">
                 <div className="relative bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                  Click to view the full switching spec matrix!
+                  {t.catalog_switching_callout}
                   <button onClick={() => setShowCallout(false)} className="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss">✕</button>
                   <div className="absolute top-full right-4 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
                 </div>
@@ -154,7 +157,7 @@ function CatalogPage() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 6h18M3 14h18M3 18h18" />
               </svg>
-              Switching Matrix
+              {t.catalog_switching_matrix}
             </button>
           </div>
         )}
@@ -163,7 +166,7 @@ function CatalogPage() {
             {showAPCallout && (
               <div className="absolute bottom-full right-0 mb-2 z-10">
                 <div className="relative bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                  Click to view the full AP spec matrix!
+                  {t.catalog_ap_callout}
                   <button onClick={() => setShowAPCallout(false)} className="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss">✕</button>
                   <div className="absolute top-full right-4 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
                 </div>
@@ -176,7 +179,7 @@ function CatalogPage() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
               </svg>
-              AP Matrix
+              {t.catalog_ap_matrix}
             </button>
           </div>
         )}
@@ -188,7 +191,7 @@ function CatalogPage() {
           <SearchBar
             value={query}
             onChange={setQuery}
-            placeholder="Search products, specs, tags..."
+            placeholder={t.catalog_search_placeholder}
           />
         </div>
         <select
@@ -196,7 +199,7 @@ function CatalogPage() {
           onChange={(e) => setSelectedCategory(e.target.value)}
           className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
-          <option value="All">All Categories</option>
+          <option value="All">{t.catalog_all_categories}</option>
           {ALL_CATEGORIES.map((c) => (
             <option key={c} value={c}>{c}</option>
           ))}
@@ -206,7 +209,7 @@ function CatalogPage() {
           onChange={(e) => setSelectedSegment(e.target.value)}
           className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
-          <option value="All">All Segments</option>
+          <option value="All">{t.catalog_all_segments}</option>
           {ALL_SEGMENTS.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
@@ -226,12 +229,12 @@ function CatalogPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
               d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
           </svg>
-          <p className="text-sm font-medium">No products found</p>
+          <p className="text-sm font-medium">{t.catalog_no_products}</p>
           <button
             onClick={() => { setQuery(""); setSelectedCategory("All"); setSelectedSegment("All"); }}
             className="mt-3 text-xs text-[#6D1F7E] hover:underline"
           >
-            Clear filters
+            {t.catalog_clear_filters}
           </button>
         </div>
       )}
@@ -241,7 +244,7 @@ function CatalogPage() {
 
 export default function CatalogPageWrapper() {
   return (
-    <Suspense fallback={<div className="text-center py-20 text-gray-400 text-sm">Loading catalog...</div>}>
+    <Suspense fallback={<div className="text-center py-20 text-gray-400 text-sm">{/* Loading... */}</div>}>
       <CatalogPage />
     </Suspense>
   );

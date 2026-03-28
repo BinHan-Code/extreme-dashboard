@@ -3,14 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { Lang } from "@/lib/translations";
 
-const languages = ["EN", "日本語"];
+const LANG_OPTIONS: { display: string; value: Lang }[] = [
+  { display: "EN", value: "EN" },
+  { display: "日本語", value: "JA" },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [langOpen, setLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("EN");
   const [darkMode, setDarkMode] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     setDarkMode(document.documentElement.classList.contains("dark"));
@@ -23,12 +28,14 @@ export default function Navbar() {
   };
 
   const links = [
-    { href: "/catalog", label: "Product Catalog" },
-    { href: "/competitive", label: "Competitive Intelligence" },
+    { href: "/catalog", label: t.nav_catalog },
+    { href: "/competitive", label: t.nav_competitive },
   ];
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
+
+  const selectedDisplay = LANG_OPTIONS.find((o) => o.value === lang)?.display ?? "EN";
 
   return (
     <nav className="bg-[#6D1F7E] text-white shadow-lg relative z-50">
@@ -68,18 +75,16 @@ export default function Navbar() {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              title={darkMode ? "Switch to Light theme" : "Switch to Dark theme"}
+              title={darkMode ? t.nav_theme_light : t.nav_theme_dark}
               className="ml-1 p-2 rounded-md text-white/80 hover:bg-white/10 hover:text-white transition-colors"
             >
               {darkMode ? (
-                /* Sun icon */
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="5" strokeWidth={2}/>
                   <path strokeLinecap="round" strokeWidth={2}
                     d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
                 </svg>
               ) : (
-                /* Moon icon */
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                     d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -97,7 +102,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                     d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0 0c-2.5 0-4.5-4-4.5-9s2-9 4.5-9 4.5 4 4.5 9-2 9-4.5 9zm-9-9h18" />
                 </svg>
-                {selectedLang}
+                {selectedDisplay}
                 <svg className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -105,17 +110,17 @@ export default function Navbar() {
 
               {langOpen && (
                 <div className="absolute right-0 top-full mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 py-1 min-w-[120px]">
-                  {languages.map((lang) => (
+                  {LANG_OPTIONS.map((option) => (
                     <button
-                      key={lang}
-                      onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
+                      key={option.value}
+                      onClick={() => { setLang(option.value); setLangOpen(false); }}
                       className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                        selectedLang === lang
+                        lang === option.value
                           ? "text-[#6D1F7E] font-semibold bg-purple-50 dark:bg-purple-900/30"
                           : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
                       }`}
                     >
-                      {lang}
+                      {option.display}
                     </button>
                   ))}
                 </div>

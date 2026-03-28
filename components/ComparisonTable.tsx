@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface VendorData {
   rating: "strong" | "moderate" | "weak";
@@ -25,6 +26,12 @@ interface ComparisonTableProps {
   vendors: Vendor[];
   comparisons: Comparison[];
 }
+
+const ratingKeys = {
+  strong: "comp_strong",
+  moderate: "comp_moderate",
+  weak: "comp_limited",
+} as const;
 
 const ratingConfig = {
   strong: {
@@ -57,6 +64,7 @@ export default function ComparisonTable({
   vendors,
   comparisons,
 }: ComparisonTableProps) {
+  const { t } = useLanguage();
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
   const [activeVendor, setActiveVendor] = useState<string | null>(null);
 
@@ -72,7 +80,7 @@ export default function ComparisonTable({
       {/* Vendor filter pills */}
       <div className="flex flex-wrap gap-2 mb-6">
         <span className="text-sm text-gray-500 self-center mr-1">
-          Highlight strengths:
+          {t.comp_highlight}
         </span>
         {vendors.map((v) => (
           <button
@@ -99,7 +107,7 @@ export default function ComparisonTable({
             onClick={() => setActiveVendor(null)}
             className="px-3 py-1 rounded-full text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
           >
-            Clear
+            {t.comp_clear}
           </button>
         )}
       </div>
@@ -184,7 +192,7 @@ export default function ComparisonTable({
                         <span
                           className={`text-xs font-medium px-2 py-0.5 rounded-full border ${cfg.bg} ${cfg.text} ${cfg.border}`}
                         >
-                          {cfg.label}
+                          {t[ratingKeys[d?.rating ?? "moderate"]]}
                         </span>
                       </div>
                       <p className="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
