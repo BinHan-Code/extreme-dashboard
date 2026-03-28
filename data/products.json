@@ -9,11 +9,20 @@
       "ports": "24 or 48-port 1G/2.5G/5G/10G",
       "uplinks": "4x10G or 4x25G (modular)",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 200 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 200 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "aggregation", "macsec", "dual-persona", "hot-swap"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "aggregation",
+      "macsec",
+      "dual-persona",
+      "hot-swap"
+    ],
     "topSeller": true,
     "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5520"
   },
@@ -27,11 +36,18 @@
       "ports": "24 or 48-port 1G/2.5G",
       "uplinks": "4x10G or 4x25G SFP+",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 80 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "macsec",
+      "dual-persona"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5420-Data-Sheet?v=dbd7924d"
   },
@@ -45,11 +61,20 @@
       "ports": "24 or 48-port 1G/2.5G/5G/10G",
       "uplinks": "4x10G or 4x25G (modular)",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 200 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 200 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "aggregation", "macsec", "dual-persona", "hot-swap"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "aggregation",
+      "macsec",
+      "dual-persona",
+      "hot-swap"
+    ],
     "topSeller": true,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/979a3f1300054000936182331a617072?v=0997083d"
   },
@@ -63,11 +88,18 @@
       "ports": "24 or 48-port 1G/2.5G",
       "uplinks": "4x10G or 4x25G SFP+",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 80 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "macsec",
+      "dual-persona"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5320-Series-Data-Sheet?v=f1232b29"
   },
@@ -81,14 +113,21 @@
       "ports": "24 or 48-port 1G/2.5G",
       "uplinks": "4x10G or 4x25G SFP+",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 80 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "macsec",
+      "dual-persona"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
-  },  
+  },
   {
     "id": "6",
     "name": "ExtremeWireless AP302W",
@@ -98,10 +137,16 @@
     "specs": {
       "standard": "Wi-Fi 6 (802.11ax)",
       "bands": "2.4 GHz + 5 GHz",
-      "maxSpeed": "3.0 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "3.0 Gbps"
     },
-    "tags": ["wireless", "wifi6", "ap", "indoor", "iot", "campus"],
+    "tags": [
+      "wireless",
+      "wifi6",
+      "ap",
+      "indoor",
+      "iot",
+      "campus"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap302w/"
   },
@@ -114,10 +159,16 @@
     "specs": {
       "standard": "Wi-Fi 6 (802.11ax)",
       "bands": "2.4 GHz + 5 GHz + scanning radio",
-      "maxSpeed": "5.4 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "5.4 Gbps"
     },
-    "tags": ["wireless", "wifi6", "ap", "high-density", "tri-radio", "indoor"],
+    "tags": [
+      "wireless",
+      "wifi6",
+      "ap",
+      "high-density",
+      "tri-radio",
+      "indoor"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap410c/"
   },
@@ -130,10 +181,15 @@
     "specs": {
       "standard": "Wi-Fi 6E (802.11ax)",
       "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "7.8 Gbps"
     },
-    "tags": ["wireless", "wifi6e", "ap", "6ghz", "high-performance"],
+    "tags": [
+      "wireless",
+      "wifi6e",
+      "ap",
+      "6ghz",
+      "high-performance"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap460c/"
   },
@@ -146,10 +202,16 @@
     "specs": {
       "standard": "Wi-Fi 6 (802.11ax)",
       "bands": "2.4 GHz + 5 GHz",
-      "maxSpeed": "5.4 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "5.4 Gbps"
     },
-    "tags": ["wireless", "wifi6", "ap", "outdoor", "stadium", "high-density"],
+    "tags": [
+      "wireless",
+      "wifi6",
+      "ap",
+      "outdoor",
+      "stadium",
+      "high-density"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/ap5010/"
   },
@@ -162,10 +224,17 @@
     "specs": {
       "deployment": "SaaS (Cloud)",
       "coverage": "Switches, APs, Routers",
-      "ai": "ML-based anomaly detection & optimization",
-      "management": "Single pane of glass"
+      "ai": "ML-based anomaly detection & optimization"
     },
-    "tags": ["cloud", "management", "ai", "ml", "saas", "nms", "xiq"],
+    "tags": [
+      "cloud",
+      "management",
+      "ai",
+      "ml",
+      "saas",
+      "nms",
+      "xiq"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq/"
   },
@@ -178,10 +247,15 @@
     "specs": {
       "deployment": "On-premises or VM",
       "coverage": "Switches, APs, Routers, Firewalls",
-      "automation": "ZTP, compliance, workflow automation",
-      "management": "Policy-based"
+      "automation": "ZTP, compliance, workflow automation"
     },
-    "tags": ["management", "on-premises", "enterprise", "automation", "nms"],
+    "tags": [
+      "management",
+      "on-premises",
+      "enterprise",
+      "automation",
+      "nms"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
   },
@@ -194,10 +268,17 @@
     "specs": {
       "deployment": "SaaS (Cloud)",
       "coverage": "Switches, APs, Routers",
-      "ai": "ML-based anomaly detection & optimization",
-      "management": "Single pane of glass"
+      "ai": "ML-based anomaly detection & optimization"
     },
-    "tags": ["cloud", "management", "ai", "ml", "saas", "nms", "xiq"],
+    "tags": [
+      "cloud",
+      "management",
+      "ai",
+      "ml",
+      "saas",
+      "nms",
+      "xiq"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7da78612110045fcbee0f1851cc77b97?v=dddbb549"
   },
@@ -210,13 +291,18 @@
     "specs": {
       "deployment": "On-premises or VM",
       "coverage": "Switches, APs, Routers, Firewalls",
-      "automation": "ZTP, compliance, workflow automation",
-      "management": "Policy-based"
+      "automation": "ZTP, compliance, workflow automation"
     },
-    "tags": ["management", "on-premises", "enterprise", "automation", "nms"],
+    "tags": [
+      "management",
+      "on-premises",
+      "enterprise",
+      "automation",
+      "nms"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
-  }, 
+  },
   {
     "id": "14",
     "name": "ExtremeRouting SLX 9640",
@@ -226,10 +312,16 @@
     "specs": {
       "ports": "32x400G QSFP-DD",
       "throughput": "12.8 Tbps",
-      "routing": "BGP, OSPF, IS-IS, MPLS, EVPN",
-      "management": "ExtremeCloud IQ"
+      "routing": "BGP, OSPF, IS-IS, MPLS, EVPN"
     },
-    "tags": ["router", "data center", "service provider", "400G", "mpls", "evpn"],
+    "tags": [
+      "router",
+      "data center",
+      "service provider",
+      "400G",
+      "mpls",
+      "evpn"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/slx-9640/"
   },
@@ -245,7 +337,14 @@
       "dashboards": "Real-time & historical",
       "integration": "XIQ Site Engine"
     },
-    "tags": ["analytics", "visibility", "dpi", "flow", "user-behavior", "intelligence"],
+    "tags": [
+      "analytics",
+      "visibility",
+      "dpi",
+      "flow",
+      "user-behavior",
+      "intelligence"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/product/extremeanalytics/"
   },
@@ -259,11 +358,20 @@
       "ports": "8 / 12 / 24 / 48-port 1G/2.5G (4120 & 4220 families)",
       "uplinks": "4x1/10/25G + 2x100G (4120) / 4x1/10G SFP+ (4220)",
       "poe": "IEEE 802.3at 30W / 802.3bt 30–90W",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ / CLI",
       "features": "Extreme Fabric, ZTP, Instant Port automation"
     },
-    "tags": ["switch", "universal", "access", "poe", "campus", "branch", "enterprise", "dual-persona", "ztp", "fabric"],
+    "tags": [
+      "switch",
+      "universal",
+      "access",
+      "poe",
+      "campus",
+      "branch",
+      "enterprise",
+      "dual-persona",
+      "ztp",
+      "fabric"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/4000-series"
   },
@@ -277,11 +385,18 @@
       "ports": "24 or 48-port 1G/2.5G",
       "uplinks": "4x10G or 4x25G SFP,+",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 80 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "macsec",
+      "dual-persona"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
   },
@@ -295,11 +410,18 @@
       "ports": "24 or 48-port 1G/2.5G",
       "uplinks": "4x10G or 4x25G SFP,+",
       "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps",
-      "os": "Switch Engine (EXOS) or Fabric Engine (VOSS)",
-      "management": "Extreme Platform ONE / ExtremeCloud IQ"
+      "stacking": "Up to 8 units / 80 Gbps"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "macsec",
+      "dual-persona"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
   },
@@ -312,10 +434,15 @@
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
       "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "7.8 Gbps"
     },
-    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "6ghz",
+      "high-performance"
+    ],
     "topSeller": true,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   },
@@ -328,10 +455,15 @@
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
       "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "7.8 Gbps"
     },
-    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "6ghz",
+      "high-performance"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   },
@@ -344,10 +476,15 @@
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
       "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "7.8 Gbps"
     },
-    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "6ghz",
+      "high-performance"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   },
@@ -360,10 +497,15 @@
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
       "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "7.8 Gbps"
     },
-    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "6ghz",
+      "high-performance"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   },
@@ -376,10 +518,15 @@
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
       "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps",
-      "management": "ExtremeCloud IQ"
+      "maxSpeed": "7.8 Gbps"
     },
-    "tags": ["wireless", "wifi7", "ap", "6ghz", "high-performance"],
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "6ghz",
+      "high-performance"
+    ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   }
