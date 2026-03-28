@@ -90,7 +90,7 @@ export default function ProductCard({ product }: { product: Product }) {
         >
           View Datasheet →
         </a>
-        {product.dataConfirmUrl && (
+        {product.dataConfirmUrl ? (
           <a
             href={product.dataConfirmUrl}
             target="_blank"
@@ -99,6 +99,10 @@ export default function ProductCard({ product }: { product: Product }) {
           >
             データシード確認
           </a>
+        ) : (
+          <span className="block w-full text-center text-xs font-medium text-gray-300 dark:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-lg py-2 cursor-not-allowed">
+            データシード確認
+          </span>
         )}
       </div>
     </div>
