@@ -83,50 +83,35 @@
     "name": "5320 Series Universal Edge Switches",
     "category": "Universal Switching",
     "segment": "Campus / Enterprise",
-    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "description": "High-performance stackable multi-gig edge switches for enterprise wired access. Available in 16, 24, and 48-port configurations with dual-persona OS, MACsec encryption, 30W PoE, and Extreme Platform ONE integration for automated provisioning and zero-trust security.",
     "specs": {
-      "ports": "24 or 48-port 1G/2.5G",
-      "uplinks": "4x10G or 4x25G SFP+",
-      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps"
+      "ports": "16 / 24 / 48-port multi-gig",
+      "uplinks": "4x10G SFP+ (16-port) / 8x10G SFP+ (24/48-port)",
+      "poe": "30W PoE (IEEE 802.3at)",
+      "stacking": "Up to 8 units / 40 Gbps",
+      "security": "MACsec on access & uplink ports",
+      "features": "ZTP, Instant Port, Instant Stack, AI troubleshooting"
     },
-    "tags": [
-      "switch",
-      "universal",
-      "stackable",
-      "poe",
-      "campus",
-      "enterprise",
-      "macsec",
-      "dual-persona"
-    ],
+    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona", "ztp", "multi-gig"],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5320-Series-Data-Sheet?v=f1232b29"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5320"
   },
   {
     "id": "5",
-    "name": "5120 Series Universal Edge Switches",
+    "name": "5120 Series Universal Switches",
     "category": "Universal Switching",
-    "segment": "Campus / Enterprise",
-    "description": "Stackable universal edge switches with dual-persona OS support (Switch Engine or Fabric Engine), multi-gigabit connectivity, and flexible cloud or on-box management for enterprise wiring-closet deployments.",
+    "segment": "Campus / Data Center",
+    "description": "Stackable 10Gb universal edge/aggregation switches for campus and data center deployments. Supports dual-persona OS, hot-swap redundant PSU/fans, MACsec 256-bit encryption, zero-touch provisioning, and Extreme Platform ONE integration.",
     "specs": {
-      "ports": "24 or 48-port 1G/2.5G",
-      "uplinks": "4x10G or 4x25G SFP+",
-      "poe": "PoE++ up to 90W (IEEE 802.3bt)",
-      "stacking": "Up to 8 units / 80 Gbps"
+      "ports": "24x10G SFP+ or 24x10GBase-T or 48x10G SFP+",
+      "uplinks": "4x25G SFP28 or 2x100G QSFP28",
+      "stacking": "Up to 8 units via QSFP28",
+      "security": "MACsec 256-bit, Zero-trust (Instant Secure Port)",
+      "features": "ZTP, Instant Port, Instant Stack, hot-swap PSU/fans"
     },
-    "tags": [
-      "switch",
-      "universal",
-      "stackable",
-      "poe",
-      "campus",
-      "enterprise",
-      "macsec",
-      "dual-persona"
-    ],
+    "tags": ["switch", "universal", "stackable", "10g", "campus", "data-center", "enterprise", "macsec", "dual-persona", "ztp"],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=64799594"
+    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5120"
   },
   {
     "id": "6",
