@@ -303,6 +303,36 @@
     "datasheet": "https://www.extremenetworks.com/product/slx-9640/"
   },
   {
+    "id": "15",
+    "name": "ExtremeCloud IQ Controller",
+    "category": "Cloud Management",
+    "segment": "Campus / Enterprise",
+    "description": "On-premises or cloud-linked wireless LAN controller managing up to 20,000 wired and wireless devices. Provides centralized management, NAC, routing, location analytics, and IoT support for campus and high-density deployments.",
+    "specs": {
+      "deployment": "On-premises controller or optional cloud-linked integration with ExtremeCloud IQ",
+      "capacity": "Up to 20,000 wired & wireless devices (APs, switches, IoT)",
+      "management": "Unified wired & wireless management, workbench tools, detailed reporting across 32 app categories",
+      "security": "NAC, policy & access control, certified integrations with Extreme security applications",
+      "locationAnalytics": "Visitor footfall analysis, density mapping, traffic flow, RFQI Wi-Fi visualization, BLE asset tracking",
+      "integration": "Open APIs for third-party app integration, optional ExtremeCloud IQ cloud management"
+    },
+    "tags": [
+      "controller",
+      "wireless",
+      "wlan",
+      "management",
+      "nac",
+      "campus",
+      "iot",
+      "ble",
+      "location",
+      "analytics",
+      "on-premises"
+    ],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-management/extremecloud-iq-controller/extremecloud-iq-controller"
+  },
+  {
     "id": "16",
     "name": "ExtremeAnalytics",
     "category": "Analytics",
