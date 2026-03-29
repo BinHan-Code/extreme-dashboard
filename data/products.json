@@ -185,23 +185,27 @@
     "id": "9",
     "name": "ExtremeWireless AP5010",
     "category": "Wireless",
-    "segment": "Stadium / Outdoor",
-    "description": "Wi-Fi 6 outdoor/stadium access point engineered for ultra-dense large venue deployments.",
+    "segment": "Campus / High-Density",
+    "description": "Wi-Fi 6E tri-radio indoor access point with world SKU (geo-location auto-regulatory), 4x4:4 MIMO across all three bands, up to 10 Gbps aggregate throughput, dedicated tri-frequency security sensor, stateful L2-L7 DPI firewall, and ZTNA policy enforcement.",
     "specs": {
-      "standard": "Wi-Fi 6 (802.11ax)",
-      "bands": "2.4 GHz + 5 GHz",
-      "maxSpeed": "5.4 Gbps"
+      "standard": "Wi-Fi 6E (802.11ax)",
+      "apRadioFeature": "Tri-radio 4x4:4 MIMO (2.4GHz + 5GHz + 6GHz), 10 Gbps aggregate, 87 total channels, CCF, multi-band filter, BLE & iBeacon, world SKU",
+      "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data radios | Mode 2: 5GHz / 6GHz data + dedicated tri-frequency sensor",
+      "poe": "802.3at (30W, fully functional)"
     },
     "tags": [
       "wireless",
-      "wifi6",
+      "wifi6e",
       "ap",
-      "outdoor",
-      "stadium",
-      "high-density"
+      "indoor",
+      "6ghz",
+      "high-density",
+      "ztna",
+      "campus",
+      "world-sku"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/ap5010/"
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap5010"
   },
   {
     "id": "10",
@@ -427,106 +431,136 @@
     "id": "20",
     "name": "ExtremeWireless AP4020",
     "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "segment": "Campus / Enterprise",
+    "description": "Wi-Fi 7 (802.11be) indoor access point with 2x2:2 quad-radio design, dedicated security sensor, Multi-Link Operations (MLO), AI-driven troubleshooting, and Universal ZTNA policy enforcement for seamless IT & OT wireless deployments.",
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
-      "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps"
+      "apRadioFeature": "2x2:2 quad radio, MLO, dedicated tri-frequency security sensor, optional dual 5GHz, cellular coexistence filter",
+      "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz + sensor | Mode 2: 2.4GHz / dual 5GHz + sensor",
+      "poe": "802.3at (2.5W USB) / 802.3bt (5W USB), built-in PoE failover"
     },
     "tags": [
       "wireless",
       "wifi7",
       "ap",
+      "indoor",
       "6ghz",
-      "high-performance"
+      "mlo",
+      "ztna",
+      "high-performance",
+      "campus"
     ],
     "topSeller": true,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap4020"
   },
   {
     "id": "21",
     "name": "ExtremeWireless AP5020",
     "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "segment": "Campus / High-Density",
+    "description": "Flagship Wi-Fi 7 indoor access point with 5-radio design, up to 20 Gbps aggregate throughput, dual IoT radios, tri-frequency security sensor, stateful L2-L7 DPI firewall, ZTNA policy enforcement, and 6 configurable operational modes for high-density enterprise deployments.",
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
-      "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps"
+      "apRadioFeature": "5-radio design: 4x4:4 MIMO (2.4GHz + 5GHz + 6GHz) + dual IoT radio + tri-frequency sensor with CCF, up to 20 Gbps aggregate, BLE & Apple iBeacon",
+      "operationModes": "6 modes: 2.4G/5G/6G | 5G/6G+sensor | dual-5G+6G | 2.4G/5G+sensor | dual-5G+2.4G | dual-6G+5G",
+      "poe": "802.3bt (fully functional), built-in PoE failover, PSE (PoE Out) support"
     },
     "tags": [
       "wireless",
       "wifi7",
       "ap",
+      "indoor",
       "6ghz",
-      "high-performance"
+      "high-density",
+      "iot",
+      "ztna",
+      "high-performance",
+      "campus"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap5020"
   },
   {
     "id": "22",
     "name": "ExtremeWireless AP4000",
     "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "segment": "Campus / Enterprise",
+    "description": "Wi-Fi 6E tri-radio indoor access point with 2x2:2 MIMO across 2.4/5/6 GHz, up to 3.9 Gbps aggregate throughput, cellular coexistence filter, integrated BLE, and WPA3 security for cloud or on-premises managed deployments.",
     "specs": {
-      "standard": "Wi-Fi 7 (802.11be)",
-      "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps"
+      "standard": "Wi-Fi 6E (802.11ax)",
+      "apRadioFeature": "Tri-radio 2x2:2 MIMO (2.4GHz + 5GHz + 6GHz), integrated BLE, cellular coexistence filter (CCF), multi-band filter",
+      "operationModes": "Data Mode: all 3 radios as data | Sensor Mode: 2 data radios + 1 dedicated tri-frequency security sensor",
+      "poe": "802.3at (30W), USB port support"
     },
     "tags": [
       "wireless",
-      "wifi7",
+      "wifi6e",
       "ap",
+      "indoor",
       "6ghz",
+      "tri-radio",
+      "ble",
+      "campus",
       "high-performance"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap4000"
   },
   {
     "id": "23",
     "name": "ExtremeWireless AP5050U/D",
     "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "segment": "Outdoor / Stadium",
+    "description": "Wi-Fi 6E tri-radio IP67-rated outdoor access point engineered for stadiums and harsh environments. Official Wi-Fi provider for NFL and MLB. Features 4x4:4 MIMO across all three bands, software-selectable antennas, CCF, BLE, and ZTNA policy enforcement.",
     "specs": {
-      "standard": "Wi-Fi 7 (802.11be)",
-      "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps"
+      "standard": "Wi-Fi 6E (802.11ax)",
+      "apRadioFeature": "Tri-radio 4x4:4 MIMO (2.4GHz + 5GHz + 6GHz), software-selectable antennas, CCF, multi-band filter, integrated BLE",
+      "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data radios | Mode 2: 5GHz / 6GHz data + dedicated tri-frequency sensor",
+      "poe": "802.3at (fully functional)",
+      "designedForHarshEnvironments": "IP67 outdoor-rated, -40°C to +60°C, stadium-grade (NFL & MLB certified venue)"
     },
     "tags": [
       "wireless",
-      "wifi7",
+      "wifi6e",
       "ap",
+      "outdoor",
+      "stadium",
       "6ghz",
-      "high-performance"
+      "ip67",
+      "tri-radio",
+      "ztna",
+      "high-density"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-outdoor/ap5050u"
   },
   {
     "id": "24",
     "name": "ExtremeWireless AP4060",
     "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
+    "segment": "Outdoor / Harsh Environment",
+    "description": "Wi-Fi 7 weatherized outdoor access point with quad-radio 2x2:2 design, MLO, dedicated security sensor, 320 MHz channels with 4K-QAM, IP67 rating, and operation from -40°C to +60°C for hurricane-force wind environments.",
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
-      "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps"
+      "apRadioFeature": "Quad-radio 2x2:2, MLO, dedicated tri-frequency security sensor, optional dual 5GHz, 320MHz channels, 4K-QAM, CCF",
+      "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data + sensor | Mode 2: 2.4GHz / dual 5GHz + sensor",
+      "poe": "802.3at (fully functional), 30/60/90W PoE on multi-gigabit ports",
+      "designedForHarshEnvironments": "IP67 weatherized, -40°C to +60°C, hurricane-force wind rated"
     },
     "tags": [
       "wireless",
       "wifi7",
       "ap",
+      "outdoor",
       "6ghz",
+      "ip67",
+      "weatherized",
+      "mlo",
+      "harsh-environment",
       "high-performance"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-outdoor/ap4060"
   },
   {
     "id": "25",
