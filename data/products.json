@@ -197,7 +197,7 @@
   {
     "id": "11",
     "name": "ExtremeCloud IQ Site Engine",
-    "category": "Cloud Management",
+    "category": "On Premises Management",
     "segment": "Enterprise / Multi-Vendor",
     "description": "Cloud-linked or on-premises network management unifying multi-vendor environments. Provides end-to-end automation, DPI analytics, role-based NAC, fabric management, and migration paths for legacy and third-party devices.",
     "specs": {
@@ -221,7 +221,7 @@
       "nms"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/network-management/extremecloud-iq-site-engine/extremecloud-iq---site-engine"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/8f4806fb9fa14455a4c023983cad9ad0?v=1649d603"
   },
   {
     "id": "12",
@@ -255,7 +255,7 @@
   {
     "id": "13",
     "name": "ExtremeControl",
-    "category": "Cloud Management",
+    "category": "On Premises Management",
     "segment": "Enterprise / NAC",
     "description": "Network access control (NAC) solution within ExtremeCloud IQ Site Engine. Provides role-based access control for all device types, secure BYOD & guest onboarding, dedicated IoT security, and context-aware policy enforcement from edge to data center.",
     "specs": {
@@ -278,7 +278,7 @@
       "management"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/network-access-control/extremecontrol/extremecontrol"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/70b9619a80234c2f8b5b9390a716b42b?v=bbfc2975"
   },
   {
     "id": "14",
@@ -305,7 +305,7 @@
   {
     "id": "15",
     "name": "ExtremeCloud IQ Controller",
-    "category": "Cloud Management",
+    "category": "On Premises Management",
     "segment": "Campus / Enterprise",
     "description": "On-premises or cloud-linked wireless LAN controller managing up to 20,000 wired and wireless devices. Provides centralized management, NAC, routing, location analytics, and IoT support for campus and high-density deployments.",
     "specs": {
@@ -329,13 +329,13 @@
       "analytics",
       "on-premises"
     ],
-    "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-management/extremecloud-iq-controller/extremecloud-iq-controller"
+    "topSeller": true,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/88706e98700f40e1b93b301f0370a966?v=16a3caac"
   },
   {
     "id": "16",
     "name": "ExtremeAnalytics",
-    "category": "Analytics",
+    "category": "On Premises Management",
     "segment": "Enterprise",
     "description": "Network traffic analytics platform delivering real-time application visibility, user behavior intelligence, shadow IT detection, and security forensics. Correlates user, device, and application data from Extreme switches and APs with cloud integrations for GCP, AWS, and Azure.",
     "specs": {
@@ -357,7 +357,7 @@
       "cloud"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/network-analytics/extremeanalytics/extremeanalytics"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f2d087ef12bc43dbb5349fea967f48df?v=1e120acf"
   },
   {
     "id": "17",
