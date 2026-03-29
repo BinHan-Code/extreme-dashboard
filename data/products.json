@@ -95,7 +95,18 @@
       "security": "MACsec on access & uplink ports",
       "features": "ZTP, Instant Port, Instant Stack, AI troubleshooting"
     },
-    "tags": ["switch", "universal", "stackable", "poe", "campus", "enterprise", "macsec", "dual-persona", "ztp", "multi-gig"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "poe",
+      "campus",
+      "enterprise",
+      "macsec",
+      "dual-persona",
+      "ztp",
+      "multi-gig"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5320"
   },
@@ -112,74 +123,20 @@
       "security": "MACsec 256-bit, Zero-trust (Instant Secure Port)",
       "features": "ZTP, Instant Port, Instant Stack, hot-swap PSU/fans"
     },
-    "tags": ["switch", "universal", "stackable", "10g", "campus", "data-center", "enterprise", "macsec", "dual-persona", "ztp"],
+    "tags": [
+      "switch",
+      "universal",
+      "stackable",
+      "10g",
+      "campus",
+      "data-center",
+      "enterprise",
+      "macsec",
+      "dual-persona",
+      "ztp"
+    ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5120"
-  },
-  {
-    "id": "6",
-    "name": "ExtremeWireless AP302W",
-    "category": "Wireless",
-    "segment": "Campus / SMB",
-    "description": "Wi-Fi 6 dual-band indoor access point with built-in IoT radio for dense environments.",
-    "specs": {
-      "standard": "Wi-Fi 6 (802.11ax)",
-      "bands": "2.4 GHz + 5 GHz",
-      "maxSpeed": "3.0 Gbps"
-    },
-    "tags": [
-      "wireless",
-      "wifi6",
-      "ap",
-      "indoor",
-      "iot",
-      "campus"
-    ],
-    "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/ap302w/"
-  },
-  {
-    "id": "7",
-    "name": "ExtremeWireless AP410C",
-    "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6 tri-radio access point designed for high-density indoor environments like auditoriums and stadiums.",
-    "specs": {
-      "standard": "Wi-Fi 6 (802.11ax)",
-      "bands": "2.4 GHz + 5 GHz + scanning radio",
-      "maxSpeed": "5.4 Gbps"
-    },
-    "tags": [
-      "wireless",
-      "wifi6",
-      "ap",
-      "high-density",
-      "tri-radio",
-      "indoor"
-    ],
-    "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/ap410c/"
-  },
-  {
-    "id": "8",
-    "name": "ExtremeWireless AP460C",
-    "category": "Wireless",
-    "segment": "Campus",
-    "description": "Wi-Fi 6E tri-band access point with 6 GHz support for ultra-high throughput deployments.",
-    "specs": {
-      "standard": "Wi-Fi 6E (802.11ax)",
-      "bands": "2.4 GHz + 5 GHz + 6 GHz",
-      "maxSpeed": "7.8 Gbps"
-    },
-    "tags": [
-      "wireless",
-      "wifi6e",
-      "ap",
-      "6ghz",
-      "high-performance"
-    ],
-    "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/ap460c/"
   },
   {
     "id": "9",
@@ -592,5 +549,32 @@
     ],
     "topSeller": false,
     "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7830"
+  },
+  {
+    "id": "26",
+    "name": "ExtremeWireless AP3000/X",
+    "category": "Wireless",
+    "segment": "Campus / Enterprise",
+    "description": "Wi-Fi 6E dual-radio indoor access point with integrated or external antenna options, world SKU, 4.8 Gbps aggregate throughput, CCF, BLE, ZTNA policy enforcement, and 802.3af PoE support for budget-conscious enterprise deployments.",
+    "specs": {
+      "standard": "Wi-Fi 6E (802.11ax)",
+      "apRadioFeature": "Dual-radio 2x2:2 (Radio 1: 2.4/5GHz, Radio 2: 5/6GHz), 4.8 Gbps aggregate, CCF, BLE & iBeacon, world SKU, integrated or external antenna options",
+      "operationModes": "Mode 1: 2.4GHz / 5GHz data radios | Mode 2: 5GHz / 6GHz data radios",
+      "poe": "802.3af (fully functional)"
+    },
+    "tags": [
+      "wireless",
+      "wifi6e",
+      "ap",
+      "indoor",
+      "6ghz",
+      "dual-radio",
+      "ztna",
+      "campus",
+      "world-sku",
+      "budget"
+    ],
+    "topSeller": false,
+    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap3000"
   }
 ]
