@@ -169,11 +169,14 @@
     "name": "ExtremeCloud IQ (XIQ)",
     "category": "Cloud Management",
     "segment": "All",
-    "description": "AI-driven cloud network management platform for wired and wireless infrastructure with ML-based insights.",
+    "description": "Core component of Extreme's '1 Cloud, 1 Network' strategy. ML-powered cloud management platform delivering unified visibility, anomaly detection, real-time remediation, and business insights across APs, switches, and SD-WAN infrastructure.",
     "specs": {
-      "deployment": "SaaS (Cloud)",
-      "coverage": "Switches, APs, Routers",
-      "ai": "ML-based anomaly detection & optimization"
+      "deployment": "SaaS (Cloud), auto-provisioning, near-zero-touch",
+      "coverage": "Wireless APs, switches, SD-WAN, iOS & Android",
+      "ai": "ML-based anomaly detection, explainable algorithms, millions of data points analyzed",
+      "visibility": "Real-time & historical client/device health, application usage monitoring, compliance reporting",
+      "integratedApps": "ExtremeGuest, Extreme AirDefense (24/7 WIPS), ExtremeLocation (Wi-Fi & BLE)",
+      "licenseTiers": "CoPilot (anomaly detection & UX assurance) / Pilot (full management + guest, WIPS, location)"
     },
     "tags": [
       "cloud",
@@ -182,10 +185,14 @@
       "ml",
       "saas",
       "nms",
-      "xiq"
+      "xiq",
+      "sd-wan",
+      "guest",
+      "airdefense",
+      "location"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq/"
+    "datasheet": "https://www.extremenetworks.com/products/cloud-based-management/extremecloud-iq/extremecloud-iq"
   },
   {
     "id": "11",
