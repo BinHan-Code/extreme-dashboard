@@ -198,66 +198,87 @@
     "id": "11",
     "name": "ExtremeCloud IQ Site Engine",
     "category": "Cloud Management",
-    "segment": "Enterprise",
-    "description": "On-premises network management and automation for large-scale enterprise and service provider networks.",
+    "segment": "Enterprise / Multi-Vendor",
+    "description": "Cloud-linked or on-premises network management unifying multi-vendor environments. Provides end-to-end automation, DPI analytics, role-based NAC, fabric management, and migration paths for legacy and third-party devices.",
     "specs": {
-      "deployment": "On-premises or VM",
-      "coverage": "Switches, APs, Routers, Firewalls",
-      "automation": "ZTP, compliance, workflow automation"
+      "deployment": "Cloud-linked, on-premises, or air-gapped (no internet); Universal License model",
+      "coverage": "Extreme, Cisco, Juniper, HPE Aruba, Dell, Nokia, Allied Telesis, Zyxel, Huawei",
+      "automation": "ZTP+, event-triggered workflows (thresholds, syslog, API), Python scripting, cross-domain automation",
+      "analytics": "DPI application telemetry, topology visualization (fabric/VLAN/LAG/MLAG), root cause analysis",
+      "security": "Role-based NAC, BYOD, guest access, IoT device control, data sovereignty (air-gapped mode)",
+      "fabric": "Automated OS persona switching (Switch Engine ↔ Fabric Engine), IS-IS area & fabric path visualization"
     },
     "tags": [
       "management",
       "on-premises",
+      "cloud",
       "enterprise",
+      "multi-vendor",
       "automation",
+      "nac",
+      "fabric",
+      "dpi",
       "nms"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
+    "datasheet": "https://www.extremenetworks.com/products/network-management/extremecloud-iq-site-engine/extremecloud-iq---site-engine"
   },
   {
     "id": "12",
     "name": "Extreme Platform ONE",
     "category": "Cloud Management",
     "segment": "All",
-    "description": "AI-driven cloud network management platform for wired and wireless infrastructure with ML-based insights.",
+    "description": "All-in-one platform unifying networking, security, and AI. Conversational, multimodal, and agentic AI reduce manual effort by up to 90%, transforming complex workflows into single-click operations across the entire network and security stack.",
     "specs": {
-      "deployment": "SaaS (Cloud)",
-      "coverage": "Switches, APs, Routers",
-      "ai": "ML-based anomaly detection & optimization"
+      "deployment": "SaaS (Cloud), zero-touch fabric deployment, inclusive subscription model",
+      "ai": "Conversational AI, multimodal AI, agentic AI — up to 90% manual effort reduction",
+      "automation": "End-to-end network & security automation, procurement & compliance workflows, device lifecycle management",
+      "security": "Pre-integrated zero trust (Universal ZTNA), enhanced Wi-Fi security, role-based access controls, Extreme Fabric visualization",
+      "visibility": "Multi-domain, multi-layer network views, inventory & subscription tracking, contract management",
+      "recognition": "IDC MarketScape Leader — Enterprise Wireless LAN 2025"
     },
     "tags": [
       "cloud",
       "management",
       "ai",
-      "ml",
+      "agentic-ai",
       "saas",
-      "nms",
-      "xiq"
+      "ztna",
+      "automation",
+      "fabric",
+      "zero-trust",
+      "platform"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7da78612110045fcbee0f1851cc77b97?v=dddbb549"
+    "datasheet": "https://www.extremenetworks.com/platform-one/extreme-platform-one-secure-connectivity-made-simple"
   },
   {
     "id": "13",
     "name": "ExtremeControl",
     "category": "Cloud Management",
-    "segment": "Enterprise",
-    "description": "On-premises network management and automation for large-scale enterprise and service provider networks.",
+    "segment": "Enterprise / NAC",
+    "description": "Network access control (NAC) solution within ExtremeCloud IQ Site Engine. Provides role-based access control for all device types, secure BYOD & guest onboarding, dedicated IoT security, and context-aware policy enforcement from edge to data center.",
     "specs": {
-      "deployment": "On-premises or VM",
-      "coverage": "Switches, APs, Routers, Firewalls",
-      "automation": "ZTP, compliance, workflow automation"
+      "deployment": "Part of ExtremeCloud IQ Site Engine (on-premises or cloud-linked)",
+      "accessControl": "Role-based NAC for all device types incl. third-party, BYOD, guest, IoT",
+      "policyControl": "Context-aware identity matching (user, time, location, vulnerability, access type), VLAN/ACL/QoS, downloadable & dynamic ACLs",
+      "integration": "NGFWs, SIEM, CMDB, EMM/MDM (VMware Workspace ONE, Citrix, MobileIron), internet security tools",
+      "monitoring": "Customizable alerts & reports, passive policy testing, unified dashboard, endpoint health status",
+      "security": "Unauthorized user & compromised endpoint prevention, orchestrated endpoint isolation & remediation"
     },
     "tags": [
-      "management",
-      "on-premises",
+      "nac",
+      "security",
+      "access-control",
+      "byod",
+      "iot",
+      "guest",
       "enterprise",
-      "automation",
-      "nms"
+      "policy",
+      "management"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/extremecloud-iq-site-engine/"
+    "datasheet": "https://www.extremenetworks.com/products/network-access-control/extremecontrol/extremecontrol"
   },
   {
     "id": "14",
@@ -286,12 +307,13 @@
     "name": "ExtremeAnalytics",
     "category": "Analytics",
     "segment": "Enterprise",
-    "description": "Network traffic analytics platform for real-time visibility, application intelligence, and user behavior analytics.",
+    "description": "Network traffic analytics platform delivering real-time application visibility, user behavior intelligence, shadow IT detection, and security forensics. Correlates user, device, and application data from Extreme switches and APs with cloud integrations for GCP, AWS, and Azure.",
     "specs": {
-      "deployment": "On-premises or Cloud",
-      "analysis": "Deep packet inspection, flow analysis",
-      "dashboards": "Real-time & historical",
-      "integration": "XIQ Site Engine"
+      "deployment": "On-premises (optional Traffic Sensor appliance); integrates with XIQ Site Engine",
+      "businessIntelligence": "App usage tracking, real-time flow visibility, ROI analysis, bandwidth consumption reports",
+      "security": "Shadow IT detection, security forensics, packet capture, unauthorized app & device visibility",
+      "analytics": "Correlates user/device/app telemetry from Extreme switches (Universal Platform, VSP, Summit, ERS, SLX) & APs via XIQ Controllers",
+      "cloudIntegrations": "GCP, AWS, Azure"
     },
     "tags": [
       "analytics",
@@ -299,10 +321,13 @@
       "dpi",
       "flow",
       "user-behavior",
-      "intelligence"
+      "intelligence",
+      "shadow-it",
+      "forensics",
+      "cloud"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/product/extremeanalytics/"
+    "datasheet": "https://www.extremenetworks.com/products/network-analytics/extremeanalytics/extremeanalytics"
   },
   {
     "id": "17",
