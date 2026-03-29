@@ -28,7 +28,7 @@ const products = productsRaw as unknown as Product[];
 const CATEGORY_MAP: Record<string, string[]> = {
   switching: ["Switching", "Universal Switching"],
   wireless: ["Wireless"],
-  management: ["Cloud Management", "Networking Software", "Analytics"],
+  management: ["Cloud Management", "On Premises Management", "Networking Software", "Analytics"],
   router: ["Routing"],
 };
 
