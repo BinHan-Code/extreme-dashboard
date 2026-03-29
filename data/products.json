@@ -24,7 +24,7 @@
       "hot-swap"
     ],
     "topSeller": true,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5520"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/740df2455fb54c62a0c2b42faa8ecab3?v=8e146620"
   },
   {
     "id": "2",
@@ -79,7 +79,7 @@
       "multi-gig"
     ],
     "topSeller": true,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5720"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/979a3f1300054000936182331a617072?v=0997083d"
   },
   {
     "id": "4",
@@ -108,7 +108,7 @@
       "multi-gig"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5320"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5320-Series-Data-Sheet?v=f1232b29"
   },
   {
     "id": "5",
@@ -136,7 +136,7 @@
       "ztp"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/5120"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet?v=e78c0956"
   },
   {
     "id": "9",
@@ -162,7 +162,7 @@
       "world-sku"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap5010"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/8bf44e62c25d42618aa22536bba23f99?v=a06771e3"
   },
   {
     "id": "10",
@@ -322,7 +322,7 @@
       "fabric"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/4000-series"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet%27?v=bb9ebc88"
   },
   {
     "id": "18",
@@ -353,7 +353,7 @@
       "ztp"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7520"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b5da59835f5d4d10b740208284c8bc09?v=8c42fdf4"
   },
   {
     "id": "19",
@@ -382,7 +382,7 @@
       "ztp"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7720"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/fe0cd8d0b4824b04a80001a6771e7af9?v=805c0dc0"
   },
   {
     "id": "20",
@@ -408,7 +408,7 @@
       "campus"
     ],
     "topSeller": true,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap4020"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6c4cd97dc1db45478295b8f74d2c6c82?v=3b7b171f"
   },
   {
     "id": "21",
@@ -435,7 +435,7 @@
       "campus"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap5020"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b441c2ee9d24460f8412f12c1dc04426?v=1e570430"
   },
   {
     "id": "22",
@@ -460,7 +460,7 @@
       "campus",
       "high-performance"
     ],
-    "topSeller": false,
+    "topSeller": true,
     "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap4000"
   },
   {
@@ -474,7 +474,7 @@
       "apRadioFeature": "Tri-radio 4x4:4 MIMO (2.4GHz + 5GHz + 6GHz), software-selectable antennas, CCF, multi-band filter, integrated BLE",
       "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data radios | Mode 2: 5GHz / 6GHz data + dedicated tri-frequency sensor",
       "poe": "802.3at (fully functional)",
-      "designedForHarshEnvironments": "IP67 outdoor-rated, -40°C to +60°C, stadium-grade (NFL & MLB certified venue)"
+      "HarshEnvironments": "IP67 outdoor-rated, -40°C to +60°C, stadium-grade (NFL & MLB certified venue)"
     },
     "tags": [
       "wireless",
@@ -502,7 +502,7 @@
       "apRadioFeature": "Quad-radio 2x2:2, MLO, dedicated tri-frequency security sensor, optional dual 5GHz, 320MHz channels, 4K-QAM, CCF",
       "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data + sensor | Mode 2: 2.4GHz / dual 5GHz + sensor",
       "poe": "802.3at (fully functional), 30/60/90W PoE on multi-gigabit ports",
-      "designedForHarshEnvironments": "IP67 weatherized, -40°C to +60°C, hurricane-force wind rated"
+      "HarshEnvironments": "IP67 weatherized, -40°C to +60°C, hurricane-force wind rated"
     },
     "tags": [
       "wireless",
@@ -517,7 +517,7 @@
       "high-performance"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-outdoor/ap4060"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7d50fe82f75041e1a2876b1c9862b02f?v=b19b8e5b"
   },
   {
     "id": "25",
@@ -548,7 +548,7 @@
       "dual-persona"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/switches/universal-switches/7830"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/0763d842a06a46208412c410b8d5e69f?v=9ae67b97"
   },
   {
     "id": "26",
@@ -575,6 +575,6 @@
       "budget"
     ],
     "topSeller": false,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap3000"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/683d99cb0cda4cb0b1c7f35275426fb6?v=f22e6320"
   }
 ]
