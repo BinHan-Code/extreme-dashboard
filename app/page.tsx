@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SearchBar from "@/components/SearchBar";
 import { useLanguage } from "@/context/LanguageContext";
 
-const categoryIcons = {
+const categoryIcons: Record<string, React.ReactNode> = {
   switching: (
     <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
       <rect x="6" y="22" width="52" height="20" rx="4" fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="2"/>
@@ -62,6 +62,24 @@ const categoryIcons = {
       <path d="M16 50 L48 50" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 2"/>
     </svg>
   ),
+  manga: (
+    <svg viewBox="0 0 64 64" fill="none" className="w-10 h-10">
+      <rect x="29" y="8" width="6" height="48" rx="1" fill="#6D1F7E" opacity="0.8"/>
+      <path d="M29 10 Q16 10 12 14 L12 54 Q16 50 29 52 Z"
+        fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="1.5"/>
+      <path d="M35 10 Q48 10 52 14 L52 54 Q48 50 35 52 Z"
+        fill="#6D1F7E" opacity="0.15" stroke="#6D1F7E" strokeWidth="1.5"/>
+      <line x1="16" y1="22" x2="27" y2="21" stroke="#6D1F7E" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="15" y1="28" x2="27" y2="27" stroke="#6D1F7E" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="15" y1="34" x2="26" y2="33" stroke="#6D1F7E" strokeWidth="1.5" strokeLinecap="round"/>
+      <rect x="36" y="16" width="13" height="14" rx="1" stroke="#a855f7" strokeWidth="1.5" fill="none"/>
+      <rect x="36" y="32" width="13" height="14" rx="1" stroke="#a855f7" strokeWidth="1.5" fill="none"/>
+      <circle cx="40" cy="21" r="1" fill="#a855f7" opacity="0.6"/>
+      <circle cx="44" cy="24" r="1" fill="#a855f7" opacity="0.6"/>
+      <circle cx="40" cy="38" r="1" fill="#6D1F7E" opacity="0.7"/>
+      <circle cx="44" cy="41" r="1" fill="#6D1F7E" opacity="0.7"/>
+    </svg>
+  ),
 };
 
 const referenceLinks = [
@@ -103,10 +121,11 @@ export default function HomePage() {
   const { t } = useLanguage();
 
   const categories = [
-    { id: "switching", label: t.cat_switching_label, description: t.cat_switching_desc, icon: categoryIcons.switching },
-    { id: "wireless",  label: t.cat_wireless_label,  description: t.cat_wireless_desc,  icon: categoryIcons.wireless },
-    { id: "management",label: t.cat_management_label,description: t.cat_management_desc,icon: categoryIcons.management },
-    { id: "router",    label: t.cat_router_label,    description: t.cat_router_desc,    icon: categoryIcons.router },
+    { id: "switching",  label: t.cat_switching_label,  description: t.cat_switching_desc,  icon: categoryIcons.switching },
+    { id: "wireless",   label: t.cat_wireless_label,   description: t.cat_wireless_desc,   icon: categoryIcons.wireless },
+    { id: "management", label: t.cat_management_label, description: t.cat_management_desc, icon: categoryIcons.management },
+    { id: "router",     label: t.cat_router_label,     description: t.cat_router_desc,     icon: categoryIcons.router },
+    { id: "manga",      label: t.cat_manga_label,      description: t.cat_manga_desc,      icon: categoryIcons.manga, href: "/manga" },
   ];
 
   const googleUrl = query.trim()
@@ -122,11 +141,11 @@ export default function HomePage() {
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">{t.home_subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-3xl">
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => router.push(`/catalog?category=${cat.id}`)}
+              onClick={() => router.push((cat as { href?: string }).href ?? `/catalog?category=${cat.id}`)}
               className="group flex flex-col items-center gap-3 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-md hover:border-[#6D1F7E]/40 hover:bg-purple-50/30 dark:hover:bg-purple-900/20 transition-all"
             >
               <div className="group-hover:scale-110 transition-transform duration-200">

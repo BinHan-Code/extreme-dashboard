@@ -30,6 +30,7 @@ export default function Navbar() {
   const links = [
     { href: "/", label: t.nav_catalog },
     { href: "/competitive", label: t.nav_competitive },
+    { href: "/manga", label: t.nav_manga },
   ];
 
   const isActive = (href: string) =>
