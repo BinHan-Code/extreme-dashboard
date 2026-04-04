@@ -21,7 +21,7 @@ const CHAPTER_SLUGS = [
 ];
 
 const CHAPTER_COUNT = CHAPTER_SLUGS.length;
-const WP_BASE = "https://hantechnote.wordpress.com/wp-json/wp/v2/posts";
+const WP_BASE = "https://public-api.wordpress.com/wp/v2/sites/hantechnote.wordpress.com/posts";
 
 function LoadingSkeleton({ label }: { label: string }) {
   return (
