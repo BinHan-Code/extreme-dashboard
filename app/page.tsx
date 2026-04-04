@@ -182,7 +182,11 @@ export default function HomePage() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
+              className={
+                link.label === "HanBin Blog"
+                  ? "flex items-center gap-1.5 text-xs font-semibold text-white bg-[#6D1F7E] px-2.5 py-1 rounded-full hover:bg-[#5a1868] transition-colors"
+                  : "flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
+              }
             >
               {link.icon}
               {link.label}
