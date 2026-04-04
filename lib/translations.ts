@@ -55,7 +55,7 @@ export const translations = {
 
     nav_manga: "Fabric Connect",
     cat_manga_label: "Fabric Connect",
-    cat_manga_desc: "SPB Manga / 紹介",
+    cat_manga_desc: "概要説明",
     manga_title: "Fabric Connect 紹介",
     manga_subtitle: "Campus Fabric / Short Path Bridging — Visual Guide",
     manga_chapter: "Chapter",
