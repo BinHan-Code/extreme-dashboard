@@ -1,27 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { mangaChapters } from "@/data/manga-chapters";
 
-interface WpPost {
-  id: number;
-  title: { rendered: string };
-  content: { rendered: string };
-  link: string;
-}
-
-const CHAPTER_SLUGS = [
-  "extreme-campus-fabric-short-path-bridging-spb-1",
-  "extreme-campus-fabric-short-path-bridging-spb-2",
-  "extreme-campus-fabric-short-path-bridging-spb-3",
-  "extreme-campus-fabric-short-path-bridging-spb-4",
-  "extreme-campus-fabric-short-path-bridging-spb-5",
-  "extreme-campus-fabric-short-path-bridging-spb-6",
-  "extreme-campus-fabric-short-path-bridging-spb-7",
-];
-
-const CHAPTER_COUNT = CHAPTER_SLUGS.length;
-const WP_BASE = "https://public-api.wordpress.com/wp/v2/sites/hantechnote.wordpress.com/posts";
+const CHAPTER_COUNT = mangaChapters.length;
 
 function LoadingSkeleton({ label }: { label: string }) {
   return (
@@ -31,8 +14,6 @@ function LoadingSkeleton({ label }: { label: string }) {
       <div className="h-4 bg-gray-800 rounded w-full" />
       <div className="h-4 bg-gray-800 rounded w-5/6" />
       <div className="h-64 bg-gray-800 rounded border-2 border-gray-700" />
-      <div className="h-4 bg-gray-800 rounded w-2/3" />
-      <div className="h-4 bg-gray-800 rounded w-full" />
       <p className="text-center text-xs text-gray-600 pt-2">{label}</p>
     </div>
   );
@@ -41,37 +22,13 @@ function LoadingSkeleton({ label }: { label: string }) {
 export default function MangaPage() {
   const { lang, t } = useLanguage();
   const [activeChapter, setActiveChapter] = useState(1);
-  const [post, setPost] = useState<WpPost | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchChapter = useCallback(async (n: number) => {
-    setLoading(true);
-    setError(null);
-    setPost(null);
-    try {
-      const res = await fetch(`${WP_BASE}?slug=${CHAPTER_SLUGS[n - 1]}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data: WpPost[] = await res.json();
-      if (data.length === 0) {
-        setError("Chapter not found.");
-      } else {
-        setPost(data[0]);
-      }
-    } catch {
-      setError(t.manga_error);
-    } finally {
-      setLoading(false);
-    }
-  }, [t.manga_error]);
-
-  useEffect(() => {
-    fetchChapter(activeChapter);
-  }, [activeChapter, fetchChapter]);
+  const chapter = mangaChapters[activeChapter - 1];
 
   const handleNav = (n: number) => {
     if (n < 1 || n > CHAPTER_COUNT) return;
     setActiveChapter(n);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const chapterLabel = lang === "JA"
@@ -125,22 +82,9 @@ export default function MangaPage() {
 
       {/* CONTENT AREA */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-
-        {loading && <LoadingSkeleton label={t.manga_loading} />}
-
-        {error && !loading && (
-          <div className="border-2 border-red-800 bg-red-950/30 rounded-lg p-8 text-center space-y-4">
-            <p className="text-red-400 text-sm">{error}</p>
-            <button
-              onClick={() => fetchChapter(activeChapter)}
-              className="px-4 py-2 bg-[#6D1F7E] text-white text-sm font-medium rounded-lg hover:bg-[#5a1868] transition-colors"
-            >
-              {t.manga_retry}
-            </button>
-          </div>
-        )}
-
-        {post && !loading && !error && (
+        {!chapter ? (
+          <LoadingSkeleton label={t.manga_loading} />
+        ) : (
           <>
             {/* Chapter title panel */}
             <div className="border-4 border-gray-200 dark:border-gray-600 bg-gradient-to-br from-gray-900 to-gray-950 p-6 mb-1 shadow-[8px_8px_0px_#000]">
@@ -151,17 +95,17 @@ export default function MangaPage() {
               </div>
               <h2
                 className="text-xl sm:text-2xl font-black text-white leading-tight"
-                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                dangerouslySetInnerHTML={{ __html: chapter.title }}
               />
             </div>
 
             {/* Content panel */}
             <div
               className="manga-content border-2 border-gray-700 bg-gray-950 p-6 sm:p-8 shadow-[4px_4px_0px_#000]"
-              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+              dangerouslySetInnerHTML={{ __html: chapter.content }}
             />
 
-            {/* Scoped styles for WordPress HTML */}
+            {/* Scoped styles for content HTML */}
             <style>{`
               .manga-content img {
                 max-width: 100%;
@@ -185,10 +129,7 @@ export default function MangaPage() {
                 margin: 1.75rem 0 0.75rem;
                 line-height: 1.3;
               }
-              .manga-content a {
-                color: #a855f7;
-                text-decoration: underline;
-              }
+              .manga-content a { color: #a855f7; text-decoration: underline; }
               .manga-content a:hover { color: #c084fc; }
               .manga-content ul, .manga-content ol {
                 color: #d1d5db;
@@ -221,11 +162,7 @@ export default function MangaPage() {
                 border-radius: 3px;
                 font-size: 0.875em;
               }
-              .manga-content pre code {
-                background: transparent;
-                padding: 0;
-                color: inherit;
-              }
+              .manga-content pre code { background: transparent; padding: 0; color: inherit; }
               .manga-content figure { margin: 1.5rem 0; }
               .manga-content figcaption {
                 text-align: center;
@@ -249,26 +186,15 @@ export default function MangaPage() {
                 border: 1px solid #374151;
                 text-align: left;
               }
-              .manga-content td {
-                padding: 0.5rem 0.75rem;
-                border: 1px solid #374151;
-              }
+              .manga-content td { padding: 0.5rem 0.75rem; border: 1px solid #374151; }
               .manga-content tr:nth-child(even) td { background: #111827; }
-              .manga-content hr {
-                border: none;
-                border-top: 2px solid #374151;
-                margin: 1.5rem 0;
-              }
-              /* Override any inline color styles from WordPress */
-              .manga-content [style*="color:white"], .manga-content [style*="color: white"] {
-                color: #d1d5db !important;
-              }
+              .manga-content hr { border: none; border-top: 2px solid #374151; margin: 1.5rem 0; }
             `}</style>
 
             {/* View original link */}
             <div className="mt-4 text-right">
               <a
-                href={post.link}
+                href={chapter.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-gray-600 hover:text-[#a855f7] transition-colors"
