@@ -231,10 +231,10 @@ function CatalogPage() {
           </svg>
           <p className="text-sm font-medium">{t.catalog_no_products}</p>
           <button
-            onClick={() => { setQuery(""); setSelectedCategory("All"); setSelectedSegment("All"); }}
-            className="mt-3 text-xs text-[#6D1F7E] hover:underline"
+            onClick={() => router.push("/")}
+            className="mt-4 px-4 py-2 text-sm font-medium text-white bg-[#6D1F7E] rounded-lg hover:bg-[#5a1a68] transition-colors"
           >
-            {t.catalog_clear_filters}
+            {t.catalog_go_to_main}
           </button>
         </div>
       )}
