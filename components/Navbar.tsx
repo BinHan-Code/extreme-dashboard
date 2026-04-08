@@ -28,13 +28,18 @@ export default function Navbar() {
   };
 
   const links = [
-    { href: "/", label: t.nav_catalog },
-    { href: "/competitive", label: t.nav_competitive },
-    { href: "/manga", label: t.nav_manga },
+    { href: "/", label: t.nav_catalog, icon: null },
+    { href: "/competitive", label: t.nav_competitive, icon: null },
+    { href: "/chat", label: t.nav_chat, icon: (
+      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4v-4z" />
+      </svg>
+    )},
   ];
 
   const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
   const selectedDisplay = LANG_OPTIONS.find((o) => o.value === lang)?.display ?? "EN";
 
@@ -59,19 +64,27 @@ export default function Navbar() {
 
           {/* Nav links + controls */}
           <div className="flex items-center gap-1">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                  isActive(link.href)
-                    ? "bg-white text-[#6D1F7E]"
-                    : "text-white/80 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) =>
+              link.href === "/chat" ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium bg-white text-[#6D1F7E] hover:bg-white/90 transition-colors"
+                >
+                  {link.icon}
+                  {link.label}
+                </Link>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  {link.icon}
+                  {link.label}
+                </Link>
+              )
+            )}
 
             {/* Theme toggle */}
             <button

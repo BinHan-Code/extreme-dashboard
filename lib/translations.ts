@@ -55,6 +55,7 @@ export const translations = {
     comp_clear: "Clear",
 
     nav_manga: "Fabric Connect",
+    nav_chat: "Ask Fabric Connect AI",
     cat_manga_label: "Fabric Connect",
     cat_manga_desc: "概要説明",
     manga_title: "Fabric Connect 紹介",
@@ -67,6 +68,18 @@ export const translations = {
     manga_next: "Next →",
     manga_toc: "Table of Contents",
     manga_source: "Source: HanBin Blog",
+
+    chat_title: "Ask Fabric Connect AI",
+    chat_subtitle: "Ask anything about Fabric Connect best practices",
+    chat_placeholder: "e.g. What is the recommended B-VLAN design?",
+    chat_send: "Send",
+    chat_topic_all: "All Topics",
+    chat_topic_label: "Topic:",
+    chat_sources: "Sources",
+    chat_sources_hide: "Hide sources",
+    chat_empty: "Ask a question to get started.",
+    chat_error: "Failed to get a response. Please try again.",
+    chat_thinking: "Thinking…",
   },
   JA: {
     nav_catalog: "製品カタログ",
@@ -122,6 +135,7 @@ export const translations = {
     comp_clear: "クリア",
 
     nav_manga: "紹介",
+    nav_chat: "Ask Fabric Connect AI",
     cat_manga_label: "Fabric Connect",
     cat_manga_desc: "Fabric Connect / 紹介",
     manga_title: "Fabric Connect 紹介",
@@ -134,6 +148,18 @@ export const translations = {
     manga_next: "次へ →",
     manga_toc: "目次",
     manga_source: "出典: HanBin Blog",
+
+    chat_title: "Ask Fabric Connect AI",
+    chat_subtitle: "Fabric Connect ベストプラクティスについて質問してください",
+    chat_placeholder: "例：B-VLANの推奨設計は？",
+    chat_send: "送信",
+    chat_topic_all: "すべてのトピック",
+    chat_topic_label: "トピック：",
+    chat_sources: "ソース",
+    chat_sources_hide: "ソースを隠す",
+    chat_empty: "質問を入力して始めましょう。",
+    chat_error: "応答の取得に失敗しました。もう一度お試しください。",
+    chat_thinking: "考え中…",
   },
 };
 
