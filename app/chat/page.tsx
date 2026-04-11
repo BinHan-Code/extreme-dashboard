@@ -16,6 +16,40 @@ interface Message {
 }
 
 // ---------------------------------------------------------------------------
+// URL linkifier — renders plain text with clickable highlighted URLs
+// ---------------------------------------------------------------------------
+
+const URL_REGEX = /(https?:\/\/[^\s)>\]"]+)/g;
+const URL_TEST = /^https?:\/\//;
+
+function LinkifiedText({ text }: { text: string }) {
+  const parts = text.split(URL_REGEX);
+  return (
+    <>
+      {parts.map((part, i) =>
+        URL_TEST.test(part) ? (
+          <a
+            key={i}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-white/20 hover:bg-white/30 underline underline-offset-2 transition-colors break-all"
+          >
+            {part}
+            <svg className="w-3 h-3 shrink-0 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Topic options
 // ---------------------------------------------------------------------------
 
@@ -59,6 +93,10 @@ function SourceList({ sources }: { sources: ChatSource[] }) {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
 
+  // Only show URL sources — PPTX slides are displayed inline in the chat
+  const urlSources = sources.filter((s) => s.metadata.source_type === "url");
+  if (urlSources.length === 0) return null;
+
   return (
     <div className="mt-2">
       <button
@@ -69,7 +107,7 @@ function SourceList({ sources }: { sources: ChatSource[] }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
-        {open ? t.chat_sources_hide : `${t.chat_sources} (${sources.length})`}
+        {open ? t.chat_sources_hide : `${t.chat_sources} (${urlSources.length})`}
         <svg
           className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`}
           fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -79,13 +117,40 @@ function SourceList({ sources }: { sources: ChatSource[] }) {
       </button>
 
       {open && (
-        <ul className="mt-1.5 space-y-1">
-          {sources.map((src, i) => (
-            <li key={i} className="text-xs text-gray-500 dark:text-gray-400 flex items-start gap-1.5">
-              <span className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-purple-100 dark:bg-purple-900/40 text-[#6D1F7E] dark:text-purple-300 flex items-center justify-center font-semibold text-[10px]">
-                {i + 1}
-              </span>
-              <span>{formatSource(src.metadata)}</span>
+        <ul className="mt-1.5 space-y-3">
+          {urlSources.map((src, i) => (
+            <li key={i} className="text-xs text-gray-500 dark:text-gray-400">
+              <div className="flex items-start gap-1.5">
+                <span className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-purple-100 dark:bg-purple-900/40 text-[#6D1F7E] dark:text-purple-300 flex items-center justify-center font-semibold text-[10px]">
+                  {i + 1}
+                </span>
+                {src.metadata.source_type === "url" && src.metadata.url ? (
+                  <a
+                    href={String(src.metadata.url)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-[#6D1F7E] dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors font-medium"
+                  >
+                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    {formatSource(src.metadata)}
+                  </a>
+                ) : (
+                  <span>{formatSource(src.metadata)}</span>
+                )}
+              </div>
+              {src.metadata.slide_image_url && (
+                <div className="mt-1.5 ml-5.5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={String(src.metadata.slide_image_url)}
+                    alt={`Slide ${src.metadata.slide_number ?? ""} image`}
+                    className="max-w-xs rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm"
+                  />
+                </div>
+              )}
             </li>
           ))}
         </ul>
@@ -141,10 +206,16 @@ export default function ChatPage() {
     }
   };
 
+  const handleNewChat = () => {
+    setMessages([]);
+    setInput("");
+  };
+
   return (
     <div className="flex flex-col h-[calc(100vh-7rem)]">
       {/* Header */}
-      <div className="mb-4">
+      <div className="mb-4 flex items-start justify-between">
+        <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-[#6D1F7E] flex items-center justify-center">
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,6 +226,16 @@ export default function ChatPage() {
           {t.chat_title}
         </h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{t.chat_subtitle}</p>
+        </div>
+        <button
+          onClick={handleNewChat}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-[#6D1F7E] dark:text-purple-400 border border-[#6D1F7E]/30 dark:border-purple-400/30 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+          New Chat
+        </button>
       </div>
 
       {/* Topic filter */}
@@ -194,15 +275,72 @@ export default function ChatPage() {
                     : "bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-600 rounded-bl-sm shadow-sm"
                 }`}
               >
-                {msg.text}
+                <LinkifiedText text={msg.text} />
               </div>
 
-              {/* Sources */}
-              {msg.role === "assistant" && msg.sources && msg.sources.length > 0 && (
-                <div className="px-1">
-                  <SourceList sources={msg.sources} />
-                </div>
-              )}
+              {/* Inline PPTX slide images */}
+              {msg.role === "assistant" && msg.sources && (() => {
+                const slideImages = msg.sources
+                  .filter((s) => s.metadata.source_type === "pptx" && s.metadata.slide_image_url)
+                  .reduce<{ url: string; title: string; slide: number }[]>((acc, s) => {
+                    const url = String(s.metadata.slide_image_url);
+                    if (!acc.find((x) => x.url === url)) {
+                      acc.push({
+                        url,
+                        title: String(s.metadata.slide_title ?? ""),
+                        slide: Number(s.metadata.slide_number ?? 0),
+                      });
+                    }
+                    return acc;
+                  }, []);
+
+                if (slideImages.length === 0) return null;
+                return (
+                  <div className="mt-2 space-y-2">
+                    {slideImages.map((img) => (
+                      <div key={img.url} className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600 shadow-sm">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={img.url}
+                          alt={img.title || `Slide ${img.slide}`}
+                          className="w-full"
+                        />
+                        {img.title && (
+                          <div className="px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-600">
+                            Slide {img.slide}{img.title ? ` — ${img.title}` : ""}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+
+              {/* Inline URL references */}
+              {msg.role === "assistant" && msg.sources && (() => {
+                const urlSrcs = msg.sources.filter((s) => s.metadata.source_type === "url" && s.metadata.url);
+                const unique = urlSrcs.filter((s, i, arr) => arr.findIndex((x) => x.metadata.url === s.metadata.url) === i);
+                if (unique.length === 0) return null;
+                return (
+                  <div className="mt-2 flex flex-wrap gap-1.5 px-1">
+                    {unique.map((src, i) => (
+                      <a
+                        key={i}
+                        href={String(src.metadata.url)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-[#6D1F7E] dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors text-xs font-medium"
+                      >
+                        <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        {String(src.metadata.page_title || src.metadata.url)}
+                      </a>
+                    ))}
+                  </div>
+                );
+              })()}
             </div>
           </div>
         ))}
