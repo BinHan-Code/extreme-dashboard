@@ -613,6 +613,38 @@
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/0763d842a06a46208412c410b8d5e69f?v=9ae67b97"
   },
   {
+    "id": "27",
+    "name": "AP4060 Outdoor Wi-Fi 7 Access Point",
+    "category": "Wireless",
+    "segment": "Outdoor / Enterprise",
+    "description": "Wi-Fi 7 (802.11be) quad-radio outdoor access point with IP67 weatherization, tri-band coverage (2.4/5/6 GHz), dedicated security sensor, Cellular Coexistence Filter, and cloud-managed via ExtremeCloud IQ — built for harsh-environment enterprise deployments.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "apRadioFeature": "Quad-radio 2x2:2, tri-band 2.4/5/6 GHz (country-dependent), Multi-Link Operations (MLO), CCF, dedicated security sensor, BLE & Apple iBeacon",
+      "operationModes": "Mode 1: 2.4 GHz / 5 GHz / 6 GHz data + sensor | Mode 2: 2.4 GHz + dual 5 GHz + sensor",
+      "poe": "802.3at (fully functional)",
+      "environmental": "IP67, -40°C to +60°C"
+    },
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "outdoor",
+      "6ghz",
+      "quad-radio",
+      "ip67",
+      "weatherized",
+      "campus",
+      "enterprise",
+      "wpa3",
+      "mlo",
+      "ccf",
+      "iot"
+    ],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7d50fe82f75041e1a2876b1c9862b02f?v=b19b8e5b"
+  },
+  {
     "id": "26",
     "name": "ExtremeWireless AP3000/X",
     "category": "Wireless",
