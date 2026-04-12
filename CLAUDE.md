@@ -39,9 +39,11 @@ Language state lives in `context/LanguageContext.tsx` (a React context wrapping 
 When adding new UI strings: add to both `EN` and `JA` in `lib/translations.ts`, then use `t.key` in the component.
 
 ### Page structure
-- `app/page.tsx` — home page with category tiles and Google site search (client component)
-- `app/catalog/page.tsx` — product catalog with fuzzy search (Fuse.js), filters, and matrix modals; wrapped in `<Suspense>` because it reads URL search params
+- `app/layout.tsx` — root layout; nests providers in order: `LanguageProvider` → `ThemeProvider` → `Navbar` → `<main>`
+- `app/page.tsx` — home page with category tiles and Google site search (client component); search redirects to Google scoped to `extremenetworks.com`, no local data queried
+- `app/catalog/page.tsx` — product catalog with fuzzy search (Fuse.js), filters, and matrix modals; wrapped in `<Suspense>` because it reads URL search params; search runs substring match first, falls back to Fuse.js only when no direct hits
 - `app/competitive/page.tsx` — competitive intelligence; imports data at module level, client component for i18n
+- `app/manga/page.tsx` — Fabric Connect SPB manga reader; chapter content is static HTML in `data/manga-chapters.ts` rendered via `dangerouslySetInnerHTML`; no external fetches at runtime
 
 ### Path alias
 `@/` maps to the repo root (configured in `tsconfig.json`). Use `@/components/...`, `@/data/...`, `@/lib/...`, etc.

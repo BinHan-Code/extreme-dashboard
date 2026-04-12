@@ -80,6 +80,15 @@ export const translations = {
     chat_empty: "Ask a question to get started.",
     chat_error: "Failed to get a response. Please try again.",
     chat_thinking: "Thinking…",
+
+    manager_title: "Manager Access",
+    manager_token_label: "Access Token",
+    manager_login: "Login",
+    manager_logout: "Logout",
+    manager_download: "Download PV Report",
+    manager_month_label: "Month",
+    manager_invalid_token: "Invalid token. Please try again.",
+    manager_logged_in: "Logged in as Manager",
   },
   JA: {
     nav_catalog: "製品カタログ",
@@ -160,6 +169,15 @@ export const translations = {
     chat_empty: "質問を入力して始めましょう。",
     chat_error: "応答の取得に失敗しました。もう一度お試しください。",
     chat_thinking: "考え中…",
+
+    manager_title: "マネージャーアクセス",
+    manager_token_label: "アクセストークン",
+    manager_login: "ログイン",
+    manager_logout: "ログアウト",
+    manager_download: "PVレポートをダウンロード",
+    manager_month_label: "月",
+    manager_invalid_token: "無効なトークンです。再試行してください。",
+    manager_logged_in: "マネージャーとしてログイン済み",
   },
 };
 

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pv tracking data (persisted on Railway volume, not committed to git)
+data/pv/*.json
