@@ -2,17 +2,22 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { sendChatMessage, ChatSource } from "@/lib/chatApi";
+import { sendChatMessage, ChatSource, ChatMode, ModeOption } from "@/lib/chatApi";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
 interface Message {
-  role: "user" | "assistant";
-  text: string;
+  role: "user" | "assistant" | "mode_selection";
+  // user / assistant
+  text?: string;
   sources?: ChatSource[];
   error?: boolean;
+  // mode_selection
+  question?: string;
+  modes?: ModeOption[];
+  selectedMode?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -185,10 +190,44 @@ export default function ChatPage() {
 
     try {
       const data = await sendChatMessage(question, topic || null);
+      if (data.type === "mode_selection") {
+        setMessages((prev) => [
+          ...prev,
+          { role: "mode_selection", question: data.question, modes: data.modes },
+        ]);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", text: data.answer, sources: data.sources },
+        ]);
+      }
+    } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", text: data.answer, sources: data.sources },
+        { role: "assistant", text: t.chat_error, error: true },
       ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleModeSelect = async (question: string, mode: ChatMode, msgIndex: number) => {
+    if (loading) return;
+
+    // Mark which mode was selected on the mode_selection bubble
+    setMessages((prev) =>
+      prev.map((m, i) => (i === msgIndex ? { ...m, selectedMode: mode } : m))
+    );
+    setLoading(true);
+
+    try {
+      const data = await sendChatMessage(question, topic || null, mode);
+      if (data.type === "answer") {
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", text: data.answer, sources: data.sources },
+        ]);
+      }
     } catch {
       setMessages((prev) => [
         ...prev,
@@ -265,7 +304,63 @@ export default function ChatPage() {
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
             <div className={`max-w-[80%] ${msg.role === "user" ? "order-2" : ""}`}>
-              {/* Bubble */}
+
+              {/* Mode selection bubble */}
+              {msg.role === "mode_selection" && msg.modes && (
+                <div className="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-2xl rounded-bl-sm shadow-sm px-4 py-3">
+                  {msg.selectedMode ? (
+                    <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5 text-[#6D1F7E] dark:text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {t.chat_selected_source}{" "}
+                      <span className="font-semibold text-[#6D1F7E] dark:text-purple-400">
+                        {msg.modes.find((m) => m.mode === msg.selectedMode)?.label ?? msg.selectedMode}
+                      </span>
+                    </p>
+                  ) : (
+                    <>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{t.chat_select_source}</p>
+                      <div className="flex flex-col gap-2">
+                        {msg.modes.map((opt) => (
+                          <button
+                            key={opt.mode}
+                            onClick={() => handleModeSelect(msg.question!, opt.mode as ChatMode, i)}
+                            disabled={loading}
+                            className="flex items-start gap-3 px-3 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-[#6D1F7E] dark:hover:border-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors text-left disabled:opacity-40 disabled:cursor-not-allowed"
+                          >
+                            <span className="mt-0.5 w-7 h-7 rounded-lg bg-[#6D1F7E]/10 dark:bg-purple-900/40 flex items-center justify-center shrink-0">
+                              {opt.mode === "knowledge_search" && (
+                                <svg className="w-4 h-4 text-[#6D1F7E] dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                              )}
+                              {opt.mode === "design" && (
+                                <svg className="w-4 h-4 text-[#6D1F7E] dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                              )}
+                              {opt.mode === "troubleshooting" && (
+                                <svg className="w-4 h-4 text-[#6D1F7E] dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                              )}
+                            </span>
+                            <span>
+                              <span className="block text-sm font-semibold text-gray-800 dark:text-gray-100">{opt.label}</span>
+                              <span className="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.description}</span>
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* Regular user / assistant bubble */}
+              {msg.role !== "mode_selection" && (
               <div
                 className={`rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap ${
                   msg.role === "user"
@@ -275,10 +370,11 @@ export default function ChatPage() {
                     : "bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-600 rounded-bl-sm shadow-sm"
                 }`}
               >
-                <LinkifiedText text={msg.text} />
+                <LinkifiedText text={msg.text ?? ""} />
               </div>
+              )}
 
-              {/* Inline PPTX slide images */}
+              {/* Inline PPTX slide images — assistant only */}
               {msg.role === "assistant" && msg.sources && (() => {
                 const slideImages = msg.sources
                   .filter((s) => s.metadata.source_type === "pptx" && s.metadata.slide_image_url)

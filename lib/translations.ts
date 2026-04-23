@@ -80,6 +80,8 @@ export const translations = {
     chat_empty: "Ask a question to get started.",
     chat_error: "Failed to get a response. Please try again.",
     chat_thinking: "Thinking…",
+    chat_select_source: "Please select a source to search:",
+    chat_selected_source: "Searched in:",
 
     manager_title: "Manager Access",
     manager_token_label: "Access Token",
@@ -169,6 +171,8 @@ export const translations = {
     chat_empty: "質問を入力して始めましょう。",
     chat_error: "応答の取得に失敗しました。もう一度お試しください。",
     chat_thinking: "考え中…",
+    chat_select_source: "検索ソースを選択してください：",
+    chat_selected_source: "検索先：",
 
     manager_title: "マネージャーアクセス",
     manager_token_label: "アクセストークン",
