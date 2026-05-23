@@ -70,7 +70,7 @@ export default function SecurityAdvisoryWidget() {
         return r.json();
       })
       .then((data) => {
-        const list: Advisory[] = (data.advisories ?? []).slice(0, 5);
+        const list: Advisory[] = (data.advisories ?? []).slice(0, 2);
         setAdvisories(list);
         if (list.length > 0) {
           const newestMs = new Date(list[0].pubDate).getTime();
