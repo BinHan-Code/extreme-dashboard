@@ -91,6 +91,15 @@ export const translations = {
     manager_month_label: "Month",
     manager_invalid_token: "Invalid token. Please try again.",
     manager_logged_in: "Logged in as Manager",
+
+    security_title: "Security Advisories",
+    security_subtitle: "Latest from Extreme Networks",
+    security_view_all: "View All →",
+    security_new: "NEW",
+    security_loading: "Loading advisories...",
+    security_error: "Failed to load advisories.",
+    security_updated: "Updated",
+    security_no_advisories: "No advisories found.",
   },
   JA: {
     nav_catalog: "製品カタログ",
@@ -182,6 +191,15 @@ export const translations = {
     manager_month_label: "月",
     manager_invalid_token: "無効なトークンです。再試行してください。",
     manager_logged_in: "マネージャーとしてログイン済み",
+
+    security_title: "セキュリティアドバイザリ",
+    security_subtitle: "Extreme Networks 最新情報",
+    security_view_all: "すべて見る →",
+    security_new: "新着",
+    security_loading: "アドバイザリを読み込み中...",
+    security_error: "アドバイザリの読み込みに失敗しました。",
+    security_updated: "更新済み",
+    security_no_advisories: "アドバイザリが見つかりません。",
   },
 };
 

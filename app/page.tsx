@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SearchBar from "@/components/SearchBar";
 import { useLanguage } from "@/context/LanguageContext";
+import SecurityAdvisoryWidget from "@/components/SecurityAdvisoryWidget";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   switching: (
@@ -157,6 +158,10 @@ export default function HomePage() {
               </div>
             </button>
           ))}
+        </div>
+
+        <div className="w-full max-w-3xl mt-8">
+          <SecurityAdvisoryWidget />
         </div>
 
         <div className="w-full max-w-xl mt-8">
