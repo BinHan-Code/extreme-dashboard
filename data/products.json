@@ -500,32 +500,6 @@
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b441c2ee9d24460f8412f12c1dc04426?v=1e570430"
   },
   {
-    "id": "22",
-    "name": "ExtremeWireless AP4000",
-    "category": "Wireless",
-    "segment": "Campus / Enterprise",
-    "description": "Wi-Fi 6E tri-radio indoor access point with 2x2:2 MIMO across 2.4/5/6 GHz, up to 3.9 Gbps aggregate throughput, cellular coexistence filter, integrated BLE, and WPA3 security for cloud or on-premises managed deployments.",
-    "specs": {
-      "standard": "Wi-Fi 6E (802.11ax)",
-      "apRadioFeature": "Tri-radio 2x2:2 MIMO (2.4GHz + 5GHz + 6GHz), integrated BLE, cellular coexistence filter (CCF), multi-band filter",
-      "operationModes": "Data Mode: all 3 radios as data | Sensor Mode: 2 data radios + 1 dedicated tri-frequency security sensor",
-      "poe": "802.3at (30W), USB port support"
-    },
-    "tags": [
-      "wireless",
-      "wifi6e",
-      "ap",
-      "indoor",
-      "6ghz",
-      "tri-radio",
-      "ble",
-      "campus",
-      "high-performance"
-    ],
-    "topSeller": true,
-    "datasheet": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap4000"
-  },
-  {
     "id": "23",
     "name": "ExtremeWireless AP5050U/D",
     "category": "Wireless",
