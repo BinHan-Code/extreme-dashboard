@@ -670,5 +670,37 @@
     ],
     "topSeller": false,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/683d99cb0cda4cb0b1c7f35275426fb6?v=f22e6320"
+  },
+  {
+    "id": "28",
+    "name": "ExtremeWireless AP5022",
+    "category": "Wireless",
+    "segment": "Campus / High-Density",
+    "description": "Wi-Fi 7 (802.11be) indoor access point with 4x4:4 tri-band design, up to 20 Gbps aggregate throughput, dedicated 2x2 tri-band security sensor, dual IoT radios (BLE/Zigbee/Thread), stateful L2-L7 DPI firewall, Cellular Coexistence Filter, and Universal ZTNA policy enforcement — engineered for high-density schools, healthcare, warehouses, and stadiums.",
+    "specs": {
+      "standard": "Wi-Fi 7 (802.11be)",
+      "apRadioFeature": "4x4:4 MIMO tri-band (2.4/5/6 GHz), dedicated 2x2 tri-band sensor, dual IoT radios (BLE, Zigbee, Thread), CCF, up to 20 Gbps aggregate",
+      "operationModes": "Software-defined radios with flexible operational modes; variants: AP5022 (internal omni), AP5022S6D (60° directional), AP5022FX (external antenna)",
+      "poe": "802.3bt (fully functional), 802.3at (reduced functionality), built-in PoE failover"
+    },
+    "tags": [
+      "wireless",
+      "wifi7",
+      "ap",
+      "indoor",
+      "6ghz",
+      "high-density",
+      "4x4",
+      "iot",
+      "ztna",
+      "ccf",
+      "wpa3",
+      "high-performance",
+      "campus",
+      "healthcare",
+      "education"
+    ],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/AP5022-Series-Access-Points?v=8648155d"
   }
 ]
