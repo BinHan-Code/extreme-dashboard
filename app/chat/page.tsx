@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { sendChatMessage, ChatSource, ChatMode, ModeOption } from "@/lib/chatApi";
+import type { DesignArticle } from "@/app/api/design-search/route";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -14,6 +15,7 @@ interface Message {
   text?: string;
   sources?: ChatSource[];
   error?: boolean;
+  designArticles?: DesignArticle[];
   // mode_selection
   question?: string;
   modes?: ModeOption[];
@@ -165,6 +167,70 @@ function SourceList({ sources }: { sources: ChatSource[] }) {
 }
 
 // ---------------------------------------------------------------------------
+// Design articles sub-component
+// ---------------------------------------------------------------------------
+
+function DesignArticles({ articles }: { articles: DesignArticle[] }) {
+  const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+
+  if (articles.length === 0) return null;
+
+  return (
+    <div className="mt-2">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1 text-xs text-[#6D1F7E] dark:text-purple-400 hover:underline"
+      >
+        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+        </svg>
+        {open ? t.chat_design_resources_hide : `${t.chat_design_resources} (${articles.length})`}
+        <svg
+          className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`}
+          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <ul className="mt-2 space-y-3">
+          {articles.map((article, i) => (
+            <li key={i} className="text-xs border border-purple-100 dark:border-purple-900/40 rounded-lg p-2.5 bg-purple-50/50 dark:bg-purple-900/10">
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#6D1F7E] dark:text-purple-300 hover:underline block mb-1"
+              >
+                {article.title}
+              </a>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-4">
+                {article.excerpt}
+              </p>
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 mt-1.5 text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400 break-all transition-colors"
+              >
+                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                {article.url}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main page
 // ---------------------------------------------------------------------------
 
@@ -189,7 +255,15 @@ export default function ChatPage() {
     setLoading(true);
 
     try {
-      const data = await sendChatMessage(question, topic || null);
+      const [data, designResult] = await Promise.all([
+        sendChatMessage(question, topic || null),
+        topic === "design"
+          ? fetch("/api/design-search").then((r) => r.json()).catch(() => ({ articles: [] }))
+          : Promise.resolve(null),
+      ]);
+      const designArticles: DesignArticle[] | undefined =
+        designResult?.articles?.length > 0 ? designResult.articles : undefined;
+
       if (data.type === "mode_selection") {
         setMessages((prev) => [
           ...prev,
@@ -198,7 +272,7 @@ export default function ChatPage() {
       } else {
         setMessages((prev) => [
           ...prev,
-          { role: "assistant", text: data.answer, sources: data.sources },
+          { role: "assistant", text: data.answer, sources: data.sources, designArticles },
         ]);
       }
     } catch {
@@ -437,6 +511,11 @@ export default function ChatPage() {
                   </div>
                 );
               })()}
+
+              {/* Design web resources from urls.txt */}
+              {msg.role === "assistant" && msg.designArticles && (
+                <DesignArticles articles={msg.designArticles} />
+              )}
             </div>
           </div>
         ))}

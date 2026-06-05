@@ -82,6 +82,8 @@ export const translations = {
     chat_thinking: "Thinking…",
     chat_select_source: "Please select a source to search:",
     chat_selected_source: "Searched in:",
+    chat_design_resources: "Design Web Resources",
+    chat_design_resources_hide: "Hide Design Resources",
 
     manager_title: "Manager Access",
     manager_token_label: "Access Token",
@@ -182,6 +184,8 @@ export const translations = {
     chat_thinking: "考え中…",
     chat_select_source: "検索ソースを選択してください：",
     chat_selected_source: "検索先：",
+    chat_design_resources: "デザインWebリソース",
+    chat_design_resources_hide: "デザインリソースを隠す",
 
     manager_title: "マネージャーアクセス",
     manager_token_label: "アクセストークン",
