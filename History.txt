@@ -1,0 +1,143 @@
+================================================================================
+EXTREME DASHBOARD — CODEBASE OVERVIEW & CHANGE HISTORY
+================================================================================
+Last updated: 2026-06-07
+
+--------------------------------------------------------------------------------
+PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+
+Name:       Extreme Networks Dashboard
+Framework:  Next.js 16.2 (App Router, Turbopack)
+Deployment: Railway — auto-deploys on every push to `master`
+Language:   TypeScript / React (client components where needed)
+Styling:    Tailwind CSS
+i18n:       English / Japanese (toggle in Navbar)
+
+--------------------------------------------------------------------------------
+ARCHITECTURE SUMMARY
+--------------------------------------------------------------------------------
+
+Data layer
+  All product and competitive data is static JSON in data/:
+    data/products.json          — product catalog (id, name, category, specs, etc.)
+    data/competitive.json       — vendor comparison data
+    data/switching-matrix.json  — generated from .xlsx via scripts/
+    data/ap-matrix.json         — generated from .xlsx via scripts/
+    data/urls.txt               — Design topic reference URLs (one per line)
+
+Pages (app/)
+  /                   — Home: category tiles, Security Advisory widget, Google search
+  /catalog            — Product catalog: fuzzy search (Fuse.js), filters, matrix modals
+  /competitive        — Competitive intelligence comparison table
+  /manga              — Fabric Connect SPB manga reader (static HTML chapters)
+  /chat               — Fabric Connect AI chatbot (calls external RAG API)
+  /manager            — Manager-only page view analytics + CSV download
+
+API routes (app/api/)
+  /api/security-advisory  — Proxies Extreme Networks RSS feed; 1h cache
+  /api/design-search      — Reads data/urls.txt, fetches each URL server-side,
+                            returns title + excerpt per article; 1h cache
+  /api/track              — Records page views to data/pv/
+  /api/pv                 — Manager-only: returns page view JSON for download
+
+Components (components/)
+  Navbar.tsx               — Top nav with language toggle, dark mode, chat CTA
+  SecurityAdvisoryWidget.tsx — Latest 2 security advisories from Extreme RSS feed
+  ProductCard.tsx          — Card used in the catalog grid
+  ComparisonTable.tsx      — Used in /competitive
+  SwitchingMatrix.tsx      — Modal overlay for switching product matrix
+  APMatrix.tsx             — Modal overlay for AP product matrix
+  SearchBar.tsx            — Reusable search input
+  ThemeProvider.tsx        — Dark/light mode context
+  PageViewTracker.tsx      — Client-side page view recorder
+
+Context & library
+  context/LanguageContext.tsx — React context; provides { lang, setLang, t }
+  lib/translations.ts         — All EN + JA UI strings
+  lib/chatApi.ts              — Chat API client for the external RAG service
+
+External service
+  https://fabric-connect-rag.up.railway.app/chat
+    POST { question, topic, mode } -> answers with sources from RAG pipeline
+    Modes: knowledge_search | design | troubleshooting
+
+--------------------------------------------------------------------------------
+CHANGE HISTORY (newest first)
+--------------------------------------------------------------------------------
+
+[2026-06-06] commit 5eef58b
+  Add Design topic URL search: fetch and display articles from data/urls.txt
+  - NEW  app/api/design-search/route.ts
+           Server-side GET route. Reads data/urls.txt (one URL per line,
+           # lines skipped), fetches each page with a browser User-Agent,
+           strips HTML tags, and returns { url, title, excerpt } per article.
+           Result is cached for 1 hour via `export const revalidate = 3600`.
+  - NEW  data/urls.txt
+           Placeholder file. Add design reference URLs here, one per line.
+  - MOD  app/chat/page.tsx
+           When the chatbot topic is set to "Design", the question send
+           handler now fires /api/design-search in parallel with the RAG
+           API call. Results are attached to the assistant message and
+           rendered as a collapsible "Design Web Resources" section with
+           title, excerpt, and clickable URL for each article.
+           Added DesignArticles sub-component and DesignArticle type import.
+  - MOD  lib/translations.ts
+           Added EN + JA keys: chat_design_resources, chat_design_resources_hide
+
+[2026-06-06] commit 837c507
+  Update CLAUDE.md with Security Advisory widget documentation
+
+[2026-06-05] commit 7f1e062
+  Remove ExtremeWireless AP4000 from wireless product catalog
+
+[2026-06-05] commit 96f91c8
+  Add AP5022 Series Wi-Fi 7 indoor access point to wireless catalog
+
+[2026-06-05] commit cd4b48f
+  Limit Security Advisory widget to 2 items (was showing all)
+
+[2026-06-05] commit 513b8f3
+  Add Security Advisory widget to home page
+  - Fetches latest vulnerability notices from Extreme Networks community RSS
+  - Shows NEW badge for advisories < 7 days old
+  - Pulsing red dot when unread; clears on "View All" click
+  - Unread state persisted in localStorage
+
+[2026-06-04] commit 7146e79
+  Add mode routing to chat: mode selection UI, updated API, slide images
+  - API can return type:"mode_selection" to let user pick knowledge_search /
+    design / troubleshooting before answering
+  - Inline PPTX slide image previews in chat bubbles
+
+[2026-06-04] commit c6768ac
+  Add AP4060 Outdoor Wi-Fi 7 Access Point to product catalog
+
+[2026-06-04] commit 008c919
+  Add monthly page view tracking with manager-only report download
+
+[2026-06-03] commit c908c85
+  Add Fabric AI chat page with slide images, URL links, and New Chat button
+
+[2026-06-03] commit 75b6856
+  Add Ask Fabric Connect AI chat page with navbar CTA
+
+[earlier]
+  - Manga reader for 7 SPB chapters (static data, no runtime fetch)
+  - Product catalog filters, fuzzy search, matrix modals
+  - Competitive intelligence page
+  - Dark mode, EN/JA language toggle
+  - Railway deployment configuration
+
+--------------------------------------------------------------------------------
+SCRIPTS
+--------------------------------------------------------------------------------
+
+npm run dev          # Start dev server (Turbopack)
+npm run build        # Production build -- run before pushing
+npm run lint         # ESLint
+
+node scripts/convert-switching-matrix.mjs   # Regenerate data/switching-matrix.json
+node scripts/convert-ap-matrix.mjs          # Regenerate data/ap-matrix.json
+
+================================================================================
