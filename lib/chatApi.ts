@@ -1,4 +1,4 @@
-const API_BASE = "https://fabric-connect-rag.up.railway.app";
+const API_BASE = "/api/chat";
 
 export interface ChatSource {
   text: string;
@@ -33,7 +33,7 @@ export async function sendChatMessage(
   topic: string | null,
   mode?: ChatMode | null
 ): Promise<ApiResponse> {
-  const res = await fetch(`${API_BASE}/chat`, {
+  const res = await fetch(API_BASE, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question, topic: topic || null, mode: mode || null }),
