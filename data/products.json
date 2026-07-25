@@ -414,7 +414,7 @@
       "macsec",
       "ztp"
     ],
-    "topSeller": false,
+    "topSeller": true,
     "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b5da59835f5d4d10b740208284c8bc09?v=8c42fdf4"
   },
   {
@@ -529,31 +529,32 @@
   },
   {
     "id": "24",
-    "name": "ExtremeWireless AP4060",
+    "name": "ExtremeWireless AP5060U/D",
     "category": "Wireless",
     "segment": "Outdoor / Harsh Environment",
-    "description": "Wi-Fi 7 weatherized outdoor access point with quad-radio 2x2:2 design, MLO, dedicated security sensor, 320 MHz channels with 4K-QAM, IP67 rating, and operation from -40°C to +60°C for hurricane-force wind environments.",
+    "description": "Wi-Fi 7 weatherized outdoor access point designed for extreme environments including stadiums, arenas, and transportation hubs. Quad-radio 2.4/5/6 GHz design with dedicated tri-band sensor, integrated IoT radios (BLE, Zigbee, Thread), IP67 rating, and operation from -40°C to +60°C.",
     "specs": {
       "standard": "Wi-Fi 7 (802.11be)",
-      "apRadioFeature": "Quad-radio 2x2:2, MLO, dedicated tri-frequency security sensor, optional dual 5GHz, 320MHz channels, 4K-QAM, CCF",
-      "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data + sensor | Mode 2: 2.4GHz / dual 5GHz + sensor",
-      "poe": "802.3at (fully functional), 30/60/90W PoE on multi-gigabit ports",
-      "HarshEnvironments": "IP67 weatherized, -40°C to +60°C, hurricane-force wind rated"
+      "apRadioFeature": "Quad-radio 4x4:4 MIMO (2.4GHz + 5GHz + 6GHz), dedicated tri-band sensor, up to 23 Gbps aggregate, software-defined radios",
+      "operationModes": "Mode 1: 2.4GHz / 5GHz / 6GHz data + sensor | Mode 2: Dual 5GHz / 6GHz + sensor | Mode 3: 5GHz / Dual 6GHz + sensor",
+      "poe": "802.3bt (fully functional), 802.3at (required functionality)",
+      "HarshEnvironments": "IP67 weatherized, -40°C to +60°C, stadium-grade"
     },
     "tags": [
       "wireless",
       "wifi7",
       "ap",
       "outdoor",
+      "stadium",
       "6ghz",
       "ip67",
       "weatherized",
-      "mlo",
-      "harsh-environment",
-      "high-performance"
+      "iot",
+      "ztna",
+      "high-density"
     ],
     "topSeller": false,
-    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7d50fe82f75041e1a2876b1c9862b02f?v=b19b8e5b"
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/AP5060-SERIES-DATA-SHEET?v=d8bf004a"
   },
   {
     "id": "25",
