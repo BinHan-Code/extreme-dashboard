@@ -116,6 +116,8 @@ const referenceLinks = [
   },
 ];
 
+const profileCerts = ["CCIE Wireless", "CWNE", "CISSP"];
+
 export default function HomePage() {
   const [query, setQuery] = useState("");
   const router = useRouter();
@@ -141,6 +143,31 @@ export default function HomePage() {
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">{t.home_title}</h1>
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">{t.home_subtitle}</p>
         </div>
+
+        <section className="w-full max-w-3xl mb-10 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5 text-center sm:text-left">
+          <div className="shrink-0 w-12 h-12 rounded-full border border-[#6D1F7E]/30 text-[#6D1F7E] dark:text-purple-300 flex items-center justify-center text-sm font-semibold">
+            BH
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm text-gray-900 dark:text-gray-100">
+              <span className="font-semibold">{t.profile_name}</span>
+              <span className="text-gray-400 dark:text-gray-500"> · {t.profile_role}</span>
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{t.profile_desc}</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
+              {profileCerts.join(" · ")}
+              <span className="mx-1.5">·</span>
+              <a
+                href="https://www.linkedin.com/in/dr-bin-han-59063717/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6D1F7E] dark:text-purple-400 hover:underline"
+              >
+                LinkedIn →
+              </a>
+            </p>
+          </div>
+        </section>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-3xl">
           {categories.map((cat) => (

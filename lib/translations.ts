@@ -14,6 +14,10 @@ export const translations = {
     home_search_hint: "Results powered by Google — searching within extremenetworks.com",
     home_useful_url: "Useful URL:",
 
+    profile_name: "Dr. Bin Han",
+    profile_role: "Principal System Engineer, Extreme Networks",
+    profile_desc: "Ph.D. in wireless networks, 10+ years in enterprise networking at Cisco and Extreme. Trilingual (JA / EN / ZH), based in Tokyo.",
+
     cat_switching_label: "Switching",
     cat_switching_desc: "Campus & Enterprise Switches",
     cat_wireless_label: "Wireless",
@@ -115,6 +119,10 @@ export const translations = {
     home_search_btn: "検索",
     home_search_hint: "Google による検索 — extremenetworks.com 内を検索",
     home_useful_url: "参考URL：",
+
+    profile_name: "Dr. Bin Han",
+    profile_role: "Extreme Networks プリンシパル・システムエンジニア",
+    profile_desc: "無線ネットワークの博士号を持ち、Cisco・Extreme でエンタープライズネットワークに10年以上従事。日・英・中の3か国語対応、東京在住。",
 
     cat_switching_label: "スイッチング",
     cat_switching_desc: "キャンパス・エンタープライズ スイッチ",
