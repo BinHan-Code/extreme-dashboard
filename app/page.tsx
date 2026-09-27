@@ -144,7 +144,7 @@ export default function HomePage() {
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">{t.home_subtitle}</p>
         </div>
 
-        <section className="w-full max-w-3xl mb-10 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5 text-center sm:text-left">
+        <section className="profile-gradient w-full max-w-3xl mb-10 rounded-2xl px-5 py-5 sm:px-6 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5 text-center sm:text-left">
           <div className="shrink-0 w-12 h-12 rounded-full border border-[#6D1F7E]/30 text-[#6D1F7E] dark:text-purple-300 flex items-center justify-center text-sm font-semibold">
             BH
           </div>

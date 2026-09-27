@@ -19,3 +19,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Soft animated gradient behind the home-page profile intro */
+.profile-gradient {
+  background: linear-gradient(120deg, #f5eefa, #eef2ff, #fdf2f8, #f5eefa);
+  background-size: 300% 300%;
+  animation: profile-gradient-shift 12s ease infinite;
+}
+
+.dark .profile-gradient {
+  background-image: linear-gradient(120deg, #2a1433, #1e1b4b, #2d1526, #2a1433);
+}
+
+@keyframes profile-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-gradient { animation: none; }
+}
