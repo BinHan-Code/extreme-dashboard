@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ThemeProvider from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import PageViewTracker from "@/components/PageViewTracker";
+import SiteFooter from "@/components/SiteFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bin Han · Extreme Networks Solutions Toolkit",
+  title: {
+    default: "Bin Han · Extreme Networks Solutions Toolkit",
+    template: "%s · Bin Han",
+  },
   description: "A personal project by Dr. Bin Han: Extreme Networks product catalog, competitive comparisons and a Fabric Connect AI assistant. Not an official Extreme Networks website.",
 };
 
@@ -39,6 +43,7 @@ export default function RootLayout({
             <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
               {children}
             </main>
+            <SiteFooter />
           </ThemeProvider>
         </LanguageProvider>
       </body>

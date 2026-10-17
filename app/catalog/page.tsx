@@ -122,7 +122,7 @@ function CatalogPage() {
           <button
             onClick={() => router.push("/catalog")}
             className="text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
-            title="Back to all products"
+            title={t.catalog_back_all}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

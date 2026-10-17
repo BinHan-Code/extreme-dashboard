@@ -325,7 +325,7 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-7rem)]">
+    <div className="flex flex-col h-[calc(100vh-10rem)]">
       {/* Header */}
       <div className="mb-4 flex items-start justify-between">
         <div>
@@ -339,6 +339,7 @@ export default function ChatPage() {
           {t.chat_title}
         </h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{t.chat_subtitle}</p>
+        <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{t.chat_disclaimer}</p>
         </div>
         <button
           onClick={handleNewChat}
@@ -347,7 +348,7 @@ export default function ChatPage() {
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
-          New Chat
+          {t.chat_new}
         </button>
       </div>
 

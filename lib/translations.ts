@@ -6,6 +6,7 @@ export const translations = {
     nav_competitive: "Competitive Intelligence",
     nav_theme_light: "Switch to Light theme",
     nav_theme_dark: "Switch to Dark theme",
+    footer_disclaimer: "Personal project by Dr. Bin Han. Not an official Extreme Networks website.",
 
     home_title: "Extreme Networks Solutions Toolkit",
     home_subtitle: "A personal project by Dr. Bin Han",
@@ -13,7 +14,6 @@ export const translations = {
     home_search_btn: "Search",
     home_search_hint: "Results powered by Google — searching within extremenetworks.com",
     home_useful_url: "Useful links:",
-    home_disclaimer: "Personal project. Not an official Extreme Networks website.",
 
     profile_name: "Dr. Bin Han",
     profile_role: "Principal System Engineer, Extreme Networks",
@@ -33,7 +33,8 @@ export const translations = {
     catalog_all_categories: "All Categories",
     catalog_all_segments: "All Segments",
     catalog_no_products: "No products found",
-    catalog_go_to_main: "Go back to Product Dashboard",
+    catalog_go_to_main: "Back to home",
+    catalog_back_all: "Back to all products",
     catalog_clear_filters: "Clear filters",
     catalog_loading: "Loading catalog...",
     catalog_switching_matrix: "Switching Matrix",
@@ -48,8 +49,9 @@ export const translations = {
     card_data_confirm: "データシード確認",
 
     comp_title: "Competitive Intelligence",
-    comp_subtitle: "Comparing ExtremeNetworks against Cisco, Juniper, Aruba, and Fortinet across",
+    comp_subtitle: "Comparing Extreme Networks against Cisco, Juniper, Aruba, and Fortinet across",
     comp_subtitle_suffix: "key dimensions.",
+    comp_disclaimer: "My personal assessment based on public information. Not an official Extreme Networks position.",
     comp_strong_of: "strong",
     comp_rating_legend: "Rating legend:",
     comp_strong: "Strong",
@@ -76,6 +78,8 @@ export const translations = {
 
     chat_title: "Ask Fabric Connect AI",
     chat_subtitle: "Ask anything about Fabric Connect best practices",
+    chat_new: "New Chat",
+    chat_disclaimer: "AI answers can be wrong. Check official Extreme Networks documentation before deploying.",
     chat_placeholder: "e.g. What is the recommended B-VLAN design?",
     chat_send: "Send",
     chat_topic_all: "All Topics",
@@ -113,6 +117,7 @@ export const translations = {
     nav_competitive: "競合インテリジェンス",
     nav_theme_light: "ライトテーマに切り替え",
     nav_theme_dark: "ダークテーマに切り替え",
+    footer_disclaimer: "Dr. Bin Han による個人プロジェクトです。Extreme Networks の公式サイトではありません。",
 
     home_title: "Extreme Networks ソリューション・ツールキット",
     home_subtitle: "Dr. Bin Han による個人プロジェクト",
@@ -120,7 +125,6 @@ export const translations = {
     home_search_btn: "検索",
     home_search_hint: "Google による検索 — extremenetworks.com 内を検索",
     home_useful_url: "参考リンク：",
-    home_disclaimer: "個人プロジェクトです。Extreme Networks の公式サイトではありません。",
 
     profile_name: "Dr. Bin Han",
     profile_role: "Extreme Networks プリンシパル・システムエンジニア",
@@ -140,7 +144,8 @@ export const translations = {
     catalog_all_categories: "すべてのカテゴリ",
     catalog_all_segments: "すべてのセグメント",
     catalog_no_products: "製品が見つかりません",
-    catalog_go_to_main: "製品ダッシュボードに戻る",
+    catalog_go_to_main: "ホームに戻る",
+    catalog_back_all: "すべての製品に戻る",
     catalog_clear_filters: "フィルターをクリア",
     catalog_loading: "カタログを読み込み中...",
     catalog_switching_matrix: "スイッチング マトリクス",
@@ -157,6 +162,7 @@ export const translations = {
     comp_title: "競合インテリジェンス",
     comp_subtitle: "Cisco、Juniper、Aruba、Fortinet と Extreme Networks を",
     comp_subtitle_suffix: "の主要カテゴリで比較。",
+    comp_disclaimer: "公開情報に基づく個人的な評価です。Extreme Networks の公式見解ではありません。",
     comp_strong_of: "強み",
     comp_rating_legend: "評価凡例：",
     comp_strong: "強い",
@@ -183,6 +189,8 @@ export const translations = {
 
     chat_title: "Ask Fabric Connect AI",
     chat_subtitle: "Fabric Connect ベストプラクティスについて質問してください",
+    chat_new: "新しいチャット",
+    chat_disclaimer: "AI の回答は誤っている場合があります。導入前に Extreme Networks の公式ドキュメントをご確認ください。",
     chat_placeholder: "例：B-VLANの推奨設計は？",
     chat_send: "送信",
     chat_topic_all: "すべてのトピック",
