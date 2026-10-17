@@ -6,6 +6,8 @@ export const translations = {
     nav_competitive: "Competitive Intelligence",
     nav_theme_light: "Switch to Light theme",
     nav_theme_dark: "Switch to Dark theme",
+    nav_menu_open: "Open menu",
+    nav_menu_close: "Close menu",
     footer_disclaimer: "Personal project by Dr. Bin Han. Not an official Extreme Networks website.",
 
     home_title: "Extreme Networks Solutions Toolkit",
@@ -135,6 +137,8 @@ export const translations = {
     nav_competitive: "競合インテリジェンス",
     nav_theme_light: "ライトテーマに切り替え",
     nav_theme_dark: "ダークテーマに切り替え",
+    nav_menu_open: "メニューを開く",
+    nav_menu_close: "メニューを閉じる",
     footer_disclaimer: "Dr. Bin Han による個人プロジェクトです。Extreme Networks の公式サイトではありません。",
 
     home_title: "Extreme Networks ソリューション・ツールキット",
