@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   const links = [
-    { href: "/", label: t.nav_catalog, icon: null },
+    { href: "/catalog", label: t.nav_catalog, icon: null },
     { href: "/competitive", label: t.nav_competitive, icon: null },
     { href: "/chat", label: t.nav_chat, icon: (
       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,12 +53,12 @@ export default function Navbar() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://github.com/BinHan-Code.png"
-                alt="Avatar"
+                alt="Bin Han"
                 className="w-full h-full object-cover"
               />
             </div>
             <span className="font-semibold text-sm tracking-tight hidden sm:block">
-              Extreme Networks
+              Bin Han · Extreme Toolkit
             </span>
           </Link>
 

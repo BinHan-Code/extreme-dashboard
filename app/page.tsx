@@ -244,6 +244,9 @@ export default function HomePage() {
             </a>
           ))}
         </div>
+        <p className="text-center text-[11px] text-gray-400 dark:text-gray-500 mt-3">
+          {t.home_disclaimer}
+        </p>
       </div>
     </div>
   );

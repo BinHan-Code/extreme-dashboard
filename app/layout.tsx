@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Extreme Networks Dashboard",
-  description: "Product catalog and competitive intelligence for Extreme Networks",
+  title: "Bin Han · Extreme Networks Solutions Toolkit",
+  description: "A personal project by Dr. Bin Han: Extreme Networks product catalog, competitive comparisons and a Fabric Connect AI assistant. Not an official Extreme Networks website.",
 };
 
 export default function RootLayout({
