@@ -25,9 +25,8 @@ export const translations = {
     feat_comp_desc: (n: number) => `Extreme vs. Cisco, Juniper, Aruba and Fortinet across ${n} categories.`,
     feat_guide_title: "Fabric Connect Guide",
     feat_guide_desc: (n: number) => `An illustrated ${n}-chapter introduction to Campus Fabric / SPB.`,
-    home_search_placeholder: "Search on extremenetworks.com...",
-    home_search_btn: "Search",
-    home_search_hint: "Results powered by Google — searching within extremenetworks.com",
+    home_search_placeholder: "Search extremenetworks.com",
+    home_search_btn: "Google ↗",
     home_useful_url: "Useful links:",
 
     profile_name: "Dr. Bin Han",
@@ -156,9 +155,8 @@ export const translations = {
     feat_comp_desc: (n: number) => `Cisco、Juniper、Aruba、Fortinet と ${n} カテゴリで比較。`,
     feat_guide_title: "Fabric Connect ガイド",
     feat_guide_desc: (n: number) => `Campus Fabric / SPB を全 ${n} 章のイラストで解説。`,
-    home_search_placeholder: "extremenetworks.com を検索...",
-    home_search_btn: "検索",
-    home_search_hint: "Google による検索 — extremenetworks.com 内を検索",
+    home_search_placeholder: "extremenetworks.com を検索",
+    home_search_btn: "Google ↗",
     home_useful_url: "参考リンク：",
 
     profile_name: "Dr. Bin Han",

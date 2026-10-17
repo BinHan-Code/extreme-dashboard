@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import SearchBar from "@/components/SearchBar";
 import { useLanguage } from "@/context/LanguageContext";
 import SecurityAdvisoryWidget from "@/components/SecurityAdvisoryWidget";
 import products from "@/data/products.json";
@@ -218,38 +217,6 @@ export default function HomePage() {
         <div className="w-full max-w-3xl mt-8">
           <SecurityAdvisoryWidget />
         </div>
-
-        <div className="w-full max-w-xl mt-8">
-          <div className="flex gap-2">
-            <div className="flex-1">
-              <SearchBar
-                value={query}
-                onChange={setQuery}
-                placeholder={t.home_search_placeholder}
-              />
-            </div>
-            <a
-              href={googleUrl || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => { if (!query.trim()) e.preventDefault(); }}
-              className={`flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                query.trim()
-                  ? "bg-[#6D1F7E] text-white hover:bg-[#5a1868]"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-400 cursor-not-allowed"
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                  d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
-              </svg>
-              {t.home_search_btn}
-            </a>
-          </div>
-          <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-2">
-            {t.home_search_hint}
-          </p>
-        </div>
       </div>
 
       <div className="w-full border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-4 px-4">
@@ -261,17 +228,38 @@ export default function HomePage() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={
-                link.label === "HanBin Blog"
-                  ? "flex items-center gap-1.5 text-xs font-semibold text-white bg-[#6D1F7E] px-2.5 py-1 rounded-full hover:bg-[#5a1868] transition-colors"
-                  : "flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
-              }
+              className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
             >
               {link.icon}
               {link.label}
             </a>
           ))}
         </div>
+
+        <form
+          role="search"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (googleUrl) window.open(googleUrl, "_blank", "noopener,noreferrer");
+          }}
+          className="max-w-sm mx-auto mt-3 flex gap-1.5"
+        >
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t.home_search_placeholder}
+            aria-label={t.home_search_placeholder}
+            className="flex-1 min-w-0 px-3 py-1.5 text-xs border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+          />
+          <button
+            type="submit"
+            disabled={!query.trim()}
+            className="px-3 py-1.5 text-xs font-medium rounded-md border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 enabled:hover:text-[#6D1F7E] enabled:hover:border-[#6D1F7E]/40 dark:enabled:hover:text-purple-400 disabled:opacity-50 transition-colors"
+          >
+            {t.home_search_btn}
+          </button>
+        </form>
       </div>
     </div>
   );
