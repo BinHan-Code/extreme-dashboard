@@ -273,6 +273,36 @@
     "datasheet": "https://www.extremenetworks.com/product/slx-9640/"
   },
   {
+    "id": "29",
+    "name": "ExtremeCloud SD-WAN",
+    "category": "Routing",
+    "segment": "Branch / Campus / Enterprise",
+    "description": "Cloud-orchestrated SD-WAN that combines simplicity, security, and performance — extends Extreme Fabric services to branches over low-cost Internet, with zero-touch provisioning and unified wired, wireless, and SD-WAN management.",
+    "specs": {
+      "fabric": "Extends Extreme Fabric to branches over Internet access; sub-second failover",
+      "applications": "Auto-discovery of 5,000+ SaaS apps with per-session QoS",
+      "security": "Built-in zone-based firewall; bring-your-own security option",
+      "orchestration": "Cloud orchestrator for appliances, topology, security profiles, and cloud on-ramps",
+      "deployment": "Public or private cloud, or hosted on ExtremeCloud Edge",
+      "appliances": "Multiple performance tiers, from small branch to large data center",
+      "licensing": "Subscriptions sold separately from hardware: 1, 3, or 5-year terms"
+    },
+    "tags": [
+      "router",
+      "sd-wan",
+      "wan",
+      "branch",
+      "cloud",
+      "fabric",
+      "firewall",
+      "zero-touch",
+      "qos"
+    ],
+    "topSeller": false,
+    "datasheet": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/extremecloud-sd-wan?v=37a9094b",
+    "dataConfirmUrl": "https://www.extremenetworks.com/products/sd-wan/extreme-sd-wan/extremecloud-sd-wan"
+  },
+  {
     "id": "15",
     "name": "ExtremeCloud IQ Controller",
     "category": "On Premises Management",
