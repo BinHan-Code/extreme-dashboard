@@ -106,7 +106,7 @@ const profileCerts = ["CCIE Wireless", "CWNE", "CISSP"];
 export default function HomePage() {
   const [query, setQuery] = useState("");
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, href } = useLanguage();
 
   const categories = [
     { id: "switching",  label: t.cat_switching_label,  description: t.cat_switching_desc,  icon: categoryIcons.switching },
@@ -171,7 +171,7 @@ export default function HomePage() {
             {features.map((f) => (
               <Link
                 key={f.href}
-                href={f.href}
+                href={href(f.href)}
                 className={`group flex flex-col rounded-2xl border p-5 transition-all hover:shadow-md ${
                   f.featured
                     ? "bg-[#6D1F7E] border-[#6D1F7E] text-white hover:bg-[#5a1868]"
@@ -200,7 +200,7 @@ export default function HomePage() {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => router.push(`/catalog?category=${cat.id}`)}
+              onClick={() => router.push(href(`/catalog?category=${cat.id}`))}
               className="group flex flex-col items-center gap-3 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-md hover:border-[#6D1F7E]/40 hover:bg-purple-50/30 dark:hover:bg-purple-900/20 transition-all"
             >
               <div className="group-hover:scale-110 transition-transform duration-200">

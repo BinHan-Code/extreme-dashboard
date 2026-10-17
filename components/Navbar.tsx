@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Lang } from "@/lib/translations";
+import { localizePath, stripLocale } from "@/lib/i18n";
 
 const LANG_OPTIONS: { display: string; value: Lang }[] = [
   { display: "EN", value: "EN" },
@@ -12,11 +13,13 @@ const LANG_OPTIONS: { display: string; value: Lang }[] = [
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const router = useRouter();
+  // Path without the /ja prefix, so link matching works in both languages
+  const pathname = stripLocale(usePathname());
   const [langOpen, setLangOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t, href } = useLanguage();
 
   useEffect(() => {
     setDarkMode(document.documentElement.classList.contains("dark"));
@@ -57,7 +60,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 min-w-0">
+          <Link href={href("/")} className="flex items-center gap-2.5 min-w-0">
             <div className="w-7 h-7 shrink-0 rounded-sm overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -77,7 +80,7 @@ export default function Navbar() {
               {links.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={href(link.href)}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={linkClass(link.href, false)}
                 >
@@ -125,19 +128,30 @@ export default function Navbar() {
 
               {langOpen && (
                 <div className="absolute right-0 top-full mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 py-1 min-w-[120px]">
-                  {LANG_OPTIONS.map((option) => (
-                    <button
-                      key={option.value}
-                      onClick={() => { setLang(option.value); setLangOpen(false); }}
-                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                        lang === option.value
-                          ? "text-[#6D1F7E] font-semibold bg-purple-50 dark:bg-purple-900/30"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      {option.display}
-                    </button>
-                  ))}
+                  {LANG_OPTIONS.map((option) => {
+                    const target = localizePath(pathname, option.value);
+                    return (
+                      // Each language has its own URL (/ja/... for Japanese)
+                      <Link
+                        key={option.value}
+                        href={target}
+                        hrefLang={option.value === "JA" ? "ja" : "en"}
+                        onClick={(e) => {
+                          // Keep query params (e.g. ?category=wireless) when switching
+                          e.preventDefault();
+                          setLangOpen(false);
+                          router.push(target + window.location.search);
+                        }}
+                        className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
+                          lang === option.value
+                            ? "text-[#6D1F7E] font-semibold bg-purple-50 dark:bg-purple-900/30"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                        }`}
+                      >
+                        {option.display}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -166,7 +180,7 @@ export default function Navbar() {
           {links.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={href(link.href)}
               onClick={() => setMenuOpen(false)}
               aria-current={isActive(link.href) ? "page" : undefined}
               className={linkClass(link.href, true)}

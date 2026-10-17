@@ -1,24 +1,28 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { Lang, translations, Translations } from "@/lib/translations";
+import { localizePath } from "@/lib/i18n";
 
 interface LanguageContextType {
   lang: Lang;
-  setLang: (lang: Lang) => void;
   t: Translations;
+  // Prefix an internal path for the current language ("/catalog" → "/ja/catalog").
+  href: (path: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType>({
   lang: "EN",
-  setLang: () => {},
   t: translations.EN,
+  href: (path) => path,
 });
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Lang>("EN");
+// Language comes from the URL (/ja/... vs unprefixed), so the server renders
+// the correct language and search engines index both versions.
+// Switching language is a navigation — see the language selector in Navbar.
+export function LanguageProvider({ lang, children }: { lang: Lang; children: React.ReactNode }) {
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
+    <LanguageContext.Provider value={{ lang, t: translations[lang], href: (path) => localizePath(path, lang) }}>
       {children}
     </LanguageContext.Provider>
   );

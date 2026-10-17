@@ -41,9 +41,9 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <div className={`p-5 flex-1 ${product.topSeller ? "pt-6" : ""}`}>
         <div className="flex items-start justify-between gap-2 mb-3">
-          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-snug">
+          <h2 className="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-snug">
             {product.name}
-          </h3>
+          </h2>
           <span className={`text-xs font-medium px-2 py-0.5 rounded-full whitespace-nowrap ${
             categoryColors[product.category] ?? "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
           }`}>

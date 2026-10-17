@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Navbar from "@/components/Navbar";
 import ThemeProvider from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import PageViewTracker from "@/components/PageViewTracker";
 import SiteFooter from "@/components/SiteFooter";
+import { LOCALES, isLocale, localeToLang, pageMetadata, siteUrl } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,43 +20,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://extreme-dashboard-production.up.railway.app";
-const siteTitle = "Bin Han · Extreme Networks Solutions Toolkit";
-const siteDescription = "A personal project by Dr. Bin Han: Extreme Networks product catalog, competitive comparisons and a Fabric Connect AI assistant. Not an official Extreme Networks website.";
+export const dynamicParams = false;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  openGraph: {
-    type: "website",
-    siteName: siteTitle,
-    title: siteTitle,
-    description: siteDescription,
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-  },
-  title: {
-    default: siteTitle,
-    template: "%s · Bin Han",
-  },
-  description: siteDescription,
-};
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  const t = translations[localeToLang(lang)];
+  return {
+    metadataBase: new URL(siteUrl),
+    ...pageMetadata(lang, "home", "/"),
+    title: {
+      default: t.meta_home_title,
+      template: `%s | ${t.meta_site_name}`,
+    },
+  };
+}
+
+export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white dark:bg-gray-900 transition-colors duration-200">
-        <LanguageProvider>
+        <LanguageProvider lang={localeToLang(lang)}>
           <ThemeProvider>
             <PageViewTracker />
             <Navbar />

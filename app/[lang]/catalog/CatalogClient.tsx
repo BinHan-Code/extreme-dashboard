@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo, useEffect, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useState, useMemo, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import Fuse from "fuse.js";
 import productsRaw from "@/data/products.json";
@@ -35,22 +35,21 @@ const CATEGORY_MAP: Record<string, string[]> = {
 const ALL_CATEGORIES = Array.from(new Set(products.map((p) => p.category))).sort();
 const ALL_SEGMENTS = Array.from(new Set(products.map((p) => p.segment))).sort();
 
-function CatalogPage() {
-  const searchParams = useSearchParams();
+// URL params arrive as props from the server page (rather than useSearchParams)
+// so the product grid is rendered into the initial HTML for search engines.
+export default function CatalogClient({ categoryParam, qParam }: { categoryParam: string; qParam: string }) {
   const router = useRouter();
-  const categoryParam = searchParams.get("category") ?? "";
-  const qParam = searchParams.get("q") ?? "";
 
   // Derive the display label for the active category group
   const activeCategoryGroup = categoryParam.toLowerCase();
-  const { lang, t } = useLanguage();
+  const { lang, t, href } = useLanguage();
   const groupLabel =
     activeCategoryGroup === "switching" ? t.cat_switching_label
     : activeCategoryGroup === "wireless" ? t.cat_wireless_label
     : activeCategoryGroup === "management" ? t.cat_management_label
     : activeCategoryGroup === "router" ? t.cat_router_label
     : "";
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(qParam);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSegment, setSelectedSegment] = useState("All");
   const [showMatrix, setShowMatrix] = useState(false);
@@ -119,7 +118,7 @@ function CatalogPage() {
       <div className="mb-6 flex items-center gap-3">
         {groupLabel && (
           <button
-            onClick={() => router.push("/catalog")}
+            onClick={() => router.push(href("/catalog"))}
             className="text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
             title={t.catalog_back_all}
           >
@@ -230,7 +229,7 @@ function CatalogPage() {
           </svg>
           <p className="text-sm font-medium">{t.catalog_no_products}</p>
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push(href("/"))}
             className="mt-4 px-4 py-2 text-sm font-medium text-white bg-[#6D1F7E] rounded-lg hover:bg-[#5a1a68] transition-colors"
           >
             {t.catalog_go_to_main}
@@ -238,13 +237,5 @@ function CatalogPage() {
         </div>
       )}
     </div>
-  );
-}
-
-export default function CatalogPageWrapper() {
-  return (
-    <Suspense fallback={<div className="text-center py-20 text-gray-400 text-sm">{/* Loading... */}</div>}>
-      <CatalogPage />
-    </Suspense>
   );
 }
