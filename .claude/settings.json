@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git check-ignore *)",
+      "Bash(git commit -m ' *)",
+      "Bash(node -e \"const d=require\\('./data/products.json'\\); console.log\\('total:', d.length\\); console.log\\('has24:', d.some\\(p=>p.id==='24'\\)\\)\")",
+      "Bash(node -e \"const d=require\\('./data/products.json'\\); console.log\\('total:', d.length\\); console.log\\(JSON.stringify\\(d.find\\(p=>p.id==='24'\\), null, 2\\)\\)\")",
+      "WebFetch(domain:fabric-connect-rag.up.railway.app)",
+      "Bash(curl -s -o /tmp/rag_resp.json -w \"HTTP_STATUS:%{http_code}\\\\n\" -X POST \"https://fabric-connect-rag.up.railway.app/chat\" -H \"Content-Type: application/json\" -d '{\"question\":\"What is SPB?\",\"topic\":null,\"mode\":\"knowledge_search\"}' --max-time 25)",
+      "Read(//tmp/**)",
+      "Bash(railway --version)"
+    ]
+  }
+}
