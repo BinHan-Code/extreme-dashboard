@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import matrixData from "@/data/switching-matrix.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MatrixRow {
   product: string;
@@ -26,6 +27,7 @@ function cellClass(val: string) {
 
 export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   // Close on Escape
   useEffect(() => {
@@ -57,10 +59,10 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-              Universal Switching Matrix
+              {t.matrix_switching_title}
             </h2>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-              {data.length} SKUs across {products.length} product families
+              {t.matrix_switching_count(data.length, products.length)}
             </p>
           </div>
           <button
@@ -137,7 +139,7 @@ export default function SwitchingMatrix({ onClose }: { onClose: () => void }) {
 
         {/* Footer */}
         <div className="px-6 py-3 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 text-xs text-gray-400 dark:text-gray-500">
-          Scroll horizontally to see all columns
+          {t.matrix_scroll_hint}
         </div>
       </div>
     </div>

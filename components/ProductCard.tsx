@@ -15,6 +15,7 @@ const categoryColors: Record<string, string> = {
   Switching: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
   "Universal Switching": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300",
   Wireless: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
+  "On Premises Management": "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900/40 dark:text-fuchsia-300",
   "Cloud Management": "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
   "Networking Software": "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300",
   Routing: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
@@ -93,7 +94,7 @@ export default function ProductCard({ product }: { product: Product }) {
         >
           {t.card_view_datasheet}
         </a>
-        {product.dataConfirmUrl ? (
+        {product.dataConfirmUrl && (
           <a
             href={product.dataConfirmUrl}
             target="_blank"
@@ -102,10 +103,6 @@ export default function ProductCard({ product }: { product: Product }) {
           >
             {t.card_data_confirm}
           </a>
-        ) : (
-          <span className="block w-full text-center text-xs font-medium text-gray-300 dark:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-lg py-2 cursor-not-allowed">
-            {t.card_data_confirm}
-          </span>
         )}
       </div>
     </div>

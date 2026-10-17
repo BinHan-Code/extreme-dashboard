@@ -43,14 +43,13 @@ function CatalogPage() {
 
   // Derive the display label for the active category group
   const activeCategoryGroup = categoryParam.toLowerCase();
-  const groupLabel =
-    activeCategoryGroup === "switching" ? "Switching"
-    : activeCategoryGroup === "wireless" ? "Wireless"
-    : activeCategoryGroup === "management" ? "Management"
-    : activeCategoryGroup === "router" ? "Router"
-    : "";
-
   const { lang, t } = useLanguage();
+  const groupLabel =
+    activeCategoryGroup === "switching" ? t.cat_switching_label
+    : activeCategoryGroup === "wireless" ? t.cat_wireless_label
+    : activeCategoryGroup === "management" ? t.cat_management_label
+    : activeCategoryGroup === "router" ? t.cat_router_label
+    : "";
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSegment, setSelectedSegment] = useState("All");

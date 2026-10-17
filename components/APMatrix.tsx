@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import apData from "@/data/ap-matrix.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface APRow {
   platform: string;
@@ -26,6 +27,7 @@ const SPEC_COLS: { key: keyof APRow; label: string }[] = [
 const COL_W = 160;
 
 export default function APMatrix({ onClose }: { onClose: () => void }) {
+  const { t } = useLanguage();
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handler);
@@ -47,10 +49,10 @@ export default function APMatrix({ onClose }: { onClose: () => void }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-              Universal AP Spec Matrix
+              {t.matrix_ap_title}
             </h2>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-              {data.length} access point platforms
+              {t.matrix_ap_count(data.length)}
             </p>
           </div>
           <button
@@ -120,7 +122,7 @@ export default function APMatrix({ onClose }: { onClose: () => void }) {
 
         {/* Footer */}
         <div className="px-6 py-3 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 text-xs text-gray-400 dark:text-gray-500">
-          Scroll horizontally to see all columns
+          {t.matrix_scroll_hint}
         </div>
       </div>
     </div>
