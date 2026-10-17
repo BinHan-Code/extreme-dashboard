@@ -17,12 +17,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://extreme-dashboard-production.up.railway.app";
+const siteTitle = "Bin Han · Extreme Networks Solutions Toolkit";
+const siteDescription = "A personal project by Dr. Bin Han: Extreme Networks product catalog, competitive comparisons and a Fabric Connect AI assistant. Not an official Extreme Networks website.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    siteName: siteTitle,
+    title: siteTitle,
+    description: siteDescription,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
   title: {
-    default: "Bin Han · Extreme Networks Solutions Toolkit",
+    default: siteTitle,
     template: "%s · Bin Han",
   },
-  description: "A personal project by Dr. Bin Han: Extreme Networks product catalog, competitive comparisons and a Fabric Connect AI assistant. Not an official Extreme Networks website.",
+  description: siteDescription,
 };
 
 export default function RootLayout({
