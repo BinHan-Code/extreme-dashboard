@@ -1,6 +1,6 @@
 # Extreme Networks Dashboard
 
-An internal sales and technical reference tool for Extreme Networks staff — built with **Next.js 16 · TypeScript · Tailwind CSS**, deployed on **Railway** via GitHub auto-deploy.
+An internal sales and technical reference tool for Extreme Networks staff — built with **Next.js 16 · TypeScript · Tailwind CSS**, deployed on **Railway**, which deploys `master` after CI passes.
 
 ## Features
 
@@ -22,7 +22,7 @@ An internal sales and technical reference tool for Extreme Networks staff — bu
 - Quick reference links (GTAC Knowledge, Support Policy, HanBin Blog)
 
 ### Bilingual (EN / 日本語)
-- Full UI translation toggle in the Navbar — switches instantly, no reload
+- Language selector in the Navbar. English is served at `/…` and Japanese at `/ja/…`, so both languages are server-rendered and indexable by search engines.
 
 ## Tech Stack
 
