@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const filePath = join(__dirname, "..", "Universal_Switches_with_X435_Matrix_20251228.xlsx");
 const outPath = join(__dirname, "..", "data", "switching-matrix.json");
 
-const wb = XLSX.readFile(filePath);
+const wb = XLSX.read(readFileSync(filePath));
 const ws = wb.Sheets["Sheet1"];
 
 // Expand merged cells: copy top-left cell value into every cell of each merge range
@@ -43,7 +43,7 @@ const SPEC_COLS = [20,21,22,23,24,25,26,27,28,29,30,31,32,33,34];
 
 function cleanVal(v) {
   if (v === "" || v === null || v === undefined) return "";
-  return String(v).replace(/\r\n/g, " / ").trim();
+  return String(v).replace(/\r?\n/g, " / ").trim();
 }
 
 const output = [];
