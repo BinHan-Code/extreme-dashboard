@@ -22,6 +22,7 @@ export default function Navbar() {
   const { lang, t, href } = useLanguage();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the theme class is only readable after mount
     setDarkMode(document.documentElement.classList.contains("dark"));
   }, []);
 

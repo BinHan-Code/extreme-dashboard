@@ -59,6 +59,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
 
   // Sync query from URL param on load
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- resets filters when the URL params change
     setQuery(qParam);
     setSelectedCategory("All");
     setSelectedSegment("All");
