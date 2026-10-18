@@ -2,7 +2,7 @@ name: Link check
 
 on:
   schedule:
-    - cron: "0 0 * * 1" # Mondays, 09:00 JST
+    - cron: "0 0 * * 0" # Sundays, 09:00 JST
   workflow_dispatch:
 
 permissions:

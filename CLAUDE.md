@@ -20,9 +20,9 @@ There are no unit tests. Validate with `npm run lint && npm run build`, then run
 
 ### Maintenance automation
 - **CI** runs lint, build, a check that the matrix JSON matches the spreadsheets, and `check-site.mjs` against a local build. `--external` stays off in CI so outside outages can't fail a PR.
-- **`monitor.yml`** runs daily against production with `--external`. **`links.yml`** runs weekly.
+- **`monitor.yml`** and **`links.yml`** run every Sunday at 09:00 JST; `monitor.yml` checks production with `--external`.
 - On failure, both keep a single open GitHub issue up to date (labels `monitor` / `links`) and close it once checks pass again. The shared logic is in `.github/scripts/report-issue.sh`.
-- **Dependabot** opens weekly npm PRs (minor and patch grouped) and monthly Actions PRs. Merge them when CI is green.
+- **Dependabot** opens monthly npm PRs (minor and patch grouped) and monthly Actions PRs. Merge them when CI is green.
 - `check-site.mjs` stubs `/api/track` so monitor visits don't count as page views.
 
 ### Matrix data scripts
