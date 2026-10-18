@@ -1,0 +1,34 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # Mondays, 09:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check datasheet and reference links
+        id: check
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/check-links.mjs 2>&1 | tee result.txt
+      - name: Open, update or close the links issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash .github/scripts/report-issue.sh links "Broken product or reference links" result.txt \
+            "${{ steps.check.outcome == 'success' && '0' || '1' }}"
+      - if: steps.check.outcome != 'success'
+        run: exit 1

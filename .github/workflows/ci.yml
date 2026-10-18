@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      - name: Generated matrix JSON matches the spreadsheets
+        run: |
+          node scripts/convert-switching-matrix.mjs
+          node scripts/convert-ap-matrix.mjs
+          git diff --exit-code data/switching-matrix.json data/ap-matrix.json \
+            || { echo "::error::Re-run the convert scripts and commit the updated JSON."; exit 1; }
+
+      - run: npx playwright install --with-deps chromium
+      - name: Smoke-check the built site
+        run: |
+          npm start &
+          npx --yes wait-on@8 --timeout 60000 http://localhost:3000
+          node scripts/check-site.mjs http://localhost:3000
