@@ -12,12 +12,21 @@ Next.js 16.2 with Turbopack — check `node_modules/next/dist/docs/` before writ
 npm run dev      # Start dev server (Turbopack)
 npm run lint     # ESLint
 npm run build    # Production build
+node scripts/check-site.mjs <baseUrl> [--external]   # Smoke-check a running site
+node scripts/check-links.mjs                         # Check datasheet / reference URLs
 ```
 
-There are no automated tests. Run `npm run lint && npm run build` to validate before committing.
+There are no unit tests. Validate with `npm run lint && npm run build`, then run `check-site.mjs` against `npm start`. CI (`.github/workflows/ci.yml`) runs all of this on every PR.
+
+### Maintenance automation
+- **CI** runs lint, build, a check that the matrix JSON matches the spreadsheets, and `check-site.mjs` against a local build. `--external` stays off in CI so outside outages can't fail a PR.
+- **`monitor.yml`** and **`links.yml`** run every Sunday at 09:00 JST; `monitor.yml` checks production with `--external`.
+- On failure, both keep a single open GitHub issue up to date (labels `monitor` / `links`) and close it once checks pass again. The shared logic is in `.github/scripts/report-issue.sh`.
+- **Dependabot** opens monthly npm PRs (minor and patch grouped) and monthly Actions PRs. Merge them when CI is green.
+- `check-site.mjs` stubs `/api/track` so monitor visits don't count as page views.
 
 ### Matrix data scripts
-The switching and AP matrix JSONs are generated from the `.xlsx` files in the repo root. Re-run when the spreadsheets change:
+The switching and AP matrix JSONs are generated from the `.xlsx` files in the repo root. Re-run when the spreadsheets change (CI fails if you forget). `xlsx` is SheetJS's own build from cdn.sheetjs.com, because the npm registry copy is stuck at a vulnerable 0.18.5:
 
 ```bash
 node scripts/convert-switching-matrix.mjs   # → data/switching-matrix.json
@@ -61,7 +70,8 @@ UI strings live in `lib/translations.ts` as `EN` and `JA` objects — add every 
 2. Add `meta_<page>_title` / `meta_<page>_desc` to both `EN` and `JA`
 3. Add the path to `PAGES` in `app/sitemap.ts`
 4. Add it to `TRACKED_PATHS` in `app/api/track/route.ts` if page views should be counted
-5. Link to it with `href()`
+5. Add it to `PAGES` in `scripts/check-site.mjs`
+6. Link to it with `href()`
 
 ### Page notes
 - `catalog` — `page.tsx` is a server component that reads `searchParams` and passes them as props to `CatalogClient.tsx` (rather than `useSearchParams`) so the product grid is in the server HTML. Search does substring matching first and falls back to Fuse.js only when there are no direct hits.
@@ -75,4 +85,4 @@ UI strings live in `lib/translations.ts` as `EN` and `JA` objects — add every 
 - Unread dot: the newest `pubDate` is compared with `localStorage` key `lastSeenAdvisoryDate`, which "View All →" updates.
 
 ### Deployment
-Auto-deploys to Railway on every push to `master` (`railway.json`: Nixpacks, `npm start`, healthcheck on `/`). A push is a production deploy.
+Railway deploys `master` once CI passes (`railway.json`: Nixpacks, `npm start`, healthcheck on `/`). Work on a branch and open a PR. `master` is protected and needs the `ci` check to pass before merging.

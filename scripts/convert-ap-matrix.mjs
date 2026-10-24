@@ -1,4 +1,4 @@
-import { writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import XLSX from "xlsx";
@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const filePath = join(__dirname, "..", "Univsersal AP Spec 20250513.xlsx");
 const outPath = join(__dirname, "..", "data", "ap-matrix.json");
 
-const wb = XLSX.readFile(filePath);
+const wb = XLSX.read(readFileSync(filePath));
 const ws = wb.Sheets["Sheet1"];
 
 // Expand merged cells
@@ -26,7 +26,7 @@ for (const merge of ws["!merges"] || []) {
 const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
 
 function clean(v) {
-  return String(v).replace(/\r\n/g, " / ").trim();
+  return String(v).replace(/\r?\n/g, " / ").trim();
 }
 
 // Group rows by platform, collect descriptions

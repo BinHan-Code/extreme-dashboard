@@ -1,0 +1,44 @@
+name: Production monitor
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Sundays, 09:00 JST
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Base URL to check
+        default: https://extreme-dashboard-production.up.railway.app
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    # Pinned: Playwright 1.60 can't install Chromium on ubuntu-latest (26.04)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Check production
+        id: check
+        continue-on-error: true
+        env:
+          URL: ${{ inputs.url || 'https://extreme-dashboard-production.up.railway.app' }}
+        run: |
+          set -o pipefail
+          node scripts/check-site.mjs "$URL" --external 2>&1 | tee result.txt
+      - name: Open, update or close the monitor issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash .github/scripts/report-issue.sh monitor "Production site check failing" result.txt \
+            "${{ steps.check.outcome == 'success' && '0' || '1' }}"
+      - if: steps.check.outcome != 'success'
+        run: exit 1

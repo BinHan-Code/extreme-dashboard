@@ -15,6 +15,7 @@ export default function ManagerPage() {
 
   useEffect(() => {
     const stored = sessionStorage.getItem("manager_token");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sessionStorage is only readable after mount
     if (stored) setSavedToken(stored);
     // Default month to current YYYY-MM
     setMonth(new Date().toISOString().slice(0, 7));
