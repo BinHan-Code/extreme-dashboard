@@ -50,19 +50,25 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
     : activeCategoryGroup === "router" ? t.cat_router_label
     : "";
   const [query, setQuery] = useState(qParam);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedSegment, setSelectedSegment] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedSegment, setSelectedSegment] = useState("");
   const [showMatrix, setShowMatrix] = useState(false);
-  const [showCallout, setShowCallout] = useState(true);
   const [showAPMatrix, setShowAPMatrix] = useState(false);
-  const [showAPCallout, setShowAPCallout] = useState(true);
+  const [showCallout, setShowCallout] = useState(true);
+  const showSwitchingButton = activeCategoryGroup === "switching" || activeCategoryGroup === "";
+  const showAPButton = activeCategoryGroup === "wireless" || activeCategoryGroup === "";
+  // One callout for the button group — two side-by-side callouts overlapped each other
+  const calloutText =
+    showSwitchingButton && showAPButton ? t.catalog_matrix_callout
+    : showSwitchingButton ? t.catalog_switching_callout
+    : t.catalog_ap_callout;
 
   // Sync query from URL param on load
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- resets filters when the URL params change
     setQuery(qParam);
-    setSelectedCategory("All");
-    setSelectedSegment("All");
+    setSelectedCategory("");
+    setSelectedSegment("");
   }, [categoryParam, qParam]);
 
   const fuse = useMemo(
@@ -99,10 +105,10 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
     }
 
     // Apply dropdown filters
-    if (selectedCategory !== "All") {
+    if (selectedCategory) {
       list = list.filter((p) => p.category === selectedCategory);
     }
-    if (selectedSegment !== "All") {
+    if (selectedSegment) {
       list = list.filter((p) => p.segment === selectedSegment);
     }
 
@@ -116,70 +122,65 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
       {showAPMatrix && <APMatrix onClose={() => setShowAPMatrix(false)} />}
 
       {/* Header */}
-      <div className="mb-6 flex items-center gap-3">
-        {groupLabel && (
-          <button
-            onClick={() => router.push(href("/catalog"))}
-            className="text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
-            title={t.catalog_back_all}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        )}
-        <div className="flex-1">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            {groupLabel ? `${groupLabel} ${t.catalog_products_suffix}` : t.catalog_title}
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-0.5 text-sm">
-            {lang === "JA"
-              ? `${results.length}件の製品が見つかりました${groupLabel ? `（${groupLabel}）` : ""}`
-              : `${results.length} product${results.length !== 1 ? "s" : ""} found${groupLabel ? ` in ${groupLabel}` : ""}`}
-          </p>
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="flex flex-1 items-center gap-3">
+          {groupLabel && (
+            <button
+              onClick={() => router.push(href("/catalog"))}
+              className="text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400 transition-colors"
+              title={t.catalog_back_all}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+          <div className="flex-1">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 break-keep">
+              {groupLabel ? `${groupLabel} ${t.catalog_products_suffix}` : t.catalog_title}
+            </h1>
+            <p className="text-gray-500 dark:text-gray-400 mt-0.5 text-sm">
+              {lang === "JA"
+                ? `${results.length}件の製品が見つかりました${groupLabel ? `（${groupLabel}）` : ""}`
+                : `${results.length} product${results.length !== 1 ? "s" : ""} found${groupLabel ? ` in ${groupLabel}` : ""}`}
+            </p>
+          </div>
         </div>
-        {(activeCategoryGroup === "switching" || activeCategoryGroup === "") && (
+        {(showSwitchingButton || showAPButton) && (
           <div className="relative">
             {showCallout && (
-              <div className="absolute bottom-full right-0 mb-2 z-10">
-                <div className="relative bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                  {t.catalog_switching_callout}
+              <div className="mb-2 sm:absolute sm:bottom-full sm:right-0 sm:z-10">
+                <div className="relative inline-flex items-start bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg sm:whitespace-nowrap">
+                  {calloutText}
                   <button onClick={() => setShowCallout(false)} className="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss">✕</button>
-                  <div className="absolute top-full right-4 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
+                  <div className="absolute top-full left-6 sm:left-auto sm:right-6 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
                 </div>
               </div>
             )}
-            <button
-              onClick={() => { setShowMatrix(true); setShowCallout(false); }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#6D1F7E] hover:bg-[#5a1a68] text-white text-sm font-medium transition-colors shadow-sm"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 6h18M3 14h18M3 18h18" />
-              </svg>
-              {t.catalog_switching_matrix}
-            </button>
-          </div>
-        )}
-        {(activeCategoryGroup === "wireless" || activeCategoryGroup === "") && (
-          <div className="relative">
-            {showAPCallout && (
-              <div className="absolute bottom-full right-0 mb-2 z-10">
-                <div className="relative bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-                  {t.catalog_ap_callout}
-                  <button onClick={() => setShowAPCallout(false)} className="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss">✕</button>
-                  <div className="absolute top-full right-4 w-0 h-0" style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #111827" }} />
-                </div>
-              </div>
-            )}
-            <button
-              onClick={() => { setShowAPMatrix(true); setShowAPCallout(false); }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1F4F7E] hover:bg-[#1a4068] text-white text-sm font-medium transition-colors shadow-sm"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-              </svg>
-              {t.catalog_ap_matrix}
-            </button>
+            <div className="flex gap-2">
+              {showSwitchingButton && (
+              <button
+                onClick={() => { setShowMatrix(true); setShowCallout(false); }}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#6D1F7E] hover:bg-[#5a1a68] text-white text-sm font-medium transition-colors shadow-sm"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 6h18M3 14h18M3 18h18" />
+                </svg>
+                {t.catalog_switching_matrix}
+              </button>
+              )}
+              {showAPButton && (
+              <button
+                onClick={() => { setShowAPMatrix(true); setShowCallout(false); }}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1F4F7E] hover:bg-[#1a4068] text-white text-sm font-medium transition-colors shadow-sm"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+                {t.catalog_ap_matrix}
+              </button>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -198,7 +199,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
           onChange={(e) => setSelectedCategory(e.target.value)}
           className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
-          <option value="All">{t.catalog_all_categories}</option>
+          <option value="">{t.catalog_all_categories}</option>
           {ALL_CATEGORIES.map((c) => (
             <option key={c} value={c}>{c}</option>
           ))}
@@ -208,7 +209,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
           onChange={(e) => setSelectedSegment(e.target.value)}
           className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
-          <option value="All">{t.catalog_all_segments}</option>
+          <option value="">{t.catalog_all_segments}</option>
           {ALL_SEGMENTS.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
@@ -217,7 +218,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
 
       {/* Grid */}
       {results.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {results.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
