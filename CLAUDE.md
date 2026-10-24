@@ -78,6 +78,21 @@ UI strings live in `lib/translations.ts` as `EN` and `JA` objects — add every 
 - `manga` — chapter content is static HTML in `data/manga-chapters.ts`, rendered with `dangerouslySetInnerHTML`; no runtime fetches.
 - Home page site search redirects to Google scoped to `extremenetworks.com`; no local data is queried.
 
+### Layout rules
+These come from a review of `/catalog` (October 2026), which shipped with bugs that only showed on phones.
+
+- Check UI changes at 390px, 820px and 1440px, in both `en` and `ja`. Playwright is installed, so you can screenshot each width and confirm that `document.documentElement.scrollWidth` matches the viewport and that no element extends past it.
+- Two side-by-side `absolute` + `whitespace-nowrap` callouts overlap each other. Use one callout per group of buttons. On phones, render it inline (`mb-2 sm:absolute ...`) and apply `whitespace-nowrap` only from `sm` up.
+- A row with a title and action buttons squeezes the title on phones. Stack it there with `flex-col sm:flex-row`.
+- Give Japanese headings `break-keep` so they wrap at spaces, not mid-word (製 / 品).
+- Never show raw JSON keys as labels. Spec keys go through `formatSpecKey()` in `components/ProductCard.tsx`; add new acronyms (e.g. `wifi`, `ztna`) to `specKeyWords`.
+- The product grid stops at 3 columns. At 4 columns, cards were about 290px wide and spec values wrapped to 5–7 lines.
+- Cards show the first 4 specs and tags, and a toggle reveals the rest. The extra items are hidden with the `hidden` class rather than left unrendered, so they stay in the server HTML for SEO. Keep it that way.
+- A filter's "no filter" value must not be a possible data value. The segment filter used `"All"`, and Extreme Platform ONE's segment is literally `"All"`, so the dropdown showed the wrong label. Use `""` instead.
+
+Open catalog layout issues (delete each one once it's fixed):
+- The page is still about 14,500px tall at 390px (24 cards, each with a full description). Options: line-clamp descriptions on phones (keep the full text in the HTML), or use a more compact phone card.
+
 ### Security Advisory widget
 `components/SecurityAdvisoryWidget.tsx` shows the 2 latest advisories, fetched from `app/api/security-advisory/route.ts`, which parses the community RSS feed server-side (regex, no XML dependency) and caches for 1 hour.
 

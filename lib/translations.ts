@@ -67,6 +67,7 @@ export const translations = {
     catalog_ap_matrix: "AP Matrix",
     catalog_switching_callout: "Click to view the full switching spec matrix!",
     catalog_ap_callout: "Click to view the full AP spec matrix!",
+    catalog_matrix_callout: "Click to view the full switching & AP spec matrices!",
     catalog_products_suffix: "Products",
     matrix_switching_title: "Universal Switching Matrix",
     matrix_switching_count: (skus: number, families: number) => `${skus} SKUs across ${families} product families`,
@@ -78,6 +79,8 @@ export const translations = {
     card_segment: "Segment:",
     card_view_datasheet: "View Datasheet →",
     card_data_confirm: "Verify Specs",
+    card_more_specs: (n: number) => `+${n} more spec${n !== 1 ? "s" : ""}`,
+    card_show_less: "Show less",
 
     comp_title: "Extreme Networks Competitive Intelligence",
     comp_subtitle: "Comparing Extreme Networks against Cisco, Juniper, Aruba, and Fortinet across",
@@ -209,6 +212,7 @@ export const translations = {
     catalog_ap_matrix: "AP マトリクス",
     catalog_switching_callout: "スイッチングスペック マトリクスを表示するにはクリック！",
     catalog_ap_callout: "AP スペック マトリクスを表示するにはクリック！",
+    catalog_matrix_callout: "スイッチング・AP のスペック マトリクスを表示するにはクリック！",
     catalog_products_suffix: "製品",
     matrix_switching_title: "Universal スイッチング マトリクス",
     matrix_switching_count: (skus: number, families: number) => `${families} 製品ファミリー・${skus} SKU`,
@@ -220,6 +224,8 @@ export const translations = {
     card_segment: "セグメント：",
     card_view_datasheet: "データシートを見る →",
     card_data_confirm: "データシート確認",
+    card_more_specs: (n: number) => `他 ${n} 項目を表示`,
+    card_show_less: "閉じる",
 
     comp_title: "エクストリームネットワークス 競合比較",
     comp_subtitle: "Cisco、Juniper、Aruba、Fortinet と Extreme Networks を",
