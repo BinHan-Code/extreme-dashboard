@@ -89,9 +89,7 @@ These come from a review of `/catalog` (October 2026), which shipped with bugs t
 - The product grid stops at 3 columns. At 4 columns, cards were about 290px wide and spec values wrapped to 5–7 lines.
 - Cards show the first 4 specs and tags, and a toggle reveals the rest. The extra items are hidden with the `hidden` class rather than left unrendered, so they stay in the server HTML for SEO. Keep it that way.
 - A filter's "no filter" value must not be a possible data value. The segment filter used `"All"`, and Extreme Platform ONE's segment is literally `"All"`, so the dropdown showed the wrong label. Use `""` instead.
-
-Open catalog layout issues (delete each one once it's fixed):
-- The page is still about 14,500px tall at 390px (24 cards, each with a full description). Options: line-clamp descriptions on phones (keep the full text in the HTML), or use a more compact phone card.
+- On phones, cards are compact: the description is clamped to 2 lines, and specs and tags sit behind "Show details". This halved the 390px page height, from about 14,500px to 7,500px. From `sm` up, cards show everything.
 
 ### Security Advisory widget
 `components/SecurityAdvisoryWidget.tsx` shows the 2 latest advisories, fetched from `app/api/security-advisory/route.ts`, which parses the community RSS feed server-side (regex, no XML dependency) and caches for 1 hour.

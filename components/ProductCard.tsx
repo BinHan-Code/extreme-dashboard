@@ -46,6 +46,8 @@ export default function ProductCard({ product }: { product: Product }) {
   const { t } = useLanguage();
   const [showAllSpecs, setShowAllSpecs] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
+  // Phones only: specs and tags start collapsed so 24 cards don't make a ~15,000px page
+  const [showDetails, setShowDetails] = useState(false);
   const specs = Object.entries(product.specs);
   return (
     <div className={`bg-white dark:bg-gray-800 rounded-xl border shadow-sm hover:shadow-md transition-shadow flex flex-col relative ${
@@ -75,48 +77,61 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.segment}
         </p>
 
-        <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-4 leading-relaxed">
+        <p className={`text-sm text-gray-600 dark:text-gray-300 mt-2 mb-4 leading-relaxed ${
+          showDetails ? "" : "line-clamp-2 sm:line-clamp-none"
+        }`}>
           {product.description}
         </p>
 
-        <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 space-y-1">
-          {/* Collapsed rows are hidden with CSS, not dropped, so all specs stay in the server HTML */}
-          {specs.map(([key, value], i) => (
-            <div key={key} className={`flex justify-between gap-3 text-xs ${
-              !showAllSpecs && i >= SPEC_LIMIT ? "hidden" : ""
-            }`}>
-              <span className="text-gray-500 dark:text-gray-400">{formatSpecKey(key)}</span>
-              <span className="text-gray-800 dark:text-gray-200 font-medium text-right max-w-[60%]">
-                {value}
-              </span>
-            </div>
-          ))}
-          {specs.length > SPEC_LIMIT && (
-            <button
-              onClick={() => setShowAllSpecs(!showAllSpecs)}
-              className="text-xs font-medium text-[#6D1F7E] dark:text-purple-400 hover:underline pt-1"
-            >
-              {showAllSpecs ? t.card_show_less : t.card_more_specs(specs.length - SPEC_LIMIT)}
-            </button>
-          )}
-        </div>
+        <button
+          onClick={() => setShowDetails(!showDetails)}
+          aria-expanded={showDetails}
+          className="sm:hidden text-xs font-medium text-[#6D1F7E] dark:text-purple-400 -mt-2 mb-3"
+        >
+          {showDetails ? t.card_hide_details : t.card_show_details}
+        </button>
 
-        <div className="flex flex-wrap items-center gap-1 mt-3">
-          {product.tags.map((tag, i) => (
-            <span key={tag} className={`text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full ${
-              !showAllTags && i >= TAG_LIMIT ? "hidden" : ""
-            }`}>
-              {tag}
-            </span>
-          ))}
-          {product.tags.length > TAG_LIMIT && (
-            <button
-              onClick={() => setShowAllTags(!showAllTags)}
-              className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400"
-            >
-              {showAllTags ? t.card_show_less : `+${product.tags.length - TAG_LIMIT}`}
-            </button>
-          )}
+        {/* Hidden with CSS rather than unrendered, so the server HTML keeps every spec */}
+        <div className={showDetails ? "" : "hidden sm:block"}>
+          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 space-y-1">
+            {/* Collapsed rows are hidden with CSS, not dropped, so all specs stay in the server HTML */}
+            {specs.map(([key, value], i) => (
+              <div key={key} className={`flex justify-between gap-3 text-xs ${
+                !showAllSpecs && i >= SPEC_LIMIT ? "hidden" : ""
+              }`}>
+                <span className="text-gray-500 dark:text-gray-400">{formatSpecKey(key)}</span>
+                <span className="text-gray-800 dark:text-gray-200 font-medium text-right max-w-[60%]">
+                  {value}
+                </span>
+              </div>
+            ))}
+            {specs.length > SPEC_LIMIT && (
+              <button
+                onClick={() => setShowAllSpecs(!showAllSpecs)}
+                className="text-xs font-medium text-[#6D1F7E] dark:text-purple-400 hover:underline pt-1"
+              >
+                {showAllSpecs ? t.card_show_less : t.card_more_specs(specs.length - SPEC_LIMIT)}
+              </button>
+            )}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-1 mt-3">
+            {product.tags.map((tag, i) => (
+              <span key={tag} className={`text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full ${
+                !showAllTags && i >= TAG_LIMIT ? "hidden" : ""
+              }`}>
+                {tag}
+              </span>
+            ))}
+            {product.tags.length > TAG_LIMIT && (
+              <button
+                onClick={() => setShowAllTags(!showAllTags)}
+                className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400"
+              >
+                {showAllTags ? t.card_show_less : `+${product.tags.length - TAG_LIMIT}`}
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
