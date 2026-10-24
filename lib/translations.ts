@@ -79,6 +79,8 @@ export const translations = {
     card_segment: "Segment:",
     card_view_datasheet: "View Datasheet →",
     card_data_confirm: "Verify Specs",
+    card_more_specs: (n: number) => `+${n} more spec${n !== 1 ? "s" : ""}`,
+    card_show_less: "Show less",
 
     comp_title: "Extreme Networks Competitive Intelligence",
     comp_subtitle: "Comparing Extreme Networks against Cisco, Juniper, Aruba, and Fortinet across",
@@ -222,6 +224,8 @@ export const translations = {
     card_segment: "セグメント：",
     card_view_datasheet: "データシートを見る →",
     card_data_confirm: "データシート確認",
+    card_more_specs: (n: number) => `他 ${n} 項目を表示`,
+    card_show_less: "閉じる",
 
     comp_title: "エクストリームネットワークス 競合比較",
     comp_subtitle: "Cisco、Juniper、Aruba、Fortinet と Extreme Networks を",

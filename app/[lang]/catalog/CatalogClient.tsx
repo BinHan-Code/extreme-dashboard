@@ -50,8 +50,8 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
     : activeCategoryGroup === "router" ? t.cat_router_label
     : "";
   const [query, setQuery] = useState(qParam);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedSegment, setSelectedSegment] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedSegment, setSelectedSegment] = useState("");
   const [showMatrix, setShowMatrix] = useState(false);
   const [showAPMatrix, setShowAPMatrix] = useState(false);
   const [showCallout, setShowCallout] = useState(true);
@@ -67,8 +67,8 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- resets filters when the URL params change
     setQuery(qParam);
-    setSelectedCategory("All");
-    setSelectedSegment("All");
+    setSelectedCategory("");
+    setSelectedSegment("");
   }, [categoryParam, qParam]);
 
   const fuse = useMemo(
@@ -105,10 +105,10 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
     }
 
     // Apply dropdown filters
-    if (selectedCategory !== "All") {
+    if (selectedCategory) {
       list = list.filter((p) => p.category === selectedCategory);
     }
-    if (selectedSegment !== "All") {
+    if (selectedSegment) {
       list = list.filter((p) => p.segment === selectedSegment);
     }
 
@@ -199,7 +199,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
           onChange={(e) => setSelectedCategory(e.target.value)}
           className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
-          <option value="All">{t.catalog_all_categories}</option>
+          <option value="">{t.catalog_all_categories}</option>
           {ALL_CATEGORIES.map((c) => (
             <option key={c} value={c}>{c}</option>
           ))}
@@ -209,7 +209,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
           onChange={(e) => setSelectedSegment(e.target.value)}
           className="px-3 py-2.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6D1F7E]/30 focus:border-[#6D1F7E]"
         >
-          <option value="All">{t.catalog_all_segments}</option>
+          <option value="">{t.catalog_all_segments}</option>
           {ALL_SEGMENTS.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
@@ -218,7 +218,7 @@ export default function CatalogClient({ categoryParam, qParam }: { categoryParam
 
       {/* Grid */}
       {results.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {results.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

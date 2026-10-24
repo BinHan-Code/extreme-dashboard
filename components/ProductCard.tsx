@@ -35,10 +35,18 @@ function formatSpecKey(key: string) {
     .join(" ");
 }
 
+// Specs and tags shown before the card is expanded
+const SPEC_LIMIT = 4;
+const TAG_LIMIT = 4;
+
+import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { t } = useLanguage();
+  const [showAllSpecs, setShowAllSpecs] = useState(false);
+  const [showAllTags, setShowAllTags] = useState(false);
+  const specs = Object.entries(product.specs);
   return (
     <div className={`bg-white dark:bg-gray-800 rounded-xl border shadow-sm hover:shadow-md transition-shadow flex flex-col relative ${
       product.topSeller ? "border-[#6D1F7E]" : "border-gray-200 dark:border-gray-700"
@@ -52,16 +60,15 @@ export default function ProductCard({ product }: { product: Product }) {
       )}
 
       <div className={`p-5 flex-1 ${product.topSeller ? "pt-6" : ""}`}>
-        <div className="flex items-start justify-between gap-2 mb-3">
-          <h2 className="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-snug">
-            {product.name}
-          </h2>
-          <span className={`text-xs font-medium px-2 py-0.5 rounded-full whitespace-nowrap ${
-            categoryColors[product.category] ?? "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
-          }`}>
-            {product.category}
-          </span>
-        </div>
+        {/* Badge sits above the name so long category labels don't squeeze it */}
+        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full mb-2 ${
+          categoryColors[product.category] ?? "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
+        }`}>
+          {product.category}
+        </span>
+        <h2 className="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-snug mb-3">
+          {product.name}
+        </h2>
 
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
           <span className="font-medium text-gray-600 dark:text-gray-300">{t.card_segment}</span>{" "}
@@ -73,26 +80,42 @@ export default function ProductCard({ product }: { product: Product }) {
         </p>
 
         <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 space-y-1">
-          {Object.entries(product.specs).map(([key, value]) => (
-            <div key={key} className="flex justify-between gap-3 text-xs">
+          {/* Collapsed rows are hidden with CSS, not dropped, so all specs stay in the server HTML */}
+          {specs.map(([key, value], i) => (
+            <div key={key} className={`flex justify-between gap-3 text-xs ${
+              !showAllSpecs && i >= SPEC_LIMIT ? "hidden" : ""
+            }`}>
               <span className="text-gray-500 dark:text-gray-400">{formatSpecKey(key)}</span>
-              <span className="text-gray-800 dark:text-gray-200 font-medium text-right max-w-[55%]">
+              <span className="text-gray-800 dark:text-gray-200 font-medium text-right max-w-[60%]">
                 {value}
               </span>
             </div>
           ))}
+          {specs.length > SPEC_LIMIT && (
+            <button
+              onClick={() => setShowAllSpecs(!showAllSpecs)}
+              className="text-xs font-medium text-[#6D1F7E] dark:text-purple-400 hover:underline pt-1"
+            >
+              {showAllSpecs ? t.card_show_less : t.card_more_specs(specs.length - SPEC_LIMIT)}
+            </button>
+          )}
         </div>
 
-        <div className="flex flex-wrap gap-1 mt-3">
-          {product.tags.slice(0, 4).map((tag) => (
-            <span key={tag} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full">
+        <div className="flex flex-wrap items-center gap-1 mt-3">
+          {product.tags.map((tag, i) => (
+            <span key={tag} className={`text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full ${
+              !showAllTags && i >= TAG_LIMIT ? "hidden" : ""
+            }`}>
               {tag}
             </span>
           ))}
-          {product.tags.length > 4 && (
-            <span className="text-xs text-gray-400 dark:text-gray-500">
-              +{product.tags.length - 4}
-            </span>
+          {product.tags.length > TAG_LIMIT && (
+            <button
+              onClick={() => setShowAllTags(!showAllTags)}
+              className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#6D1F7E] dark:hover:text-purple-400"
+            >
+              {showAllTags ? t.card_show_less : `+${product.tags.length - TAG_LIMIT}`}
+            </button>
           )}
         </div>
       </div>
