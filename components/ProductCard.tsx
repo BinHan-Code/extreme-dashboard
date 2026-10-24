@@ -23,6 +23,18 @@ const categoryColors: Record<string, string> = {
   Analytics: "bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-300",
 };
 
+// Words in spec keys that need fixed casing once the key is split
+const specKeyWords: Record<string, string> = { ai: "AI", ap: "AP", poe: "PoE", macsec: "MACsec" };
+
+// "apRadioFeature" → "AP Radio Feature", "poe" → "PoE"
+function formatSpecKey(key: string) {
+  return key
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .split(" ")
+    .map((w) => specKeyWords[w.toLowerCase()] ?? w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -62,8 +74,8 @@ export default function ProductCard({ product }: { product: Product }) {
 
         <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 space-y-1">
           {Object.entries(product.specs).map(([key, value]) => (
-            <div key={key} className="flex justify-between text-xs">
-              <span className="text-gray-500 dark:text-gray-400 capitalize">{key}</span>
+            <div key={key} className="flex justify-between gap-3 text-xs">
+              <span className="text-gray-500 dark:text-gray-400">{formatSpecKey(key)}</span>
               <span className="text-gray-800 dark:text-gray-200 font-medium text-right max-w-[55%]">
                 {value}
               </span>
